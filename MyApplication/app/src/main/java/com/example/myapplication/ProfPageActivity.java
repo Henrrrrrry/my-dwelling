@@ -1,14 +1,17 @@
-import android.os.Bundle;
-import android.widget.Button;
-import android.view.View;
+package com.example.myapplication;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ProfilePageActivity extends AppCompatActivity {
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class ProfPageActivity extends AppCompatActivity {
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_prof_page);
 
         Button followButton = null;
         Button fireAlarmNoti=null;

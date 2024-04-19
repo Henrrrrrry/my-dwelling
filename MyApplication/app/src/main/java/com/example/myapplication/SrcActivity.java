@@ -1,17 +1,18 @@
-import android.os.Bundle;
-import android.widget.SearchView;
+package com.example.myapplication;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SearchActivity extends AppCompatActivity {
+import android.os.Bundle;
+import android.widget.SearchView;
 
-    private  void getCurrentLocation(){
+public class SrcActivity extends AppCompatActivity {
 
-    }
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_src);
+
 
         SearchView searchView = null;
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -26,4 +27,9 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
     }
+
+    private  void getCurrentLocation(){
+
+    }
+
 }
