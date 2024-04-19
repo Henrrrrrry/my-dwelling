@@ -295,10 +295,39 @@ Feature Category: Firebase Integration <br>
 <hr>
 
 ### Conflict Resolution Protocol
-*[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem?
-(If you choose to make this an external document, link to it here)]*
+1. **Member Illness and Unforeseen Incidents**
+    - **Challenge:** A team member falls ill, or unexpected incidents occur.
+    - **Strategy:** Plan for flexibility by including buffer times. If incidents occur, redistribute tasks fairly among remaining members. Pre-emptively develop a contingency plan to outline steps for adjusting project timelines and responsibilities.
 
-This shall include an agreed procedure for situations including (but not limited to):
-- e.g., if a member fails to meet the initial plan and/or deadlines
-- e.g., if your group has issues, how will your group reach consensus or solve the problem?
-- e.g., if a member gets sick, what is the solution? Alternatively, what is your plan to mitigate the impact of unforeseen incidents for this 6-to-8-week project? 
+2. **Diverging Visions on Feature Implementation**
+    - **Challenge:** Team members have differing opinions on how a feature should be implemented or disagree on feature prioritization.
+    - **Strategy:** Focus on understanding the reasons behind each stance to find compromise or innovative solutions. Decisions will be guided by user feedback, market analysis, and technical feasibility.
+
+3. **Technical Approach Disputes**
+    - **Challenge:** There are conflicts over the selection of technology, libraries, or the app’s architecture.
+    - **Strategy:** Employ a brainstorming approach to consider all technical solutions. Prototyping may be used to evaluate options. Reference documentation, expert opinions, and community best practices for informed decisions.
+
+4. **(a) Resource Allocation and Deadline Management**
+    - **Challenge:** Disputes about how time and resources are allocated, affecting deadlines and feature scope.
+    - **Strategy:** Negotiate to optimally use resources, focusing first on critical project areas. Set clear, measurable goals and use project management tools for effective tracking and allocation.
+
+   **(b) Missed Deadlines or Plan Deviations**
+    - **Challenge:** A team member misses deadlines or deviates from the plan.
+    - **Strategy:** Quickly and constructively address the deviation. Revise the plan with realistic deadlines and provide additional support as needed. Ensure flexibility and regular progress updates.
+
+5. **Design Philosophy Differences**
+    - **Challenge:** Variations in opinions on the app's user interface and user experience design.
+    - **Strategy:** Organize sessions for team members to present design ideas, backed by user research or design principles. Use user testing to guide final design decisions based on user preferences.
+
+6. **Communication Breakdowns**
+    - **Challenge:** Lack of communication leads to misunderstandings, duplicated efforts, or overlooked tasks.
+    - **Strategy:** Regular check-ins (twice a week!) keep the team aligned and allow prompt addressing of concerns. Maintain clear documentation of discussions, decisions, and assignments to prevent miscommunication.
+
+7. **Balancing Work and Personal Life**
+    - **Challenge:** Overwork, stress, or differing work habits impact team morale and productivity.
+    - **Strategy:** Set clear work hour boundaries and respect personal time to prevent burnout. Offer flexible schedules where possible, focusing on outcomes rather than strict hours.
+
+8. **Non-Participation of Team Member**
+    - **Challenge:** A team member consistently fails to contribute to the project.
+    - **Strategy:** Begin with a direct, empathetic conversation to identify potential barriers to their participation. If non-participation continues, reassess task distribution to maintain project momentum. Implement an improvement plan with specific, attainable objectives for the member. Should there be no noticeable improvement, as a final measure, document the reduction in the individual's contributions in the final project report, ensuring transparency and accountability while prioritizing the project's overall success and team cohesion. 
+ 
