@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 public class ProfPageActivity extends AppCompatActivity {
     private TextView buildingInfo;
+
     //private ImageView buildingImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class ProfPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_prof_page);
 
         Button followButton = null;
-        Button fireAlarmNoti=null;
+        Button fireAlarmNoti = null;
         //--yujing--
         //buildingImage = findViewById(R.id.buildingImage);
         buildingInfo = findViewById(R.id.buildingInfo);
@@ -47,4 +48,5 @@ public class ProfPageActivity extends AppCompatActivity {
             }
         });
     }
+}
 
