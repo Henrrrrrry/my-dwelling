@@ -11,7 +11,7 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/back"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,38 +28,40 @@
         app:layout_constraintTop_toBottomOf="@id/backButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="default image" />
+        android:contentDescription="@string/default_image" />
 
     <!-- buildingInfo -->
+    <!-- follow -->
     <TextView
         android:id="@+id/buildingInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=" Addr: \n SeismicRating: \n NeedRepair: \n Year of Construction: \n Building Life: \n Materials: \n"
         android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/buildingImage"
+        android:text="@string/addr_n_seismicrating_n_needrepair_n_year_of_construction_n_building_life_n_materials_n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <!-- follow -->
+        app:layout_constraintTop_toBottomOf="@id/buildingImage" />
+
     <Button
         android:id="@+id/subscribeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subscribe"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/buildingInfo"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/follow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
 
     <!-- fire alarm : hide-->
     <Button
         android:id="@+id/fireAlarmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fire Alarm"
-        android:visibility="gone"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/buildingInfo"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/fire_alarm"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
 
 
 <!--@u7671098-->
