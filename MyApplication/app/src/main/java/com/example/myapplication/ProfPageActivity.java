@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;//import for display in TextView
-import android.widget.ImageView;
+//import android.widget.ImageView;
 
 public class ProfPageActivity extends AppCompatActivity {
     private TextView buildingInfo;
@@ -23,7 +23,7 @@ public class ProfPageActivity extends AppCompatActivity {
         //--yujing--
         //buildingImage = findViewById(R.id.buildingImage);
         buildingInfo = findViewById(R.id.buildingInfo);
-        String[] building = {"1234 Main St", "1990", "30", "Concrete"};//string[] sample for display test
+        String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
         String infoText = "Addr: " + building[0] + "\n" +
                 building[1] + "\n" +

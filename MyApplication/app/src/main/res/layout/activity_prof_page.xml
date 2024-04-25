@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ProfPageActivity">
 <!--@u7671098-->
-    <!-- 返回按钮 -->
+    <!-- backButton -->
     <Button
-        android:layout_margin="16dp"
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:margin="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- 建筑照片 -->
+
+    <!-- buildingImage -->
     <ImageView
         android:id="@+id/buildingImage"
         android:layout_width="0dp"
@@ -29,9 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="default image" />
 
-    <!-- 建筑信息 -->
-
-    <!-- 订阅按钮 -->
+    <!-- buildingInfo -->
     <TextView
         android:id="@+id/buildingInfo"
         android:layout_width="0dp"
@@ -41,16 +40,15 @@
         app:layout_constraintTop_toBottomOf="@id/buildingImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
+    <!-- follow -->
     <Button
-        android:layout_margin="16dp"
         android:id="@+id/subscribeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subscribe"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/buildingInfo"
-        app:layout_constraintStart_toStartOf="parent"
-        android:margin="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- fire alarm : hide-->
     <Button
@@ -59,9 +57,9 @@
         android:layout_height="wrap_content"
         android:text="Fire Alarm"
         android:visibility="gone"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/buildingInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:margin="16dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 <!--@u7671098-->
