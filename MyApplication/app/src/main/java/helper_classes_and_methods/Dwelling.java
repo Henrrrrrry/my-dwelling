@@ -5,47 +5,37 @@ package helper_classes_and_methods;
  * @Create: 9:44 pm on 18/04/2024
  */
 public class Dwelling {
-    // Static instance of the class
-    private static Dwelling instance;
+    //    helperclassesmethods.Dwelling address
+    static String address;
+    //    Seismic rating 1-10, the higher the better
+    int seismicRating;
+    //    Boolean value representing if a dwelling need repair
+    boolean needRepair;
+    //    The year of building construction
+    static int yearOfConstruction;
+    //    Life of building
+    int buildingLife;
+    //    Materials of building
+    static String buildingMaterials;
+    //    Default as false, if true means there's a fire, need to notify all users who followed to this building.
+    boolean fireAlarm;
 
-    // Dwelling address
-    private static String address;
-    // Seismic rating 1-10, the higher the better
-    private int seismicRating;
-    // Boolean value representing if a dwelling needs repair
-    private boolean needRepair;
-    // The year of building construction
-    private static int yearOfConstruction;
-    // Life of building
-    private int buildingLife;
-    // Materials of building
-    private static String buildingMaterials;
-    // Default as false, if true means there's a fire, need to notify all users who followed to this building.
-    private boolean fireAlarm;
-
-    // Private constructor to prevent outside instantiation
-    private Dwelling(String address, int yearOfConstruction, int buildingLife, String buildingMaterials) {
-        Dwelling.address = address;
-        Dwelling.yearOfConstruction = yearOfConstruction;
+    //  figure out a function to calculate Seismic rating & needRepair
+    public Dwelling(String address, int yearOfConstruction, int buildingLife, String buildingMaterials) {
+        this.address = address;
+        this.yearOfConstruction = yearOfConstruction;
         this.buildingLife = buildingLife;
-        Dwelling.buildingMaterials = buildingMaterials;
-        this.needRepair = false;
-        this.fireAlarm = false;
+        this.buildingMaterials = buildingMaterials;
+        this.needRepair=false;
+        this.fireAlarm=false;
     }
 
-    // Default private constructor
-    private Dwelling() {
+    public Dwelling() {
     }
 
-    // Public static method to get the instance of the class
-    public static Dwelling getInstance(String address, int yearOfConstruction, int buildingLife, String buildingMaterials) {
-        if (instance == null) {
-            instance = new Dwelling(address, yearOfConstruction, buildingLife, buildingMaterials);
-        }
-        return instance;
-    }
 
-    // Accessors and mutators
+
+    //  delete useless getter/setter, maybe need to change public to private
     public static String getAddress() {
         return address;
     }
