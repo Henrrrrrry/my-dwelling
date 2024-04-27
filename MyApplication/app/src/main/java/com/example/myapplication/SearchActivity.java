@@ -1,12 +1,11 @@
 package com.example.myapplication;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
+import helper_classes_and_methods.*;
 import android.os.Bundle;
 import android.widget.SearchView;
 
-public class SrcActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,7 @@ public class SrcActivity extends AppCompatActivity {
         });
     }
 
+//    maybe need to return some type of value
     private  void getCurrentLocation(){
 
     }

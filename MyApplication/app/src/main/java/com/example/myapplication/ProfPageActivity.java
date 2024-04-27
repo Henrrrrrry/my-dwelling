@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import helper_classes_and_methods.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -22,7 +23,7 @@ public class ProfPageActivity extends AppCompatActivity {
         Button fireAlarmNoti = null;
         //--yujing--
         //buildingImage = findViewById(R.id.buildingImage);
-        buildingInfo = findViewById(R.id.buildingInfo);
+//        buildingInfo = findViewById(R.id.buildingInfo);
         String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
         String infoText = "Addr: " + building[0] + "\n" +

@@ -5,4 +5,5 @@
     <string name="addr_n_seismicrating_n_needrepair_n_year_of_construction_n_building_life_n_materials_n">Addr: \n SeismicRating: \n NeedRepair: \n Year of Construction: \n Building Life: \n Materials: \n</string>
     <string name="default_image">default image</string>
     <string name="back">Back</string>
+    <string name="loginbutton">Login</string>
 </resources>

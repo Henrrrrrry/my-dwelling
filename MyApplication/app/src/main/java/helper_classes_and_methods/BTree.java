@@ -1,3 +1,5 @@
+package helper_classes_and_methods;
+
 public class BTree {
     BTreeNode root ;
     int t;
@@ -7,7 +9,7 @@ public class BTree {
         this.t = t;
     }
 
-    public static void insert(Dwelling dwelling){
+    public static void insert(helper_classes_and_methods.Dwelling dwelling){
 
     }
 
