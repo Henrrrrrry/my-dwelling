@@ -31,26 +31,41 @@
         android:contentDescription="@string/default_image" />
 
     <!-- buildingInfo -->
-    <!-- follow -->
+
     <TextView
         android:id="@+id/buildingInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="@string/addr_n_seismicrating_n_needrepair_n_year_of_construction_n_building_life_n_materials_n"
+        android:text="loading"
+        android:lineSpacingExtra="8dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buildingImage" />
-
+    <!-- follow state -->
+    <TextView
+        android:id="@+id/followState"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="State: unfollow"
+        android:lineSpacingExtra="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
+    <!-- follow -->
     <Button
-        android:id="@+id/subscribeButton"
+        android:id="@+id/followButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:text="@string/follow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
+        app:layout_constraintTop_toBottomOf="@id/followState" />
 
     <!-- fire alarm : hide-->
     <Button
@@ -61,8 +76,9 @@
         android:text="@string/fire_alarm"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/followState" />
 
 
-<!--@u7671098-->
+    <!--@u7671098-->
 </androidx.constraintlayout.widget.ConstraintLayout>
