@@ -3,10 +3,7 @@ package helper_classes_and_methods;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Author: LEE
- * @Create: 10:04 pm on 18/04/2024
- */
+
 public class BTreeNode {
     List<Dwelling> keys=new ArrayList<>();
     //    minimum degree

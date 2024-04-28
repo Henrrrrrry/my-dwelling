@@ -1,33 +1,46 @@
 package helper_classes_and_methods;
 
-/**
- * @Author: LEE
- * @Create: 9:44 pm on 18/04/2024
- */
-public class Dwelling {
-    //    helperclassesmethods.Dwelling address
-    static String address;
-    //    Seismic rating 1-10, the higher the better
-    int seismicRating;
-    //    Boolean value representing if a dwelling need repair
-    boolean needRepair;
-    //    The year of building construction
-    static int yearOfConstruction;
-    //    Life of building
-    int buildingLife;
-    //    Materials of building
-    static String buildingMaterials;
-    //    Default as false, if true means there's a fire, need to notify all users who followed to this building.
-    boolean fireAlarm;
+import java.util.ArrayList;
+
+
+public class Dwelling implements  Subject {
+
+//    record who followed this address
+    private ArrayList<Observer> observers;
+//    use state design pattern to define if this building need repair
+    private DwellingState dwellingState;
+
+
+    // Dwelling address
+    private static String address;
+    // Seismic rating 1-10, the higher the better,should be calculated
+    private int seismicRating;
+
+//    this part of code is commented cuz we are using state to represent
+    // Boolean value representing if a dwelling needs repair
+//    private boolean needRepair;
+
+    // The year of building construction
+    private static int yearOfConstruction;
+    // Life of building
+    private int buildingLife;
+    // Materials of building
+    private static String buildingMaterials;
+    // Default as false, if true means there's a fire, need to notify all users who followed to this building.
+    private boolean fireAlarm;
+    private User maintainer;
 
     //  figure out a function to calculate Seismic rating & needRepair
-    public Dwelling(String address, int yearOfConstruction, int buildingLife, String buildingMaterials) {
-        this.address = address;
-        this.yearOfConstruction = yearOfConstruction;
+    public Dwelling(String address, int yearOfConstruction, int buildingLife, String buildingMaterials,ArrayList<Observer> observers,User maintainer) {
+        Dwelling.address = address;
+        Dwelling.yearOfConstruction = yearOfConstruction;
         this.buildingLife = buildingLife;
-        this.buildingMaterials = buildingMaterials;
-        this.needRepair=false;
+        Dwelling.buildingMaterials = buildingMaterials;
+//        this.needRepair=false;
         this.fireAlarm=false;
+        this.observers=observers ;
+        this.dwellingState=new NormalState();
+        this.maintainer =maintainer;
     }
 
     public Dwelling() {
@@ -35,7 +48,7 @@ public class Dwelling {
 
 
 
-    //  delete useless getter/setter, maybe need to change public to private
+    // Accessors and mutators
     public static String getAddress() {
         return address;
     }
@@ -52,13 +65,13 @@ public class Dwelling {
         this.seismicRating = seismicRating;
     }
 
-    public boolean isNeedRepair() {
-        return needRepair;
-    }
-
-    public void setNeedRepair(boolean needRepair) {
-        this.needRepair = needRepair;
-    }
+//    public boolean isNeedRepair() {
+//        return needRepair;
+//    }
+//
+//    public void setNeedRepair(boolean needRepair) {
+//        this.needRepair = needRepair;
+//    }
 
     public static int getYearOfConstruction() {
         return yearOfConstruction;
@@ -90,5 +103,43 @@ public class Dwelling {
 
     public void setFireAlarm(boolean fireAlarm) {
         this.fireAlarm = fireAlarm;
+        if (fireAlarm)  notifyAllObservers();
+    }
+
+
+
+    public ArrayList<Observer> getObservers() {
+        return observers;
+    }
+
+//    for now it's used for create test cases
+    public void setObservers(ArrayList<Observer> observers) {
+        this.observers = observers;
+    }
+
+//    TODO: seems like not correct
+    public void setDwellingState(DwellingState newDwellingState) {
+        this.dwellingState = newDwellingState;
+        this.dwellingState.handle(this);
+    }
+//    add current user to the observers list when current user click follow
+    @Override
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyAllObservers() {
+        for (Observer observer:observers) observer.update(getAddress());
+    }
+
+    @Override
+    public void notifyMaintainer() {
+        maintainer.maintainUpdate(getAddress());
     }
 }
