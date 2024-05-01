@@ -1,13 +1,11 @@
 package com.example.myapplication;
 
-import helper_classes_and_methods.*;
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;//import for display in TextView
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 //import android.widget.ImageView;
 
 public class ProfPageActivity extends AppCompatActivity {
@@ -22,7 +20,7 @@ public class ProfPageActivity extends AppCompatActivity {
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
-        //--yujing--
+        //TODO: this is test data reply with real data
         String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
         String infoText = "Address: " + building[0] + "\n" +
@@ -33,11 +31,10 @@ public class ProfPageActivity extends AppCompatActivity {
                 "Materials: "+building[5];
         buildingInfo.setText(infoText);
 
-        //----yujing--end-----
         followButton.setOnClickListener(new View.OnClickListener() { //follow button
             @Override
             public void onClick(View v) {
-// link fire alarm noti to subcribers
+            // link fire alarm noti to subcribers
                 if (followButton.getText().toString().equals("Follow") ){//if click, changed color and show 'unfollow'
                     followButton.setText("Unfollow");
 
