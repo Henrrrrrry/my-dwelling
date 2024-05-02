@@ -1,35 +1,32 @@
 package com.example.myapplication;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import helper_classes_and_methods.*;
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
-import android.widget.TextView;//import for display in TextView
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import helper_classes_and_methods.BuildingMaterial;
+import helper_classes_and_methods.Dwelling;
+import helper_classes_and_methods.Observer;
+import helper_classes_and_methods.User;
 //import android.widget.ImageView;
 
 public class ProfPageActivity extends AppCompatActivity {
     private TextView buildingInfo;
-
+//    private ImageView buildingImage;
 
     //                test case create channel ID
     public static final String CHANNEL_ID = "uniqueChannelId";
@@ -47,11 +44,11 @@ public class ProfPageActivity extends AppCompatActivity {
         createNotificationChannel();
 
 
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_page);
+
+        ImageView buildingImage = findViewById(R.id.buildingImage);
+        buildingImage.setImageResource(R.drawable.img_default_building);
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
