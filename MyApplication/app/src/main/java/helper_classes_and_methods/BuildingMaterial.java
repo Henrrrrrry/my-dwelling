@@ -14,7 +14,7 @@ public enum BuildingMaterial {
     WOOD(40, 0.05, 30);
 
     private final int initialStrength;   // Base strength when new
-    private final double corrosionFactor; // Yearly reduction in strength (%)
+    private final double corrosionFactor; // Daily reduction in strength
     private final int repairThreshold;    // Strength threshold below which repairs are needed
 
 
