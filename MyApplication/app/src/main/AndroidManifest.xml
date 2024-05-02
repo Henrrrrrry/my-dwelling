@@ -24,7 +24,7 @@
             android:name=".MapActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ProfPageActivity"
             android:exported="false" />
         <activity
             android:name=".SearchActivity"
@@ -35,7 +35,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".ProfPageActivity"
+            android:name=".LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
