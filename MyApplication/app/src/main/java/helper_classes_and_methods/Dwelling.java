@@ -25,15 +25,13 @@ public class Dwelling implements  Subject {
     private int seismicRating; // Seismic rating of the building  Seismic rating 1-10, the higher the better,should be calculated
     private LocalDate lastRepairDate; // Date of the last repair
 
-    // Life of building
-    private int buildingLife;
 
     // Default as false, true means there's a fire, need to notify all users who followed to this building.
     private boolean fireAlarm;
 //    define a user as maintainer for each building
     private User maintainer;
 //    TODO: maybe need to modify this constructor when the building materials and state functions are determined
-    public Dwelling(String address, LocalDate constructionDate, int buildingLife, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer) {
+    public Dwelling(String address, LocalDate constructionDate, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer) {
         this.address = address;
 
         this.buildingMaterial = buildingMaterial;
@@ -41,7 +39,6 @@ public class Dwelling implements  Subject {
 
         this.lastRepairDate = constructionDate; // Initialize last repair date to construction date
 
-        this.buildingLife = buildingLife;
         this.fireAlarm=false;
         this.observers=observers ;
         this.dwellingState=new NormalState();
@@ -131,13 +128,6 @@ public class Dwelling implements  Subject {
         return constructionDate;
     }
 
-    public int getBuildingLife() {
-        return buildingLife;
-    }
-
-    public void setBuildingLife(int buildingLife) {
-        this.buildingLife = buildingLife;
-    }
 
     public BuildingMaterial getBuildingMaterials() {
         return buildingMaterial;

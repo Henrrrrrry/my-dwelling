@@ -35,7 +35,7 @@ public class ProfPageActivity extends AppCompatActivity {
 
 //        test case create fake info&channel
         User maintainer = new User("mok3@163.com","666666",true,"Xinfei");
-        Dwelling dwelling= new Dwelling("41 davenport St", LocalDate.of(1948, Month.OCTOBER, 1),100,BuildingMaterial.WOOD,observers1,maintainer);
+        Dwelling dwelling= new Dwelling("41 davenport St", LocalDate.of(1948, Month.OCTOBER, 1),BuildingMaterial.WOOD,observers1,maintainer);
         User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
         observers1.add(user1);
         createNotificationChannel();
