@@ -14,6 +14,8 @@ public class Dwelling implements  Subject {
     private ArrayList<Observer> observers;
 //    use state design pattern to define if this building need repair
     private DwellingState dwellingState;
+//    location of the dwelling ,represented by[latitude, longitude]
+    private double[] location;
 
 
     // Dwelling address
@@ -31,7 +33,7 @@ public class Dwelling implements  Subject {
 //    define a user as maintainer for each building
     private User maintainer;
 //    TODO: maybe need to modify this constructor when the building materials and state functions are determined
-    public Dwelling(String address, LocalDate constructionDate, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer) {
+    public Dwelling(String address, LocalDate constructionDate, int buildingLife, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer,double[] location) {
         this.address = address;
 
         this.buildingMaterial = buildingMaterial;
@@ -43,6 +45,7 @@ public class Dwelling implements  Subject {
         this.observers=observers ;
         this.dwellingState=new NormalState();
         this.maintainer =maintainer;
+        this.location=location;
     }
 
     public Dwelling() {
@@ -156,7 +159,16 @@ public class Dwelling implements  Subject {
         this.dwellingState = newDwellingState;
         this.dwellingState.handle(this,context);
     }
-//    add current user to the observers list when current user click follow
+
+    public double[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(double[] location) {
+        this.location = location;
+    }
+
+    //    add current user to the observers list when current user click follow
     @Override
     public void attach(Observer observer) {
         observers.add(observer);
