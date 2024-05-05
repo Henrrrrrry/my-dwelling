@@ -59,7 +59,16 @@ public class DataLoader {
         BuildingMaterial material = BuildingMaterial.valueOf(jsonObject.optString("buildingMaterial","").toUpperCase());
 
         ArrayList<Observer> observers = new ArrayList<>(); // This should be dynamically filled if needed
-        User maintainer = new User(jsonObject.optString("maintainer",""),null, true, null);
+        User maintainer = null;
+        try {
+            JSONObject maintainerJsonObject = jsonObject.getJSONObject("maintainer");
+            maintainer = new User(maintainerJsonObject.getString("name"),
+                    maintainerJsonObject.getString("password"),
+                    maintainerJsonObject.getBoolean("isMaintainer"),
+                    maintainerJsonObject.getString("userID"));
+        } catch (Exception e) {
+            //maintainer = new User(jsonObject.optString("maintainer",""),null, true, null);
+        }
         double[] location = {
                 jsonObject.getJSONObject("location").optDouble("lat",0.0),
                 jsonObject.getJSONObject("location").optDouble("lng",0.0)

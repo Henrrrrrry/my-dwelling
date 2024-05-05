@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         dataLoader = new DataLoader(this);
         dataLoader.loadDataFromFile("dataset.json");
-        // BTree datasetBtree = dataLoader.getBTree();
+        //BTree datasetBtree = dataLoader.getBTree();
         //dataLoader.saveDwellingsToFile("dataset.json");
 
     }
