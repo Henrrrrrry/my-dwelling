@@ -35,7 +35,7 @@ public class ProfPageActivity extends AppCompatActivity {
 
 //        test case create fake info&channel
         User maintainer = new User("mok3@163.com","666666",true,"Xinfei");
-        double[] locationTest = new double[]{-35.255290,149.145020};
+        Dwelling.Location locationTest = new Dwelling.Location(-35.255290,149.145020);
         Dwelling dwelling= new Dwelling("41 davenport St", LocalDate.of(1948, Month.OCTOBER, 1),BuildingMaterial.WOOD,observers1,maintainer,locationTest);
         User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
         observers1.add(user1);

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -18,6 +19,7 @@ import java.util.List;
 public class DataLoader {
     private BTree bTree;
     private Context context;
+
 
     public DataLoader(Context context) {
         this.bTree = new BTree(5, String::compareTo);
@@ -69,10 +71,8 @@ public class DataLoader {
         } catch (Exception e) {
             //maintainer = new User(jsonObject.optString("maintainer",""),null, true, null);
         }
-        double[] location = {
-                jsonObject.getJSONObject("location").optDouble("lat",0.0),
-                jsonObject.getJSONObject("location").optDouble("lng",0.0)
-        };
+        Dwelling.Location location = new Dwelling.Location(jsonObject.getJSONObject("location").optDouble("lat",0.0),
+                jsonObject.getJSONObject("location").optDouble("lng",0.0));
 
         Dwelling dwelling = new Dwelling(address, constructionDate, material, observers, maintainer, location);
         return dwelling;
@@ -85,7 +85,20 @@ public class DataLoader {
         jsonObject.put("lastRepairDate", dwelling.getLastRepairDate().toString());
         jsonObject.put("fireAlarm", dwelling.isFireAlarm());
         jsonObject.put("buildingMaterial", dwelling.getBuildingMaterial().name().toLowerCase());
-        jsonObject.put("maintainer", dwelling.getMaintainer());
+        JSONObject maintainer = new JSONObject();
+        if (dwelling.getMaintainer() != null) {
+            maintainer.put("name", dwelling.getMaintainer().getUsername());
+            maintainer.put("password", dwelling.getMaintainer().getPassword());
+            maintainer.put("userID", dwelling.getMaintainer().getUserID());
+            maintainer.put("isMaintainer", dwelling.getMaintainer().isMaintainer());
+        }
+        jsonObject.put("maintainer", maintainer);
+        JSONObject location = new JSONObject();
+        if (dwelling.getLocation() != null) {
+            location.put("lat", dwelling.getLocation().getLat());
+            location.put("lng", dwelling.getLocation().getLng());
+        }
+        jsonObject.put("location", location);
         return jsonObject;
     }
 

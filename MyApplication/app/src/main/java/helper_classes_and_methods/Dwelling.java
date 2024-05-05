@@ -10,12 +10,41 @@ import java.util.Date;
 
 public class Dwelling implements  Subject {
 
+    public static class Location {
+        double lat;
+        double lng;
+
+        public Location() {
+        }
+
+        public Location(double lat, double lng) {
+            this.lat = lat;
+            this.lng = lng;
+        }
+
+        public double getLat() {
+            return lat;
+        }
+
+        public void setLat(double lat) {
+            this.lat = lat;
+        }
+
+        public double getLng() {
+            return lng;
+        }
+
+        public void setLng(double lng) {
+            this.lng = lng;
+        }
+    }
+
 //    record who followed this address
     private ArrayList<Observer> observers;
 //    use state design pattern to define if this building need repair
     private DwellingState dwellingState;
 //    location of the dwelling ,represented by[latitude, longitude]
-    private double[] location;
+    private Location location;
 
 
     // Dwelling address
@@ -33,7 +62,7 @@ public class Dwelling implements  Subject {
 //    define a user as maintainer for each building
     private User maintainer;
 //    TODO: maybe need to modify this constructor when the building materials and state functions are determined
-    public Dwelling(String address, LocalDate constructionDate, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer,double[] location) {
+    public Dwelling(String address, LocalDate constructionDate, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer,Location location) {
         this.address = address;
 
         this.buildingMaterial = buildingMaterial;
@@ -160,11 +189,11 @@ public class Dwelling implements  Subject {
         this.dwellingState.handle(this,context);
     }
 
-    public double[] getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(double[] location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
