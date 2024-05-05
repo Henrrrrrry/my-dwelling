@@ -33,7 +33,7 @@ public class Dwelling implements  Subject {
 //    define a user as maintainer for each building
     private User maintainer;
 //    TODO: maybe need to modify this constructor when the building materials and state functions are determined
-    public Dwelling(String address, LocalDate constructionDate, int buildingLife, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer,double[] location) {
+    public Dwelling(String address, LocalDate constructionDate, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer,double[] location) {
         this.address = address;
 
         this.buildingMaterial = buildingMaterial;
@@ -187,5 +187,17 @@ public class Dwelling implements  Subject {
     @Override
     public void notifyMaintainer(Context context) {
         maintainer.maintainUpdate(getAddress(), context);
+    }
+
+    public DwellingState getDwellingState() {
+        return dwellingState;
+    }
+
+    public BuildingMaterial getBuildingMaterial() {
+        return buildingMaterial;
+    }
+
+    public User getMaintainer() {
+        return maintainer;
     }
 }

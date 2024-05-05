@@ -12,7 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import helper_classes_and_methods.BTree;
+import helper_classes_and_methods.DataLoader;
+
 public class LoginActivity extends AppCompatActivity {
+
+    public DataLoader dataLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +42,23 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        dataLoader = new DataLoader(this);
+        dataLoader.loadDataFromFile("dataset.json");
+        // BTree datasetBtree = dataLoader.getBTree();
+        //dataLoader.saveDwellingsToFile("dataset.json");
+
     }
 
     private boolean validateLogin(String username, String password) {
         // Add your authentication logic here
         // For example, checking against hardcoded credentials
         return username.equals("admin") && password.equals("admin123");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dataLoader.saveDwellingsToFile("dataset.json");
     }
 }

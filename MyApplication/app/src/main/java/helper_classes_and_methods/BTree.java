@@ -1,5 +1,7 @@
 package helper_classes_and_methods;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 public class BTree {
 
@@ -292,5 +294,30 @@ public class BTree {
         }
 
         return new SearchResult(true, child, 0);
+    }
+
+
+    public List<Dwelling> getDwellings() {
+        List<Dwelling> dwellingsList = new ArrayList<>();
+        inorderTraversalDwellings(root, dwellingsList);
+        return dwellingsList;
+    }
+
+
+    private void inorderTraversalDwellings(BTreeNode node, List<Dwelling> dwellingsList) {
+        if (node == null) {
+            return;
+        }
+
+        int numKeys = node.elements.size();
+        for (int i = 0; i < numKeys; i++) {
+            if (!node.isLeaf()) {
+                inorderTraversalDwellings(node.children.get(i), dwellingsList);
+            }
+            dwellingsList.add(node.elements.get(i).getValue());
+        }
+        if (!node.isLeaf()) {
+            inorderTraversalDwellings(node.children.get(numKeys), dwellingsList);
+        }
     }
 }
