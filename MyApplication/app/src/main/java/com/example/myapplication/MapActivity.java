@@ -1,9 +1,15 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,9 +46,46 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(@NonNull GoogleMap googleMap) {
         Mmap = googleMap;
         addMarkers();
-        //TODO：Ask for users current location,and replace 'sydney'
-        LatLng Canberra = new LatLng(-35.2966, 149.1290);
-        seeCurrent(Canberra);
+        //Ask for users current location
+        String serviceString = Context.LOCATION_SERVICE;
+        LocationManager locationManager = (LocationManager) getSystemService(serviceString); // use getSystemService() to set LocationManager
+        String provider = LocationManager.NETWORK_PROVIDER; // use network location
+        // check system location private
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+            }, 1);
+            return;
+        }
+
+// 获取最后已知位置
+        Location location = locationManager.getLastKnownLocation(provider);
+        System.out.println("test4");
+
+        if (location != null) {
+            double lat = location.getLatitude(); // get current lat
+            double lng = location.getLongitude(); // get current lng
+            System.out.println("test:" + lat + "," + lng);
+            LatLng current = new LatLng(lat, lng);
+            seeCurrent(current);
+        } else {
+            System.out.println("Location not available");
+            //try to update location   尝试使用实时更新获取位置
+            locationManager.requestLocationUpdates(provider, 0, 0, new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    double lat = location.getLatitude();
+                    double lng = location.getLongitude();
+                    System.out.println("Updated location new: " + lat + ", " + lng);
+                    locationManager.removeUpdates(this);
+                }
+            });
+        }
+        //LatLng Canberra = new LatLng(lat, lng);
+        //LatLng Canberra = new LatLng(-35.2966, 149.1290);
+        //seeCurrent(Canberra);
     }
    //markers in map
     private void addMarkers() {
