@@ -46,7 +46,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(@NonNull GoogleMap googleMap) {
         Mmap = googleMap;
         addMarkers();
-        //Ask for users current location
+        viewCurrentLocation();//Ask for users current location
+    }
+
+    private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;
         LocationManager locationManager = (LocationManager) getSystemService(serviceString); // use getSystemService() to set LocationManager
         String provider = LocationManager.NETWORK_PROVIDER; // use network location
@@ -59,36 +62,34 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }, 1);
             return;
         }
-
-// 获取最后已知位置
+        // get last location
         Location location = locationManager.getLastKnownLocation(provider);
-        System.out.println("test4");
-
         if (location != null) {
             double lat = location.getLatitude(); // get current lat
             double lng = location.getLongitude(); // get current lng
-            System.out.println("test:" + lat + "," + lng);
             LatLng current = new LatLng(lat, lng);
             seeCurrent(current);
         } else {
             System.out.println("Location not available");
-            //try to update location   尝试使用实时更新获取位置
+            //try to update new location
             locationManager.requestLocationUpdates(provider, 0, 0, new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
                     double lat = location.getLatitude();
                     double lng = location.getLongitude();
-                    System.out.println("Updated location new: " + lat + ", " + lng);
+                    LatLng current = new LatLng(lat, lng);
+                    seeCurrent(current);
                     locationManager.removeUpdates(this);
                 }
             });
         }
-        //LatLng Canberra = new LatLng(lat, lng);
-        //LatLng Canberra = new LatLng(-35.2966, 149.1290);
-        //seeCurrent(Canberra);
     }
-   //markers in map
-    private void addMarkers() {
+
+    private void seeCurrent(LatLng current) {//set camera and zoom in
+        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 10)); // location to current place，zoom in size5
+    }
+
+    private void addMarkers() { //markers in map
         List<Object[]> locations = new ArrayList<>();//test array
         locations.add(new Object[]{new LatLng(-35.2913, 149.1205), 1});
         locations.add(new Object[]{new LatLng(-35.2812, 149.1484), 2});
@@ -104,14 +105,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     .icon(BitmapDescriptorFactory.defaultMarker(getHueFromColorType(colorType)))
                     .title("SR: " + colorType));//show SR level 1-10
         }
-
     }
 
     private float getHueFromColorType(int colorType) {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
-    }
-    //set camera and zoom in
-    private void seeCurrent(LatLng current) {
-        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 10)); // location to current place，zoom in size5
     }
 }
