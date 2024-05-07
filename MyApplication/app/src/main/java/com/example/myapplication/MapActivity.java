@@ -74,7 +74,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             //try to update new location
             locationManager.requestLocationUpdates(provider, 0, 0, new LocationListener() {
                 @Override
-                public void onLocationChanged(Location location) {
+                public void onLocationChanged(@NonNull Location location) {
                     double lat = location.getLatitude();
                     double lng = location.getLongitude();
                     LatLng current = new LatLng(lat, lng);
