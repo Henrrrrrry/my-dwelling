@@ -1,5 +1,5 @@
 package helper_classes_and_methods;
-public class LocationState {
+class LocationState {
     private Dwelling.Location location;
     private String state;
 
