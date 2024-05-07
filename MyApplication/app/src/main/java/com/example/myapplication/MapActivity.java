@@ -16,6 +16,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import helper_classes_and_methods.User;
+
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     //    create a dwelling entity test: Dwelling dwelling= new Dwelling();
@@ -28,6 +30,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         //Get a handle to the fragment and register the callback. Means loading map I guess
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        User user = (User) getIntent().getExtras().getSerializable("USER");
 
     }
 

@@ -14,34 +14,46 @@ import android.widget.Toast;
 
 import helper_classes_and_methods.BTree;
 import helper_classes_and_methods.DataLoader;
+import helper_classes_and_methods.User;
+
 
 public class LoginActivity extends AppCompatActivity {
 
+    private EditText usernameEditText;
+    private EditText passwordEditText;
+    private Button loginButton;
     public DataLoader dataLoader;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText usernameEditText = findViewById(R.id.usernameEditText);
-        final EditText passwordEditText = findViewById(R.id.passwordEditText);
-        Button loginButton = findViewById(R.id.loginButton);
-
+        usernameEditText = findViewById(R.id.usernameEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        loginButton = findViewById(R.id.loginButton);
+        user = new User();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
-                if (validateLogin(username, password)) {
-                    Intent intent = new Intent(LoginActivity.this, MapActivity.class);
+                if (user.validateUserCredentials(username, password, getAssets())) {
+                    // Successful login, proceed to next activity
+                    Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                    // Intent to next activity here
+                    Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                    intent.putExtra("USER", user);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_LONG).show();
+                    // Login failed
+                    Toast.makeText(LoginActivity.this, "Invalid credentials, please try again.", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
 
         dataLoader = new DataLoader(this);
         dataLoader.loadDataFromFile("dataset.json");
@@ -50,11 +62,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private boolean validateLogin(String username, String password) {
-        // Add your authentication logic here
-        // For example, checking against hardcoded credentials
-        return username.equals("admin") && password.equals("admin123");
-    }
 
     @Override
     protected void onDestroy() {

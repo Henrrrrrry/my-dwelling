@@ -1,4 +1,5 @@
-id,username,password
-0,admin,admin
-1,SomeTutor,RememberYourSelts@EndOfSem
-2,Test,1234
+username,password,isMaintainer,userID
+admin,admin,true,admin
+comp2100@anu.edu.au,comp2100,true,Bernardo
+comp6442@anu.edu.au,comp6442,true,Bernardo
+Test,1234,false,Lucy

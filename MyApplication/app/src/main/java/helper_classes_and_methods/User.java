@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -15,8 +16,14 @@ import com.example.myapplication.LoginActivity;
 import com.example.myapplication.ProfPageActivity;
 import com.example.myapplication.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 
-public class User implements Observer {
+
+public class User implements Observer, Serializable {
     private String username;
     private String password;
     private boolean isMaintainer;
@@ -31,7 +38,7 @@ public class User implements Observer {
         this.isMaintainer = isMaintainer;
         this.userID = userID;
     }
-
+    public User(){}
     // Getters
     public String getUsername() {
         return username;
@@ -120,6 +127,45 @@ public class User implements Observer {
         }
         notificationCompat.notify(0, notification);
     }
+
+    // Method to read user data from a CSV file and validate credentials
+    public boolean validateUserCredentials(String inputUsername, String inputPassword, AssetManager assetManager) {
+        BufferedReader bufferedReader = null;
+        boolean isValidUser = false;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(
+                    assetManager.open("loginDetails.csv"), StandardCharsets.UTF_8));
+
+            String line = bufferedReader.readLine(); // Read the header line and ignore it
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] tokens = line.split(",");
+                if (tokens.length >= 4 && tokens[0].equals(inputUsername) && tokens[1].equals(inputPassword)) {
+                    this.username = tokens[0];
+                    this.password = tokens[1];
+                    this.isMaintainer = Boolean.parseBoolean(tokens[2]);
+                    this.userID = tokens[3];
+                    isValidUser = true;
+                    break;
+                }
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return isValidUser;
+    }
+
+
+
+
 }
 
 
