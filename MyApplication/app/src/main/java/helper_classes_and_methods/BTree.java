@@ -297,6 +297,34 @@ public class BTree {
     }
 
 
+    public List<LocationState> getAllLocationsAndStates() {
+        List<LocationState> locationsAndStates = new ArrayList<>();
+        Locationandstate(root, locationsAndStates);
+        return locationsAndStates;
+    }
+
+    private void Locationandstate(BTreeNode node, List<LocationState> locationsAndStates) {
+        if (node == null) {
+            return;
+        }
+        int numKeys = node.elements.size();
+        for (int i = 0; i < numKeys; i++) {
+            if (!node.isLeaf()) {
+                Locationandstate(node.children.get(i), locationsAndStates);
+            }
+            Dwelling dwelling = node.elements.get(i).getValue();
+            Dwelling.Location location = dwelling.getLocation();
+            String state = dwelling.getDwellingState().getClass().getSimpleName();
+            locationsAndStates.add(new LocationState(location, state));
+        }
+        if (!node.isLeaf()) {
+            Locationandstate(node.children.get(numKeys), locationsAndStates);
+        }
+    }
+
+
+
+
     public List<Dwelling> getDwellings() {
         List<Dwelling> dwellingsList = new ArrayList<>();
         inorderTraversalDwellings(root, dwellingsList);
