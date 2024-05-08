@@ -57,8 +57,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;
         LocationManager locationManager = (LocationManager) getSystemService(serviceString); // use  getSystemService() set LocationManager
-        String provider = LocationManager.GPS_PROVIDER; // use net to locate
-
+        String provider = LocationManager.GPS_PROVIDER; // use GPS method
+        // check the access
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -67,19 +67,15 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }, 1);
             return;
         }
-
-        //locationManager.getCurrentLocation();
-// requestLocationUpdates()
-
+        // get new location from current phone
         locationManager.requestLocationUpdates(provider, 0, 0, new LocationListener() {
-            //FusedLocationProviderClient()
             @Override
             public void onLocationChanged(@NonNull Location location) {
+                //get lat and lng
                 double lat = location.getLatitude();
                 double lng = location.getLongitude();
-                System.out.println("[test]current location:"+lat+","+lng);
                 LatLng current = new LatLng(lat, lng);
-                seeCurrent(current);
+                seeCurrent(current);// move camera to current coordination
                locationManager.removeUpdates(this);
             }
 
@@ -97,13 +93,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
-
-
     private void seeCurrent(LatLng current) {//set camera and zoom in
         Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 10)); // location to current place，zoom in size5
     }
-
-    private void addMarkers() { //markers in map
+    private void addMarkers() { //markers all dwelling on the initial map
         List<Object[]> locations = new ArrayList<>();//test array
         locations.add(new Object[]{new LatLng(-35.2913, 149.1205), 1});
         locations.add(new Object[]{new LatLng(-35.2812, 149.1484), 2});
@@ -114,13 +107,15 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         for (Object[] location : locations) {
             LatLng coordinates = (LatLng) location[0];
             int colorType = (Integer) location[1];
-            Mmap.addMarker(new MarkerOptions()
-                    .position(coordinates)
-                    .icon(BitmapDescriptorFactory.defaultMarker(getHueFromColorType(colorType)))
-                    .title("SR: " + colorType));//show SR level 1-10
+            addOneMarker(coordinates,colorType);
         }
     }
-
+    private void addOneMarker(LatLng coordinates,int colorType){ //add single mark with special color
+        Mmap.addMarker(new MarkerOptions()
+                .position(coordinates)
+                .icon(BitmapDescriptorFactory.defaultMarker(getHueFromColorType(colorType)))
+                .title("SR: " + colorType));//show SR level 1-10
+    }
     private float getHueFromColorType(int colorType) {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
     }
