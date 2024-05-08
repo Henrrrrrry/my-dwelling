@@ -28,6 +28,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     //    create a dwelling entity test: Dwelling dwelling= new Dwelling();
     private GoogleMap Mmap;
+    private Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +48,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Mmap = googleMap;
         addMarkers();
         viewCurrentLocation();//Ask for users current location
+        //LatLng Canberra = new LatLng(-35.2966, 149.1290);
+        //seeCurrent(Canberra);
+
     }
+
 
     private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;
-        LocationManager locationManager = (LocationManager) getSystemService(serviceString); // use getSystemService() to set LocationManager
-        String provider = LocationManager.NETWORK_PROVIDER; // use network location
-        // check system location private
+        LocationManager locationManager = (LocationManager) getSystemService(serviceString); // use  getSystemService() set LocationManager
+        String provider = LocationManager.GPS_PROVIDER; // use net to locate
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -62,28 +67,37 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }, 1);
             return;
         }
-        // get last location
-        Location location = locationManager.getLastKnownLocation(provider);
-        if (location != null) {
-            double lat = location.getLatitude(); // get current lat
-            double lng = location.getLongitude(); // get current lng
-            LatLng current = new LatLng(lat, lng);
-            seeCurrent(current);
-        } else {
-            System.out.println("Location not available");
-            //try to update new location
-            locationManager.requestLocationUpdates(provider, 0, 0, new LocationListener() {
-                @Override
-                public void onLocationChanged(@NonNull Location location) {
-                    double lat = location.getLatitude();
-                    double lng = location.getLongitude();
-                    LatLng current = new LatLng(lat, lng);
-                    seeCurrent(current);
-                    locationManager.removeUpdates(this);
-                }
-            });
-        }
+
+        //locationManager.getCurrentLocation();
+// requestLocationUpdates()
+
+        locationManager.requestLocationUpdates(provider, 0, 0, new LocationListener() {
+            //FusedLocationProviderClient()
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+                double lat = location.getLatitude();
+                double lng = location.getLongitude();
+                System.out.println("[test]current location:"+lat+","+lng);
+                LatLng current = new LatLng(lat, lng);
+                seeCurrent(current);
+               locationManager.removeUpdates(this);
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+            }
+
+            @Override
+            public void onProviderEnabled(@NonNull String provider) {
+            }
+
+            @Override
+            public void onProviderDisabled(@NonNull String provider) {
+            }
+        });
     }
+
+
 
     private void seeCurrent(LatLng current) {//set camera and zoom in
         Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 10)); // location to current place，zoom in size5

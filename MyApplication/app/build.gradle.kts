@@ -43,6 +43,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.google.maps.android:android-maps-utils:3.8.2")//--heat maps test
+    implementation ("com.google.android.gms:play-services-location:17.0.0")// get current location
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     testImplementation ("org.robolectric:robolectric:4.7.3")
