@@ -22,9 +22,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import helper_classes_and_methods.Dwelling;
 import helper_classes_and_methods.User;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     //    create a dwelling entity test: Dwelling dwelling= new Dwelling();
     private GoogleMap Mmap;
@@ -47,10 +48,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(@NonNull GoogleMap googleMap) {
         Mmap = googleMap;
         addMarkers();
-        viewCurrentLocation();//Ask for users current location
-        //LatLng Canberra = new LatLng(-35.2966, 149.1290);
-        //seeCurrent(Canberra);
-
+        //viewCurrentLocation();//Ask for users current location
+        LatLng Canberra = new LatLng(-35.2966, 149.1290);
+        seeCurrent(Canberra);
     }
 
 
@@ -97,17 +97,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 10)); // location to current place，zoom in size5
     }
     private void addMarkers() { //markers all dwelling on the initial map
-        List<Object[]> locations = new ArrayList<>();//test array
-        locations.add(new Object[]{new LatLng(-35.2913, 149.1205), 1});
-        locations.add(new Object[]{new LatLng(-35.2812, 149.1484), 2});
-        locations.add(new Object[]{new LatLng(-35.3080, 149.1244), 3});
-        locations.add(new Object[]{new LatLng(-35.2966, 149.1290), 5});
-        locations.add(new Object[]{new LatLng(-35.2777, 149.1085), 10});
-        // list all the position and color,add to Mmap
-        for (Object[] location : locations) {
-            LatLng coordinates = (LatLng) location[0];
-            int colorType = (Integer) location[1];
-            addOneMarker(coordinates,colorType);
+        for (Dwelling d : dataLoader.getBTree().getDwellings()) {
+//            addOneMarker(new LatLng(d.getLocation().getLat(),
+//                    d.getLocation().getLng()), d.getSeismicRating());
+            addOneMarker(new LatLng(d.getLocation().getLat(),
+                    d.getLocation().getLng()), 5);
         }
     }
     private void addOneMarker(LatLng coordinates,int colorType){ //add single mark with special color

@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Button loginButton;
-    public DataLoader dataLoader;
     private User user;
 
     @Override
@@ -53,19 +52,5 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-        dataLoader = new DataLoader(this);
-        dataLoader.loadDataFromFile("dataset.json");
-        //BTree datasetBtree = dataLoader.getBTree();
-        //dataLoader.saveDwellingsToFile("dataset.json");
-
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        dataLoader.saveDwellingsToFile("dataset.json");
     }
 }
