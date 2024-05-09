@@ -15,6 +15,7 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.myapplication.MapActivity;
 
 public class DataLoader {
     private BTree bTree;
@@ -135,8 +136,4 @@ public class DataLoader {
         return bTree;
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        this.saveDwellingsToFile("dataset.json");
-    }
 }

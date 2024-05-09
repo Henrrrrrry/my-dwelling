@@ -5,7 +5,7 @@ import helper_classes_and_methods.*;
 import android.os.Bundle;
 import android.widget.SearchView;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,6 @@ public class SearchActivity extends AppCompatActivity {
 
 //    maybe need to return some type of value
     private  void getCurrentLocation(){
-
     }
 
 }

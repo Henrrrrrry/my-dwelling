@@ -24,7 +24,7 @@ import helper_classes_and_methods.Observer;
 import helper_classes_and_methods.User;
 //import android.widget.ImageView;
 
-public class ProfPageActivity extends AppCompatActivity {
+public class ProfPageActivity extends BaseActivity {
     //                test case create channel ID
     public static final String CHANNEL_ID = "uniqueChannelId";
      ArrayList<Observer> observers1= new ArrayList<>();
