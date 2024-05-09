@@ -10,4 +10,6 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login_button">Login</string>
+    <string name="search">search</string>
+    <string name="search_here">Search here</string>
 </resources>
