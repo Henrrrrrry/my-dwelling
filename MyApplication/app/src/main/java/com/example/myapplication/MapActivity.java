@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +43,16 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         User user = (User) getIntent().getExtras().getSerializable("USER");
+        Button searchButton = findViewById(R.id.search_button);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -104,10 +117,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
     private void addMarkers() { //markers all dwelling on the initial map
         for (Dwelling d : dataLoader.getBTree().getDwellings()) {
-//            addOneMarker(new LatLng(d.getLocation().getLat(),
-//                    d.getLocation().getLng()), d.getSeismicRating());
             addOneMarker(new LatLng(d.getLocation().getLat(),
-                    d.getLocation().getLng()), 5);
+                    d.getLocation().getLng()), d.getSeismicRating());
+//            addOneMarker(new LatLng(d.getLocation().getLat(),
+//                    d.getLocation().getLng()), 5);
         }
     }
     private void addOneMarker(LatLng coordinates,int colorType){ //add single mark with special color
