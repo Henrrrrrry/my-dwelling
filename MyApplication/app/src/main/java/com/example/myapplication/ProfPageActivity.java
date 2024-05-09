@@ -50,7 +50,7 @@ public class ProfPageActivity extends BaseActivity {
         setContentView(R.layout.activity_prof_page);
 
         ImageView buildingImage = findViewById(R.id.buildingImage);
-        buildingImage.setImageResource(R.drawable.img_default_building);
+//        buildingImage.setImageResource(R.drawable.img_default_building);
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
@@ -59,6 +59,8 @@ public class ProfPageActivity extends BaseActivity {
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
+        TextView buildingTitle= findViewById(R.id.address);
+        //address
         //TODO: this is test data reply with real data
         Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
 //        String[] building = {
@@ -70,15 +72,26 @@ public class ProfPageActivity extends BaseActivity {
 //        };
         //String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
-        String infoText = "Address: " + searchDwelling.getAddress() + "\n" +
+        String infoText = //"Address: " + searchDwelling.getAddress() + "\n" +
                 "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
                 "Year of construction: "+searchDwelling.getConstructionDate() + "\n" +
                 "Materials: "+searchDwelling.getBuildingMaterial();
         buildingInfo.setText(infoText);
+        buildingTitle.setText("Addr:"+searchDwelling.getAddress());
 
+        if(searchDwelling.getBuildingMaterial()==BuildingMaterial.BRICK){
+            buildingImage.setImageResource(R.drawable.brick);
+        } else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.STEEL) {
+            buildingImage.setImageResource(R.drawable.steel);
+        }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.CONCRETE) {
+            buildingImage.setImageResource(R.drawable.concrete);
+        }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.WOOD) {
+            buildingImage.setImageResource(R.drawable.wood);
+        }else{
+            buildingImage.setImageResource(R.drawable.img_default_building);
+        }
 
-
-        if (searchDwelling.getObservers().contains(user)) {
+            if (searchDwelling.getObservers().contains(user)) {
             followButton.setBackgroundColor(Color.rgb(128,128,128));
             followButton.setText("Unfollow");
         } else {

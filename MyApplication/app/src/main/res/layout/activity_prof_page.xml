@@ -23,7 +23,7 @@
     <!-- buildingImage -->
     <ImageView
         android:id="@+id/buildingImage"
-        android:layout_width="0dp"
+        android:layout_width="400dp"
         android:layout_height="200dp"
         android:layout_margin="16dp"
         android:background="#FFFFFF"
@@ -32,43 +32,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/backButton" />
 
+    <!-- Title -->
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Address"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buildingInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buildingImage" />
+
+
     <!-- buildingInfo -->
 
     <TextView
         android:id="@+id/buildingInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:lineSpacingExtra="8dp"
         android:padding="16dp"
         android:text="loading"
-        android:lineSpacingExtra="8dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buildingImage" />
-    <!-- follow -->
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+
     <Button
+
         android:id="@+id/followButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
         android:text="@string/follow"
+
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
 
-    <!-- fire alarm : hide-->
+
+    <Button
+        android:id="@+id/repairButton"
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/repaired_today"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/followButton" />
+
     <Button
         android:id="@+id/fireAlarmButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
         android:text="@string/fire_alarm"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buildingInfo" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repairButton" />
 
     <!--@u7671098-->
 </androidx.constraintlayout.widget.ConstraintLayout>
