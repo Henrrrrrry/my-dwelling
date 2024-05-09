@@ -2,15 +2,16 @@ package helper_classes_and_methods;
 
 import android.content.Context;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class Dwelling implements  Subject {
+public class Dwelling implements  Subject, Serializable {
 
-    public static class Location {
+    public static class Location implements Serializable{
         double lat;
         double lng;
 
@@ -87,7 +88,7 @@ public class Dwelling implements  Subject {
      * Method to determine if the building needs repairs
      * @return true for need repair and false for no need
      */
-    public boolean needsRepair() {
+    public void needsRepair() {
         LocalDate currentDate = LocalDate.now(); // Get the current date
         int daysSinceLastRepair = (int) java.time.temporal.ChronoUnit.DAYS.between(this.lastRepairDate, currentDate); // Calculate days since last repair
 
@@ -101,9 +102,10 @@ public class Dwelling implements  Subject {
             double strengthAfterCorrosion = initialStrength - corrosionFactor * daysSinceLastRepair;
 
             // Check if the updated seismic rating is below the repair threshold
-            return strengthAfterCorrosion < this.buildingMaterial.getRepairThreshold();
+            if(strengthAfterCorrosion < this.buildingMaterial.getRepairThreshold())
+                this.dwellingState = new RepairState();
         }
-        return false; // No repair needed if less than 1 day since last repair
+        this.dwellingState = new NormalState(); // No repair needed if less than 1 day since last repair
     }
 
     /**
@@ -111,6 +113,7 @@ public class Dwelling implements  Subject {
      * Updating the lastRepairDate, set the strength to the initial strength
      * divide it by 10 to update the seismicRating
      */
+
     //
     public void repair() {
         LocalDate currentDate = LocalDate.now(); // Get the current date
@@ -118,7 +121,11 @@ public class Dwelling implements  Subject {
         this.lastRepairDate = currentDate; // Update last repair date
 
         double strength = this.buildingMaterial.getInitialStrength();
-        this.seismicRating = (int) (strength / 10); // Seismic rating is strength divided by 10
+        strength /=10;
+        if (strength>8) strength=8;
+        if (strength<3) strength=3;
+        this.seismicRating = (int) (strength); // Seismic rating is strength divided by 10
+        this.dwellingState = new NormalState();
     }
 
 
@@ -142,8 +149,11 @@ public class Dwelling implements  Subject {
 
         // Calculate the updated material strength based on degradation and repairs
         double strength = initialStrength - corrosionFactor * daysSinceLastRepair;
+        strength /=10;
+        if (strength>8) strength=8;
+        if (strength<3) strength=3;
 
-        return this.seismicRating = (int) (strength / 10); // Seismic rating is strength divided by 10
+        return this.seismicRating = (int) (strength); // Seismic rating is strength divided by 10
     }
 
 

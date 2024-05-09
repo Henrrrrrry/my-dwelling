@@ -1,5 +1,7 @@
 package helper_classes_and_methods;
 
+import java.io.Serializable;
+
 /**
  * Author: Xinfei Li
  * ID: u7785177
@@ -7,11 +9,11 @@ package helper_classes_and_methods;
  * Last Edit: 29/04/2024   11:10 pm
  */
 
-public enum BuildingMaterial {
-    STEEL(100, 0.03, 75),  // initial strength, corrosion factor, repair threshold, repair rate
-    BRICK(70, 0.01, 50),
-    CONCRETE(90, 0.02, 65),
-    WOOD(40, 0.05, 30);
+public enum BuildingMaterial implements Serializable {
+    STEEL(150, 0.01, 75),  // initial strength, corrosion factor, repair threshold, repair rate
+    BRICK(120, 0.006, 50),
+    CONCRETE(140, 0.008, 65),
+    WOOD(90, 0.005, 30);
 
     private final int initialStrength;   // Base strength when new
     private final double corrosionFactor; // Daily reduction in strength

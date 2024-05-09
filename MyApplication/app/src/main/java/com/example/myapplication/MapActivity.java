@@ -1,11 +1,16 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +22,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -40,6 +46,23 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
         User user = (User) getIntent().getExtras().getSerializable("USER");
 
+        //search_text
+        EditText userInput=findViewById(R.id.search_text);
+        //Search button here
+        Button searchButton = findViewById(R.id.search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // get user's input
+                String inputStr = userInput.getText().toString();
+                Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
+                Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+                intent.putExtra("Dwelling",searchDwelling);
+                intent.putExtra("User",user);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //    When the map is loaded this method would be called.
@@ -49,7 +72,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         addMarkers();
         viewCurrentLocation();//Ask for users current location
         //LatLng Canberra = new LatLng(-35.2966, 149.1290); seeCurrent(Canberra);//for test
+        Mmap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                marker.showInfoWindow();
+                return true;
+            }
+        });
     }
+
 
     private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;
@@ -95,10 +126,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
     private void addMarkers() { //markers all dwelling on the initial map
         for (Dwelling d : dataLoader.getBTree().getDwellings()) {
-//            addOneMarker(new LatLng(d.getLocation().getLat(),
-//                    d.getLocation().getLng()), d.getSeismicRating());
             addOneMarker(new LatLng(d.getLocation().getLat(),
-                    d.getLocation().getLng()), 5);
+                    d.getLocation().getLng()), d.getSeismicRating());
+//            addOneMarker(new LatLng(d.getLocation().getLat(),
+//                    d.getLocation().getLng()), 5);
         }
     }
     private void addOneMarker(LatLng coordinates,int colorType){ //add single mark with special color

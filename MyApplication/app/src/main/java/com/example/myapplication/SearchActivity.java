@@ -3,7 +3,7 @@ package com.example.myapplication;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +14,8 @@ import java.util.List;
 import helper_classes_and_methods.DataLoader;
 import helper_classes_and_methods.Dwelling;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends BaseActivity {
     private SearchView searchView;
-    private DataLoader dataLoader;
     private ListView searchResultsListView;
     private ArrayAdapter<String> searchResultsAdapter;
 
@@ -28,9 +27,6 @@ public class SearchActivity extends AppCompatActivity {
         searchView = findViewById(R.id.search_bar);
         searchResultsListView = findViewById(R.id.list_item);
 
-        // 初始化 DataLoader 和加载数据
-        dataLoader = new DataLoader(this);
-        dataLoader.loadDataFromFile("dwellings.json");
 
         // 初始化 searchResultsAdapter
         searchResultsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());

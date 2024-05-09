@@ -50,17 +50,26 @@ public class ProfPageActivity extends BaseActivity {
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
+
+        User user = (User) getIntent().getExtras().getSerializable("User");
+        if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
         //TODO: this is test data reply with real data
-        String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
+        Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
+//        String[] building = {
+//                searchDwelling.getAddress(),
+//                String.valueOf(searchDwelling.getSeismicRating()),
+//                String.valueOf(searchDwelling.isFireAlarm()),
+//                String.valueOf(searchDwelling.getConstructionDate()),
+//                String.valueOf(searchDwelling.getBuildingMaterial())
+//        };
+        //String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
-        String infoText = "Address: " + building[0] + "\n" +
-                "Seismic Rating: "+building[1] + "\n" +
-                "Need Repair: "+building[2] + "\n" +
-                "Year of construction: "+building[3] + "\n" +
-                "Life(years): "+building[4] + "\n" +
-                "Materials: "+building[5];
+        String infoText = "Address: " + searchDwelling.getAddress() + "\n" +
+                "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
+                "Year of construction: "+searchDwelling.getConstructionDate() + "\n" +
+                "Materials: "+searchDwelling.getBuildingMaterial();
         buildingInfo.setText(infoText);
 
 

@@ -2,7 +2,9 @@ package helper_classes_and_methods;
 
 import android.content.Context;
 
-public class NormalState extends DwellingState{
+import java.io.Serializable;
+
+public class NormalState extends DwellingState implements Serializable {
 
 
     @Override
