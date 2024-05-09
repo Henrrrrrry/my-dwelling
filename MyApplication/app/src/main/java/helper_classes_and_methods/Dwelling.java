@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Dwelling implements  Subject, Serializable {
 
-    public static class Location {
+    public static class Location implements Serializable{
         double lat;
         double lng;
 
