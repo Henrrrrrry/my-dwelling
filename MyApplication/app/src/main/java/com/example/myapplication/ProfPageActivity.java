@@ -59,6 +59,8 @@ public class ProfPageActivity extends BaseActivity {
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
+        TextView buildingTitle= findViewById(R.id.address);
+        //address
         //TODO: this is test data reply with real data
         Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
 //        String[] building = {
@@ -70,11 +72,12 @@ public class ProfPageActivity extends BaseActivity {
 //        };
         //String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
-        String infoText = "Address: " + searchDwelling.getAddress() + "\n" +
+        String infoText = //"Address: " + searchDwelling.getAddress() + "\n" +
                 "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
                 "Year of construction: "+searchDwelling.getConstructionDate() + "\n" +
                 "Materials: "+searchDwelling.getBuildingMaterial();
         buildingInfo.setText(infoText);
+        buildingTitle.setText("Addr:"+searchDwelling.getAddress());
 
         if(searchDwelling.getBuildingMaterial()==BuildingMaterial.BRICK){
             buildingImage.setImageResource(R.drawable.brick);
