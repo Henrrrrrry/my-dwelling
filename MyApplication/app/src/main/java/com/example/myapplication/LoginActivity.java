@@ -2,11 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,10 +35,12 @@ public class LoginActivity extends BaseActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         user = new User();
+        simulateUserInput();
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = usernameEditText.getText().toString();
+                String username = usernameEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString();
 
                 if (user.validateUserCredentials(username, password, getAssets())) {
@@ -52,5 +56,25 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
+    }
+//  simulate a data stream, enter username and password then click login
+    @SuppressLint("SetTextI18n")
+    private void simulateUserInput() {
+        // delay 5s
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            // write username
+            usernameEditText.setText("comp2100@anu.edu.au");
+        }, 3000);
+
+        // write password
+        handler.postDelayed(() -> {
+            passwordEditText.setText("comp2100");
+        }, 5000);
+
+        // click login button
+        handler.postDelayed(() -> {
+            loginButton.performClick();
+        }, 8000);
     }
 }
