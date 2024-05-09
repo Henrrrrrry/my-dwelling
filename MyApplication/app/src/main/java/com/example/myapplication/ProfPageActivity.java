@@ -51,7 +51,7 @@ public class ProfPageActivity extends BaseActivity {
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
 
-        User user = (User) getIntent().getExtras().getSerializable("USER");
+        User user = (User) getIntent().getExtras().getSerializable("User");
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
