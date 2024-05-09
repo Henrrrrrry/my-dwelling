@@ -9,6 +9,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -42,13 +45,20 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         User user = (User) getIntent().getExtras().getSerializable("USER");
-        Button searchButton = findViewById(R.id.search_button);
 
+        //search_text
+        EditText userInput=findViewById(R.id.search_text);
+        //Search button here
+        Button searchButton = findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // get user's input
+                String inputStr = userInput.getText().toString();
+                Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
                 Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
-
+                intent.putExtra("Dwelling",searchDwelling);
+                intent.putExtra("User",user);
                 startActivity(intent);
             }
         });
@@ -62,7 +72,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         addMarkers();
         viewCurrentLocation();//Ask for users current location
         //LatLng Canberra = new LatLng(-35.2966, 149.1290); seeCurrent(Canberra);//for test
+        Mmap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                marker.showInfoWindow();
+                return true;
+            }
+        });
     }
+
 
     private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;

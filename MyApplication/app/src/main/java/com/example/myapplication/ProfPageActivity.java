@@ -34,11 +34,11 @@ public class ProfPageActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 //        test case create fake info&channel
-        User maintainer = new User("mok3@163.com","666666",true,"Xinfei");
-        Dwelling.Location locationTest = new Dwelling.Location(-35.255290,149.145020);
-        Dwelling dwelling= new Dwelling("41 davenport St", LocalDate.of(1948, Month.OCTOBER, 1),BuildingMaterial.WOOD,observers1,maintainer,locationTest);
-        User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
-        observers1.add(user1);
+//        User maintainer = new User("mok3@163.com","666666",true,"Xinfei");
+//        Dwelling.Location locationTest = new Dwelling.Location(-35.255290,149.145020);
+//        Dwelling dwelling= new Dwelling("41 davenport St", LocalDate.of(1948, Month.OCTOBER, 1),BuildingMaterial.WOOD,observers1,maintainer,locationTest);
+//        User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
+//        observers1.add(user1);
         createNotificationChannel();
 
 
@@ -50,22 +50,31 @@ public class ProfPageActivity extends BaseActivity {
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
+
+        User user = (User) getIntent().getExtras().getSerializable("User");
+        if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
         //TODO: this is test data reply with real data
-        String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
+        Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
+//        String[] building = {
+//                searchDwelling.getAddress(),
+//                String.valueOf(searchDwelling.getSeismicRating()),
+//                String.valueOf(searchDwelling.isFireAlarm()),
+//                String.valueOf(searchDwelling.getConstructionDate()),
+//                String.valueOf(searchDwelling.getBuildingMaterial())
+//        };
+        //String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
-        String infoText = "Address: " + building[0] + "\n" +
-                "Seismic Rating: "+building[1] + "\n" +
-                "Need Repair: "+building[2] + "\n" +
-                "Year of construction: "+building[3] + "\n" +
-                "Life(years): "+building[4] + "\n" +
-                "Materials: "+building[5];
+        String infoText = "Address: " + searchDwelling.getAddress() + "\n" +
+                "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
+                "Year of construction: "+searchDwelling.getConstructionDate() + "\n" +
+                "Materials: "+searchDwelling.getBuildingMaterial();
         buildingInfo.setText(infoText);
 
 
 
-        if (dwelling.getObservers().contains(user1)) {
+        if (searchDwelling.getObservers().contains(user)) {
             followButton.setBackgroundColor(Color.rgb(128,128,128));
             followButton.setText("Unfollow");
         } else {
@@ -79,24 +88,24 @@ public class ProfPageActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 //                the user has already followed
-                if (dwelling.getObservers().contains(user1)){
+                if (searchDwelling.getObservers().contains(user)){
 //                    remove user from observers
-                    dwelling.detach(user1);
+                    searchDwelling.detach(user);
 //                    tell users they have unfollowed and next time click on the button will follow again
                     followButton.setBackgroundColor(Color.rgb(0,0,128));
                     followButton.setText("Follow");
-                    System.out.println(dwelling.getObservers());
+                    System.out.println(searchDwelling.getObservers());
                     Toast.makeText(getApplicationContext(),"you have unfollowed",Toast.LENGTH_SHORT).show();
 
                 }
 //                the user hasn't followed the building
                 else{
 //                    add user to the observers list
-                    dwelling.attach(user1);
+                    searchDwelling.attach(user);
 //                    tell users they have followed and next time click on the button will unfollow
                     followButton.setBackgroundColor(Color.rgb(128,128,128));
                     followButton.setText("Unfollow");
-                    System.out.println(dwelling.getObservers());
+                    System.out.println(searchDwelling.getObservers());
                     Toast.makeText(getApplicationContext(),"you have followed",Toast.LENGTH_SHORT).show();
                 }
 
@@ -112,7 +121,7 @@ public class ProfPageActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 //               publish notification to all observers
-                dwelling.notifyAllObservers(ProfPageActivity.this);
+                searchDwelling.notifyAllObservers(ProfPageActivity.this);
 
             }
         });
