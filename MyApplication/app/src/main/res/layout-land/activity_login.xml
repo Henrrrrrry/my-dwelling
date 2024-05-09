@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0FAFA"
+    android:background="#FFF1EB"
     tools:context=".LoginActivity">
 
 
@@ -52,14 +52,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/welcome"
+        android:textColor="#FF7033"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#297373"
         app:layout_constraintBottom_toTopOf="@+id/usernameEditText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.083" />
 
     <TextView
         android:id="@+id/info"
