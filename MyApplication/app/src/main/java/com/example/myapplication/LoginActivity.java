@@ -17,7 +17,7 @@ import helper_classes_and_methods.DataLoader;
 import helper_classes_and_methods.User;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private EditText usernameEditText;
     private EditText passwordEditText;
