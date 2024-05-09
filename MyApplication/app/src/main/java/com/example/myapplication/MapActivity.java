@@ -7,9 +7,14 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListPopupWindow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,6 +32,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import helper_classes_and_methods.Dwelling;
 import helper_classes_and_methods.User;
@@ -35,6 +41,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     //    create a dwelling entity test: Dwelling dwelling= new Dwelling();
     private GoogleMap Mmap;
     private Location location;
+    private EditText userInput;
+    private ListPopupWindow listPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +55,29 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         User user = (User) getIntent().getExtras().getSerializable("USER");
 
         //search_text
-        EditText userInput=findViewById(R.id.search_text);
+        userInput = findViewById(R.id.search_text);
+        userInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() >= 3) {
+                    List<String> addressList = dataLoader.getBTree().getDwellings().stream()
+                            .map(Dwelling::getAddress)
+                            .filter(address -> address.toLowerCase()
+                                    .contains(s.toString().toLowerCase()))
+                            .collect(Collectors.toList());
+                    showListPopupWindow(addressList);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
         //Search button here
         Button searchButton = findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +90,31 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 intent.putExtra("Dwelling",searchDwelling);
                 intent.putExtra("User",user);
                 startActivity(intent);
+                finish();
             }
         });
 
+    }
+
+    private void showListPopupWindow(List<String> addressList) {
+        if (listPopupWindow != null && listPopupWindow.isShowing()) {
+            listPopupWindow.dismiss();
+            listPopupWindow = null;
+        }
+        listPopupWindow = new ListPopupWindow(this);
+        listPopupWindow.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, addressList));
+        listPopupWindow.setAnchorView(userInput);
+//        listPopupWindow.setModal(true);
+
+        listPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                userInput.setText(addressList.get(position));
+                listPopupWindow.dismiss();
+            }
+        });
+        listPopupWindow.show();
     }
 
     //    When the map is loaded this method would be called.

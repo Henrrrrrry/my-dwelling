@@ -45,7 +45,6 @@ public class ProfPageActivity extends BaseActivity {
         createNotificationChannel();
         // Initialize StorageHandler
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.FIRE_ALARM);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_page);
 
@@ -54,7 +53,6 @@ public class ProfPageActivity extends BaseActivity {
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
-
         User user = (User) getIntent().getExtras().getSerializable("User");
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
@@ -149,6 +147,7 @@ public class ProfPageActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent backIntent = new Intent(ProfPageActivity.this,MapActivity.class);
+                backIntent.putExtra("USER",user);
                 startActivity(backIntent);
             }
         });
