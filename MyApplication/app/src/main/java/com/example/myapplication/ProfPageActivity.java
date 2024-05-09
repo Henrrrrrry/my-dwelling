@@ -22,12 +22,15 @@ import helper_classes_and_methods.BuildingMaterial;
 import helper_classes_and_methods.Dwelling;
 import helper_classes_and_methods.Observer;
 import helper_classes_and_methods.User;
+import helper_classes_and_methods.StorageFactory;
+import helper_classes_and_methods.StorageHandler;
 //import android.widget.ImageView;
 
 public class ProfPageActivity extends BaseActivity {
     //                test case create channel ID
     public static final String CHANNEL_ID = "uniqueChannelId";
      ArrayList<Observer> observers1= new ArrayList<>();
+    private StorageHandler storageHandler;
 
     //private ImageView buildingImage;
     @Override
@@ -40,13 +43,14 @@ public class ProfPageActivity extends BaseActivity {
 //        User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
 //        observers1.add(user1);
         createNotificationChannel();
-
+        // Initialize StorageHandler
+        storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.FIRE_ALARM);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_page);
 
         ImageView buildingImage = findViewById(R.id.buildingImage);
-        buildingImage.setImageResource(R.drawable.img_default_building);
+//        buildingImage.setImageResource(R.drawable.img_default_building);
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
@@ -55,6 +59,8 @@ public class ProfPageActivity extends BaseActivity {
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
+        TextView buildingTitle= findViewById(R.id.address);
+        //address
         //TODO: this is test data reply with real data
         Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
 //        String[] building = {
@@ -66,15 +72,26 @@ public class ProfPageActivity extends BaseActivity {
 //        };
         //String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
 
-        String infoText = "Address: " + searchDwelling.getAddress() + "\n" +
+        String infoText = //"Address: " + searchDwelling.getAddress() + "\n" +
                 "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
                 "Year of construction: "+searchDwelling.getConstructionDate() + "\n" +
                 "Materials: "+searchDwelling.getBuildingMaterial();
         buildingInfo.setText(infoText);
+        buildingTitle.setText("Addr:"+searchDwelling.getAddress());
 
+        if(searchDwelling.getBuildingMaterial()==BuildingMaterial.BRICK){
+            buildingImage.setImageResource(R.drawable.brick);
+        } else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.STEEL) {
+            buildingImage.setImageResource(R.drawable.steel);
+        }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.CONCRETE) {
+            buildingImage.setImageResource(R.drawable.concrete);
+        }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.WOOD) {
+            buildingImage.setImageResource(R.drawable.wood);
+        }else{
+            buildingImage.setImageResource(R.drawable.img_default_building);
+        }
 
-
-        if (searchDwelling.getObservers().contains(user)) {
+            if (searchDwelling.getObservers().contains(user)) {
             followButton.setBackgroundColor(Color.rgb(128,128,128));
             followButton.setText("Unfollow");
         } else {
@@ -120,6 +137,8 @@ public class ProfPageActivity extends BaseActivity {
         fireAlarmNoti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Log fire alarm event
+                storageHandler.saveData(searchDwelling.getAddress(), "fire alarm triggered");
 //               publish notification to all observers
                 searchDwelling.notifyAllObservers(ProfPageActivity.this);
 

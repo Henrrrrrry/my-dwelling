@@ -17,7 +17,8 @@ import android.widget.Toast;
 import helper_classes_and_methods.BTree;
 import helper_classes_and_methods.DataLoader;
 import helper_classes_and_methods.User;
-
+import helper_classes_and_methods.StorageFactory;
+import helper_classes_and_methods.StorageHandler;
 
 public class LoginActivity extends BaseActivity {
 
@@ -25,6 +26,7 @@ public class LoginActivity extends BaseActivity {
     private EditText passwordEditText;
     private Button loginButton;
     private User user;
+    private StorageHandler storageHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class LoginActivity extends BaseActivity {
         user = new User();
         simulateUserInput();
 
+        storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.LOGIN);
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,8 +48,10 @@ public class LoginActivity extends BaseActivity {
                 String password = passwordEditText.getText().toString();
 
                 if (user.validateUserCredentials(username, password, getAssets())) {
-                    // Successful login, proceed to next activity
+                    // Successful login, save login status
                     Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                    storageHandler.saveData(username, "logged_in");
+
                     // Intent to next activity here
                     Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                     intent.putExtra("USER", user);
