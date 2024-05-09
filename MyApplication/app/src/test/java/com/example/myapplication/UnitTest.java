@@ -31,6 +31,7 @@ import java.util.ArrayList;
 
 import helper_classes_and_methods.*;
 import helper_classes_and_methods.DataLoader;
+import helper_classes_and_methods.parser.*;
 
 @RunWith(RobolectricTestRunner.class)
 public class UnitTest {
@@ -122,4 +123,42 @@ public class UnitTest {
         BTree bTree = new BTree(5, String::compareTo);
         assertNull(bTree.remove("nonexistent"));
     }
+
+//    parser tests
+    @Test
+    public void testValidConditionExpression() {
+    String expr = "a : b";
+    ExpressionParser parser = new ExpressionParser(expr);
+    Expression result = parser.getExpression();
+    assertNotNull(result);
+    assertTrue(result instanceof Condition);
+    assertEquals("a", ((Condition)result).getKey());
+    assertEquals("b", ((Condition)result).getValue());
+}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidExpressionIllegal() {
+        String expr = "a";
+        ExpressionParser parser = new ExpressionParser(expr);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidExpressionIllegalFormat() {
+        String expr = "a, b";
+        ExpressionParser parser = new ExpressionParser(expr);
+    }
+
+    @Test
+    public void testValidNotExpression() {
+        String expr = "not (a:b)";
+        ExpressionParser parser = new ExpressionParser(expr);
+        Expression result = parser.getExpression();
+        assertNotNull(result);
+        assertTrue(result instanceof NotExp);
+        assertTrue(((NotExp)result).getExpression() instanceof Condition);
+    }
+
+
+
+
 }
