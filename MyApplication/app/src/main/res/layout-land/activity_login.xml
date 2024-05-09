@@ -7,29 +7,19 @@
     android:background="#FFF1EB"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="158dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintBottom_toBottomOf="@+id/welcome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/app_logo" />
 
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:minHeight="48dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/username"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,17 +48,19 @@
 
     <TextView
         android:id="@+id/welcome"
-        android:textColor="#297373"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="64dp"
         android:text="@string/welcome"
+        android:textColor="#FF7033"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/usernameEditText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
 
     <TextView
         android:id="@+id/info"
