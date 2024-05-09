@@ -55,8 +55,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             public void onClick(View v) {
                 // get user's input
                 String inputStr = userInput.getText().toString();
-
+                Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
                 Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+                intent.putExtra("Dwelling",searchDwelling);
                 startActivity(intent);
             }
         });

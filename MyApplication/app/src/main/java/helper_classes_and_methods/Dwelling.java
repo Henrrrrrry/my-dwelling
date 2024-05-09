@@ -2,13 +2,14 @@ package helper_classes_and_methods;
 
 import android.content.Context;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class Dwelling implements  Subject {
+public class Dwelling implements  Subject, Serializable {
 
     public static class Location {
         double lat;
