@@ -110,8 +110,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         listPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                userInput.setText(addressList.get(position));
+                String addr = addressList.get(position);
+                userInput.setText(addr);
                 listPopupWindow.dismiss();
+                Dwelling dwelling = dataLoader.getBTree().get(addr);
+                LatLng latLng = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
+                Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20));
             }
         });
         listPopupWindow.show();
