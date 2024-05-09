@@ -12,4 +12,6 @@
     <string name="login_button">Login</string>
     <string name="author">COMP6442-G20</string>
     <string name="welcome">Welcome to MySafety</string>
+    <string name="search">search</string>
+    <string name="search_here">Search here</string>
 </resources>
