@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import helper_classes_and_methods.BuildingMaterial;
 import helper_classes_and_methods.Dwelling;
 import helper_classes_and_methods.Observer;
+import helper_classes_and_methods.RepairState;
 import helper_classes_and_methods.User;
 import helper_classes_and_methods.StorageFactory;
 import helper_classes_and_methods.StorageHandler;
@@ -29,19 +32,15 @@ import helper_classes_and_methods.StorageHandler;
 public class ProfPageActivity extends BaseActivity {
     //                test case create channel ID
     public static final String CHANNEL_ID = "uniqueChannelId";
-     ArrayList<Observer> observers1= new ArrayList<>();
+//     ArrayList<Observer> observers1= new ArrayList<>();
     private StorageHandler storageHandler;
 
     //private ImageView buildingImage;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        test case create fake info&channel
-//        User maintainer = new User("mok3@163.com","666666",true,"Xinfei");
-//        Dwelling.Location locationTest = new Dwelling.Location(-35.255290,149.145020);
-//        Dwelling dwelling= new Dwelling("41 davenport St", LocalDate.of(1948, Month.OCTOBER, 1),BuildingMaterial.WOOD,observers1,maintainer,locationTest);
-//        User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
-//        observers1.add(user1);
+
         createNotificationChannel();
         // Initialize StorageHandler
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.FIRE_ALARM);
@@ -53,22 +52,23 @@ public class ProfPageActivity extends BaseActivity {
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
+
+
         User user = (User) getIntent().getExtras().getSerializable("User");
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
         TextView buildingTitle= findViewById(R.id.address);
         //address
-        //TODO: this is test data reply with real data
+
         Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
-//        String[] building = {
-//                searchDwelling.getAddress(),
-//                String.valueOf(searchDwelling.getSeismicRating()),
-//                String.valueOf(searchDwelling.isFireAlarm()),
-//                String.valueOf(searchDwelling.getConstructionDate()),
-//                String.valueOf(searchDwelling.getBuildingMaterial())
-//        };
-        //String[] building = {"1234 Main St","7","True", "1990", "30", "Concrete"};//string[] sample for display test
+
+        Button repairButton = findViewById(R.id.repairButton);
+        if (!(searchDwelling.needsRepair())){
+            repairButton.setEnabled(false);
+            repairButton.setText("Don't need Repair");
+        }
+
 
         String infoText = //"Address: " + searchDwelling.getAddress() + "\n" +
                 "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
@@ -109,7 +109,7 @@ public class ProfPageActivity extends BaseActivity {
 //                    tell users they have unfollowed and next time click on the button will follow again
                     followButton.setBackgroundColor(Color.rgb(0,0,128));
                     followButton.setText("Follow");
-                    System.out.println(searchDwelling.getObservers());
+//                    System.out.println(searchDwelling.getObservers());
                     Toast.makeText(getApplicationContext(),"you have unfollowed",Toast.LENGTH_SHORT).show();
 
                 }
@@ -120,7 +120,7 @@ public class ProfPageActivity extends BaseActivity {
 //                    tell users they have followed and next time click on the button will unfollow
                     followButton.setBackgroundColor(Color.rgb(128,128,128));
                     followButton.setText("Unfollow");
-                    System.out.println(searchDwelling.getObservers());
+//                    System.out.println(searchDwelling.getObservers());
                     Toast.makeText(getApplicationContext(),"you have followed",Toast.LENGTH_SHORT).show();
                 }
 
@@ -146,14 +146,42 @@ public class ProfPageActivity extends BaseActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backIntent = new Intent(ProfPageActivity.this,MapActivity.class);
-                backIntent.putExtra("USER",user);
-                startActivity(backIntent);
+                finish();
+            }
+        });
+        repairButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Thank you for your maintenance",Toast.LENGTH_SHORT).show();
+                repairButton.setEnabled(false);
+
+                Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
+                // start animation
+                repairButton.startAnimation(fadeOut);
+
+                // set animation
+                fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                        repairButton.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
             }
         });
 
     }
-//    create a new channel, not sure should it be created in login activity or here
+//    create a new channel
     private void createNotificationChannel() {
         CharSequence name = "NotificationChannel";
         String description = "This is a channel for notification, with this the notification can post in noti bar";
