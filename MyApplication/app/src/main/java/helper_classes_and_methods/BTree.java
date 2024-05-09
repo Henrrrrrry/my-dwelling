@@ -297,28 +297,35 @@ public class BTree {
     }
 
 
-    public List<LocationState> getAllLocationsAndStates() {
-        List<LocationState> locationsAndStates = new ArrayList<>();
-        Locationandstate(root, locationsAndStates);
-        return locationsAndStates;
+    public List<Dwelling> searchPrefix(String prefix) {
+        List<Dwelling> result = new ArrayList<>();
+        searchPrefixHelper(prefix, root, result);
+        return result;
     }
 
-    private void Locationandstate(BTreeNode node, List<LocationState> locationsAndStates) {
+    private void searchPrefixHelper(String prefix, BTreeNode node, List<Dwelling> result) {
         if (node == null) {
             return;
         }
-        int numKeys = node.elements.size();
-        for (int i = 0; i < numKeys; i++) {
-            if (!node.isLeaf()) {
-                Locationandstate(node.children.get(i), locationsAndStates);
+
+        int i = 0;
+        while (i < node.elements.size()) {
+            Element element = node.elements.get(i);
+            String key = element.getKey();
+            if (key.startsWith(prefix)) {
+                result.add(element.getValue());
+                searchPrefixHelper(prefix, node.children.get(i), result);
+                i++;
+            } else if (key.compareTo(prefix) > 0) {
+                searchPrefixHelper(prefix, node.children.get(i), result);
+                break;
+            } else {
+                i++;
             }
-            Dwelling dwelling = node.elements.get(i).getValue();
-            Dwelling.Location location = dwelling.getLocation();
-            String state = dwelling.getDwellingState().getClass().getSimpleName();
-            locationsAndStates.add(new LocationState(location, state));
         }
+
         if (!node.isLeaf()) {
-            Locationandstate(node.children.get(numKeys), locationsAndStates);
+            searchPrefixHelper(prefix, node.children.get(i), result);
         }
     }
 
