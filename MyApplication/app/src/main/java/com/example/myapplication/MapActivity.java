@@ -98,10 +98,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
     private void addMarkers() { //markers all dwelling on the initial map
         for (Dwelling d : dataLoader.getBTree().getDwellings()) {
-//            addOneMarker(new LatLng(d.getLocation().getLat(),
-//                    d.getLocation().getLng()), d.getSeismicRating());
             addOneMarker(new LatLng(d.getLocation().getLat(),
-                    d.getLocation().getLng()), 5);
+                    d.getLocation().getLng()), d.getSeismicRating());
+//            addOneMarker(new LatLng(d.getLocation().getLat(),
+//                    d.getLocation().getLng()), 5);
         }
     }
     private void addOneMarker(LatLng coordinates,int colorType){ //add single mark with special color
