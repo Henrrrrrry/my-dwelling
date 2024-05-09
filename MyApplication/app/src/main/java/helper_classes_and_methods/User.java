@@ -127,7 +127,12 @@ public class User implements Observer, Serializable {
         }
         notificationCompat.notify(0, notification);
     }
-
+    /**
+     * Author: Xinfei Li
+     * ID: u7785177
+     * Create: 29/04/2024   6:00 pm
+     * Last Edit: 30/04/2024   12:00 pm
+     */
     // Method to read user data from a CSV file and validate credentials
     public boolean validateUserCredentials(String inputUsername, String inputPassword, AssetManager assetManager) {
         BufferedReader bufferedReader = null;

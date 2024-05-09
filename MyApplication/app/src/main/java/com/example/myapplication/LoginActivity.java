@@ -20,6 +20,12 @@ import helper_classes_and_methods.User;
 import helper_classes_and_methods.StorageFactory;
 import helper_classes_and_methods.StorageHandler;
 
+/**
+ * Author: Xinfei Li
+ * ID: u7785177
+ * Create: 28/04/2024   6:00 pm
+ * Last Edit: 10/05/2024   02:20 am
+ */
 public class LoginActivity extends BaseActivity {
 
     private EditText usernameEditText;
@@ -37,7 +43,7 @@ public class LoginActivity extends BaseActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         user = new User();
-        simulateUserInput();
+//        simulateUserInput();
 
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.LOGIN);
 

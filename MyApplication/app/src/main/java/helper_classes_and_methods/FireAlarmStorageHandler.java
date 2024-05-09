@@ -1,45 +1,41 @@
 package helper_classes_and_methods;
 
 import android.content.Context;
-import android.os.Environment;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import android.content.SharedPreferences;
+import java.util.Map;
 
+/**
+ * Author: Xinfei Li
+ * ID: u7785177
+ * Create: 09/05/2024   7:00 pm
+ * Last Edit: 10/05/2024   02:20 am
+ */
 public class FireAlarmStorageHandler implements StorageHandler {
-    private File file;
+    private SharedPreferences sharedPreferences;
 
     public FireAlarmStorageHandler(Context context) {
-        File dir = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "FireAlarmLogs");
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-        file = new File(dir, "fire_alarm_log.txt");
+        this.sharedPreferences = context.getSharedPreferences("FireAlarmHistory", Context.MODE_PRIVATE);
     }
 
     @Override
-    public void saveData(String key, String value) {
-        try (FileWriter writer = new FileWriter(file, true)) {
-            writer.append(key).append(": ").append(value).append("\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void saveData(String dwelling, String message) {
+        String timestamp = TimeUtil.getCurrentTimestamp();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(timestamp, "Dwelling: "+dwelling + " - Activity: " + message);
+        editor.apply();
     }
 
     @Override
-    public String loadData(String key) {
-        try (Scanner scanner = new Scanner(file)) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                if (line.startsWith(key + ": ")) {
-                    return line.substring(key.length() + 2);
-                }
+    public String loadData(String partialTime) {
+        Map<String, ?> allEntries = sharedPreferences.getAll();
+        StringBuilder result = new StringBuilder();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            if (entry.getKey().startsWith(partialTime)) { // Checks if the key (timestamp) starts with the provided partialTime
+                result.append(entry.getKey()).append(" - ").append(entry.getValue().toString()).append("\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return null;
+        return result.length() > 0 ? result.toString() : null;
     }
 }
+
 

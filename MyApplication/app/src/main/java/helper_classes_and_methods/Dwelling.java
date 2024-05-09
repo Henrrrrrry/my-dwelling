@@ -83,10 +83,14 @@ public class Dwelling implements  Subject, Serializable {
 
 
 
-
     /**
      * Method to determine if the building needs repairs
      * @return true for need repair and false for no need
+     *
+     * Author: Xinfei Li
+     * ID: u7785177
+     * Create: 29/04/2024   6:00 pm
+     * Last Edit: 30/04/2024   12:00 pm
      */
     public void needsRepair() {
         LocalDate currentDate = LocalDate.now(); // Get the current date
@@ -112,9 +116,13 @@ public class Dwelling implements  Subject, Serializable {
      * Method to perform repairs on the building
      * Updating the lastRepairDate, set the strength to the initial strength
      * divide it by 10 to update the seismicRating
+     *
+     * Author: Xinfei Li
+     * ID: u7785177
+     * Create: 29/04/2024   6:00 pm
+     * Last Edit: 30/04/2024   12:00 pm
+     *
      */
-
-    //
     public void repair() {
         LocalDate currentDate = LocalDate.now(); // Get the current date
 
@@ -139,6 +147,11 @@ public class Dwelling implements  Subject, Serializable {
      * use strength = initialStrength - corrosionFactor * daysSinceLastRepair to get the strength
      * divide it by 10 to update the seismicRating
      * @return seismicRating
+     *
+     * Author: Xinfei Li
+     * ID: u7785177
+     * Create: 29/04/2024   6:00 pm
+     * Last Edit: 09/05/2024   11:00 pm
      */
     public int getSeismicRating() {
         LocalDate currentDate = LocalDate.now(); // Get the current date
