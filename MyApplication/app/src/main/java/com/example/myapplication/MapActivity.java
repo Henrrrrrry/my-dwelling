@@ -93,7 +93,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             public void onClick(View v) {
                 // get user's input
                 String inputStr = userInput.getText().toString();
-
                 Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
                 if (searchDwelling!=null){
                     LatLng latLng = new LatLng(searchDwelling.getLocation().getLat(),  searchDwelling.getLocation().getLng());
@@ -122,8 +121,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         listPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                userInput.setText(addressList.get(position));
-//                listPopupWindow.dismiss();
                 String addr = addressList.get(position);
                 userInput.setText(addr);
                 listPopupWindow.dismiss();
@@ -226,5 +223,4 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     private float getHueFromColorType(int colorType) {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
     }
-
 }
