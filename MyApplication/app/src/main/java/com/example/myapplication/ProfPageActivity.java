@@ -50,7 +50,7 @@ public class ProfPageActivity extends BaseActivity {
         setContentView(R.layout.activity_prof_page);
 
         ImageView buildingImage = findViewById(R.id.buildingImage);
-        buildingImage.setImageResource(R.drawable.img_default_building);
+//        buildingImage.setImageResource(R.drawable.img_default_building);
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
@@ -76,9 +76,19 @@ public class ProfPageActivity extends BaseActivity {
                 "Materials: "+searchDwelling.getBuildingMaterial();
         buildingInfo.setText(infoText);
 
+        if(searchDwelling.getBuildingMaterial()==BuildingMaterial.BRICK){
+            buildingImage.setImageResource(R.drawable.brick);
+        } else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.STEEL) {
+            buildingImage.setImageResource(R.drawable.steel);
+        }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.CONCRETE) {
+            buildingImage.setImageResource(R.drawable.concrete);
+        }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.WOOD) {
+            buildingImage.setImageResource(R.drawable.wood);
+        }else{
+            buildingImage.setImageResource(R.drawable.img_default_building);
+        }
 
-
-        if (searchDwelling.getObservers().contains(user)) {
+            if (searchDwelling.getObservers().contains(user)) {
             followButton.setBackgroundColor(Color.rgb(128,128,128));
             followButton.setText("Unfollow");
         } else {

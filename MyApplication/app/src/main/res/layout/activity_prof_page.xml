@@ -23,7 +23,7 @@
     <!-- buildingImage -->
     <ImageView
         android:id="@+id/buildingImage"
-        android:layout_width="0dp"
+        android:layout_width="400dp"
         android:layout_height="200dp"
         android:layout_margin="16dp"
         android:background="#FFFFFF"
