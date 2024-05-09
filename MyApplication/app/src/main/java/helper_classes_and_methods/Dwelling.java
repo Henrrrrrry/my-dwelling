@@ -92,7 +92,7 @@ public class Dwelling implements  Subject, Serializable {
      * Create: 29/04/2024   6:00 pm
      * Last Edit: 30/04/2024   12:00 pm
      */
-    public void needsRepair() {
+    public boolean needsRepair() {
         LocalDate currentDate = LocalDate.now(); // Get the current date
         int daysSinceLastRepair = (int) java.time.temporal.ChronoUnit.DAYS.between(this.lastRepairDate, currentDate); // Calculate days since last repair
 
@@ -106,10 +106,14 @@ public class Dwelling implements  Subject, Serializable {
             double strengthAfterCorrosion = initialStrength - corrosionFactor * daysSinceLastRepair;
 
             // Check if the updated seismic rating is below the repair threshold
-            if(strengthAfterCorrosion < this.buildingMaterial.getRepairThreshold())
+            if(strengthAfterCorrosion < this.buildingMaterial.getRepairThreshold()){
                 this.dwellingState = new RepairState();
+                return true;
+            }
+
         }
         this.dwellingState = new NormalState(); // No repair needed if less than 1 day since last repair
+        return false;
     }
 
     /**
@@ -182,12 +186,6 @@ public class Dwelling implements  Subject, Serializable {
     public LocalDate getConstructionDate() {
         return constructionDate;
     }
-
-
-    public BuildingMaterial getBuildingMaterials() {
-        return buildingMaterial;
-    }
-
 
     public boolean isFireAlarm() {
         return fireAlarm;
