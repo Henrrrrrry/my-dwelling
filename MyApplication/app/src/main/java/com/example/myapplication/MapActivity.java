@@ -22,6 +22,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -69,7 +70,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         addMarkers();
         viewCurrentLocation();//Ask for users current location
         //LatLng Canberra = new LatLng(-35.2966, 149.1290); seeCurrent(Canberra);//for test
+        Mmap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                marker.showInfoWindow();
+                return true;
+            }
+        });
     }
+
 
     private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;
@@ -115,10 +124,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
     private void addMarkers() { //markers all dwelling on the initial map
         for (Dwelling d : dataLoader.getBTree().getDwellings()) {
-//            addOneMarker(new LatLng(d.getLocation().getLat(),
-//                    d.getLocation().getLng()), d.getSeismicRating());
             addOneMarker(new LatLng(d.getLocation().getLat(),
-                    d.getLocation().getLng()), 5);
+                    d.getLocation().getLng()), d.getSeismicRating());
+//            addOneMarker(new LatLng(d.getLocation().getLat(),
+//                    d.getLocation().getLng()), 5);
         }
     }
     private void addOneMarker(LatLng coordinates,int colorType){ //add single mark with special color
