@@ -4,10 +4,6 @@ This following is a very simple team meeting template. You should expand it base
 ## Team Meeting [2] - Week [8] - [April 27] (3PM-4PM)
 **Absent:**
 <br>Juliang Xiao
-<br>Hongyu Li
-<br>Xinfei Li
-<br>Xinrui Zhang
-<br>Yujing Zhang
 
 **scribe:**
 Yujing Zhang
@@ -37,8 +33,7 @@ Stand up Procedure:
 | [Task 1:Create unit & espresso test cases, continue learning instrumented test cases.]                                                 |  [Hongyu Li]   |  [May 2]   |
 | [Task 2:Compare seismic grade representation methods and display seismicRating on the map page.]                                       | [Yujing Zhang] | [May 2] |
 | [Task 3：Develop and integrate repair and seismic assessment methods, enhance the Login activity, and continue XML parser development.] |  [Xinfei Li]   | [May 2] |
-| [Task 4：Create sufficient number of building instances and store data in a B-tree structure.]                                          | [Xinrui Zhang] | [May 2] |
-| [Task 5：Complete the structure and functions of the B-Tree and develop input and filtering functions for the filter page.]                                                                                                                              | [Juliang xiao] | [May 2] |
+| [Task 4：Create sufficient number of building instances and store data in a B-tree structure.]                                          | [Xinrui Zhang] | [May 2] | | [Juliang xiao] | [May 2] |
 
 
 
