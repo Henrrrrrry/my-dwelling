@@ -43,7 +43,8 @@ public class ProfPageActivity extends BaseActivity {
 //        User user1 = new User("a2546556102@gmail.com", "123456",false,"Henry");
 //        observers1.add(user1);
         createNotificationChannel();
-
+        // Initialize StorageHandler
+        storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.FIRE_ALARM);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_page);
@@ -123,6 +124,8 @@ public class ProfPageActivity extends BaseActivity {
         fireAlarmNoti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Log fire alarm event
+                storageHandler.saveData(searchDwelling.getAddress(), "fire alarm triggered");
 //               publish notification to all observers
                 searchDwelling.notifyAllObservers(ProfPageActivity.this);
 
