@@ -43,7 +43,7 @@ public class LoginActivity extends BaseActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         user = new User();
-//        simulateUserInput();
+        simulateUserInput();
 
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.LOGIN);
 

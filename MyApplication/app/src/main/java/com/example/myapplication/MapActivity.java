@@ -51,6 +51,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     private EditText userInput;
     private ListPopupWindow listPopupWindow;
     User user;
+    private Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         user = (User) getIntent().getExtras().getSerializable("USER");
+        simulateSearch();
 
 
         //search_text
@@ -87,7 +89,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
         //Search button here
-        Button searchButton = findViewById(R.id.search_button);
+         searchButton = findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +98,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
                 if (searchDwelling!=null){
                     LatLng latLng = new LatLng(searchDwelling.getLocation().getLat(),  searchDwelling.getLocation().getLng());
-                    Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20));
+                    Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 19));
                 }
                 else {
                     Toast.makeText(MapActivity.this, "Address not found.", Toast.LENGTH_SHORT).show();
@@ -124,9 +126,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 String addr = addressList.get(position);
                 userInput.setText(addr);
                 listPopupWindow.dismiss();
-                Dwelling dwelling = dataLoader.getBTree().get(addr);
-                LatLng latLng = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
-                Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20));
+//                Dwelling dwelling = dataLoader.getBTree().get(addr);
+//                LatLng latLng = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
+//                Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20));
 
             }
         });
@@ -223,4 +225,63 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     private float getHueFromColorType(int colorType) {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
     }
+
+
+    private void simulateSearch() {
+        // write "ACT"
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                userInput.setText("ACT");
+                // mock a list
+                List<String> addressList = dataLoader.getBTree().getDwellings().stream()
+                        .map(Dwelling::getAddress)
+                        .filter(address -> address.toLowerCase().contains("act"))
+                        .collect(Collectors.toList());
+                showListPopupWindow(addressList);
+            }
+        }, 2000);
+
+        // click the third address in the list
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (listPopupWindow != null) {
+                    listPopupWindow.getListView().performItemClick(
+                            listPopupWindow.getListView().getAdapter().getView(1, null, null),
+                            1,
+                            listPopupWindow.getListView().getAdapter().getItemId(1)
+                    );
+                }
+            }
+        }, 5000);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                searchButton.performClick();
+            }
+        },8000);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                Dwelling dwelling = dataLoader.getBTree().get(userInput.getText().toString());
+                if (dwelling != null) {
+                    LatLng latLng = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
+
+                    onMarkerClicked(dwelling);
+                }
+            }
+        }, 13000);
+    }
+//since there's no performclick for info window, so use this mock clicking on info window
+    private void onMarkerClicked(Dwelling dwelling) {
+        Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+        intent.putExtra("Dwelling", dwelling);
+        intent.putExtra("User", user);
+        startActivity(intent);
+    }
+
 }

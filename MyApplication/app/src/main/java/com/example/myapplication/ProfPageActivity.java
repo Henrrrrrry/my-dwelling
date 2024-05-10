@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -46,6 +48,7 @@ public class ProfPageActivity extends BaseActivity {
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.FIRE_ALARM);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_page);
+        simulateDataProfilePage();
 
         ImageView buildingImage = findViewById(R.id.buildingImage);
 //        buildingImage.setImageResource(R.drawable.img_default_building);
@@ -152,31 +155,33 @@ public class ProfPageActivity extends BaseActivity {
         repairButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Thank you for your maintenance",Toast.LENGTH_SHORT).show();
-                repairButton.setEnabled(false);
+                if (repairButton.isEnabled()){
+                    Toast.makeText(getApplicationContext(),"Thank you for your maintenance",Toast.LENGTH_SHORT).show();
+                    repairButton.setEnabled(false);
 
-                Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
-                // start animation
-                repairButton.startAnimation(fadeOut);
+                    Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
+                    // start animation
+                    repairButton.startAnimation(fadeOut);
 
-                // set animation
-                fadeOut.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
+                    // set animation
+                    fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
 
-                        repairButton.setVisibility(View.GONE);
-                    }
+                            repairButton.setVisibility(View.GONE);
+                        }
 
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
 
-                    }
-                });
+                        }
+                    });}
+
             }
         });
 
@@ -190,6 +195,38 @@ public class ProfPageActivity extends BaseActivity {
         channel.setDescription(description);
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
+    }
+
+    private void simulateDataProfilePage() {
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Button fireAlarmButton = findViewById(R.id.fireAlarmButton);
+            fireAlarmButton.performClick();
+        }, 0);
+
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Button followButton = findViewById(R.id.followButton);
+            followButton.performClick();
+        }, 3000);
+
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Button fireAlarmButton = findViewById(R.id.fireAlarmButton);
+            fireAlarmButton.performClick();
+        }, 6000);
+
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Button repairButton = findViewById(R.id.repairButton);
+            repairButton.performClick();
+        }, 9000);
+
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Button backButton = findViewById(R.id.backButton);
+            backButton.performClick();
+        }, 12000);
     }
 
 
