@@ -36,6 +36,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +63,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         user = (User) getIntent().getExtras().getSerializable("USER");
-        simulateSearch();
+//        simulateSearch();
 
 
         //search_text
@@ -106,6 +108,25 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
             }
         });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+                    int itemId = item.getItemId();
+                    if (itemId == R.id.nav_map) {
+                        viewCurrentLocation();
+                        return true;
+                    } else if (itemId == R.id.nav_user) {
+
+                        if (!(getApplicationContext() instanceof UserActivity)) {
+                            Intent intent = new Intent(this, UserActivity.class);
+                            intent.putExtra("User",user);
+                            startActivity(intent);
+                        }
+                        return true;
+                    }
+                    return false;
+                }
+
+        );
 
     }
 
