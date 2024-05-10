@@ -1,5 +1,5 @@
 username,password,isMaintainer,userID
 admin,admin,true,admin
-comp2100@anu.edu.au,comp2100,true,Bernardo
+comp2100@anu.edu.au,comp2100,false,Bernardo
 comp6442@anu.edu.au,comp6442,true,Bernardo
 Test,1234,false,Lucy
