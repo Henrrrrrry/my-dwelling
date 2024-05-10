@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/myProGreeting"
+            android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -36,17 +36,17 @@
             android:textSize="24dp"
             android:textStyle="bold" />
 
+
         <TextView
-            android:id="@+id/userName"
+            android:id="@+id/messagetitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:padding="8dp"
             android:text="all messages"
-            android:layout_marginLeft="10dp"
             android:textColor="@color/themeOrange"
             android:textSize="18dp"
             android:textStyle="bold" />
-
 
         <ListView
             android:id="@+id/logList"
