@@ -65,7 +65,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         user = (User) getIntent().getExtras().getSerializable("USER");
 //        simulateSearch();
 
-
         //search_text
         userInput = findViewById(R.id.search_text);
         userInput.addTextChangedListener(new TextWatcher() {

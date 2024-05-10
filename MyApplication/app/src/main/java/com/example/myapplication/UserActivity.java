@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,8 +20,9 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         user = (User) getIntent().getExtras().getSerializable("User");
-
-
+        ListView logList = findViewById(R.id.logList);
+        TextView userName = findViewById(R.id.userName);
+        userName.setText("Welcom!  "+user.getUserID());
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.nav_user);
