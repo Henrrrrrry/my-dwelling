@@ -174,11 +174,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     private List<Dwelling> searchWithParser(String input) {
         List<Dwelling> filteredDwellings;
+        Expression expression = null;
         try {
             ExpressionParser expressionParser = new ExpressionParser(input);
-            Log.d("SearchWithParser", "Starting search with input: " + input);
-            Expression expression = expressionParser.getExpression();
-            Log.d("SearchWithParser", "Expression parsed from input: " + expression);
+            expression = expressionParser.getExpression();
 
             List<Dwelling> dwellings = dataLoader.getBTree().getDwellings();
             filteredDwellings = new ArrayList<>();
@@ -187,8 +186,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                     filteredDwellings.add(dwelling);
                 }
             }
-            Log.d("SearchWithParser", "Filtered " + filteredDwellings.size() + " dwellings based on the search expression");
-            Log.d("SearchWithParser", "Filtered Dwellings: " + filteredDwellings);
+
+
         } catch (IllegalArgumentException e) {
             Toast.makeText(this, "Invalid input for search.", Toast.LENGTH_SHORT).show();
             return new ArrayList<>();
@@ -200,8 +199,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         Mmap.clear();
         for (Dwelling dwelling : dwellings) {
             LatLng location = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
-            Marker marker = Mmap.addMarker(new MarkerOptions().position(location).title(dwelling.getAddress()));
-            marker.setTag(dwelling); // 将Dwelling对象与标记关联
+            float color = getHueFromColorType(dwelling.getSeismicRating());
+            Marker marker = Mmap.addMarker(new MarkerOptions()
+                    .position(location)
+                    .icon(BitmapDescriptorFactory.defaultMarker(color))
+                    .title(dwelling.getAddress() + ", SR: " + dwelling.getSeismicRating())); // Displaying seismic rating in the marker title
+            marker.setTag(dwelling);
         }
         if (!dwellings.isEmpty()) {
             // Zoom to the first dwelling
@@ -214,7 +217,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         Mmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Dwelling dwelling = (Dwelling) marker.getTag(); // 获取与标记关联的Dwelling对象
+                Dwelling dwelling = (Dwelling) marker.getTag(); // Retrieve the Dwelling object associated with the marker
                 if (dwelling != null) {
                     Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
                     intent.putExtra("Dwelling", dwelling);
@@ -230,6 +233,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         if (expression instanceof Condition) {
             Condition condition = (Condition) expression;
             String valueWithoutQuotes = condition.getValue().replace("\"", "");
+            Log.d("EvaluateExpression", "Evaluating condition: " + condition.getKey() + " - " + valueWithoutQuotes);
             switch (condition.getKey()) {
                 case "address":
                     return dwelling.getAddress().contains(valueWithoutQuotes);
@@ -247,12 +251,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                     return false;
             }
         } else if (expression instanceof AndExp) {
+            Log.d("EvaluateExpression", "Evaluating AND expression");
             return evaluateExpression(((AndExp) expression).getLeft(), dwelling) &&
                     evaluateExpression(((AndExp) expression).getRight(), dwelling);
         } else if (expression instanceof OrExp) {
+            Log.d("EvaluateExpression", "Evaluating OR expression");
             return evaluateExpression(((OrExp) expression).getLeft(), dwelling) ||
                     evaluateExpression(((OrExp) expression).getRight(), dwelling);
         } else if (expression instanceof NotExp) {
+            Log.d("EvaluateExpression", "Evaluating NOT expression");
             return !evaluateExpression(((NotExp) expression).getExpression(), dwelling);
         }
         return false;
