@@ -105,12 +105,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 String inputStr = userInput.getText().toString();
 
                 if (inputStr.contains(":")) {
-                    // If the input contains ":", use the search method with the expression parser
+                    // Use the expression parser if the input seems to be an expression
                     List<Dwelling> searchResults = searchWithParser(inputStr);
                     if (!searchResults.isEmpty()) {
-                        Dwelling dwelling = searchResults.get(0);
-                        LatLng latLng = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
-                        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 19));
+                        showDwellingsOnMap(searchResults);
                     } else {
                         Toast.makeText(MapActivity.this, "No matching dwellings found.", Toast.LENGTH_SHORT).show();
                     }
@@ -196,6 +194,35 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             return new ArrayList<>();
         }
         return filteredDwellings;
+    }
+
+    private void showDwellingsOnMap(List<Dwelling> dwellings) {
+        Mmap.clear();
+        for (Dwelling dwelling : dwellings) {
+            LatLng location = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
+            Marker marker = Mmap.addMarker(new MarkerOptions().position(location).title(dwelling.getAddress()));
+            marker.setTag(dwelling); // 将Dwelling对象与标记关联
+        }
+        if (!dwellings.isEmpty()) {
+            // Zoom to the first dwelling
+            LatLng firstLoc = new LatLng(dwellings.get(0).getLocation().getLat(), dwellings.get(0).getLocation().getLng());
+            Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(firstLoc, 15));
+        } else {
+            Toast.makeText(this, "No dwellings match the criteria.", Toast.LENGTH_SHORT).show();
+        }
+
+        Mmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Dwelling dwelling = (Dwelling) marker.getTag(); // 获取与标记关联的Dwelling对象
+                if (dwelling != null) {
+                    Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+                    intent.putExtra("Dwelling", dwelling);
+                    intent.putExtra("User", user);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
 
