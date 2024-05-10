@@ -14,6 +14,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,6 +46,12 @@ import java.util.stream.Collectors;
 
 import helper_classes_and_methods.Dwelling;
 import helper_classes_and_methods.User;
+import helper_classes_and_methods.parser.AndExp;
+import helper_classes_and_methods.parser.Condition;
+import helper_classes_and_methods.parser.Expression;
+import helper_classes_and_methods.parser.ExpressionParser;
+import helper_classes_and_methods.parser.NotExp;
+import helper_classes_and_methods.parser.OrExp;
 
 public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
@@ -90,21 +97,33 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
         //Search button here
-         searchButton = findViewById(R.id.search_button);
+        searchButton = findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // get user's input
                 String inputStr = userInput.getText().toString();
-                Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
-                if (searchDwelling!=null){
-                    LatLng latLng = new LatLng(searchDwelling.getLocation().getLat(),  searchDwelling.getLocation().getLng());
-                    Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 19));
-                }
-                else {
-                    Toast.makeText(MapActivity.this, "Address not found.", Toast.LENGTH_SHORT).show();
-                }
 
+                if (inputStr.contains(":")) {
+                    // If the input contains ":", use the search method with the expression parser
+                    List<Dwelling> searchResults = searchWithParser(inputStr);
+                    if (!searchResults.isEmpty()) {
+                        Dwelling dwelling = searchResults.get(0);
+                        LatLng latLng = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
+                        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 19));
+                    } else {
+                        Toast.makeText(MapActivity.this, "No matching dwellings found.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // If the input doesn't contain ":", use the simple search method
+                    Dwelling searchDwelling = dataLoader.getBTree().get(inputStr);
+                    if (searchDwelling != null) {
+                        LatLng latLng = new LatLng(searchDwelling.getLocation().getLat(), searchDwelling.getLocation().getLng());
+                        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 19));
+                    } else {
+                        Toast.makeText(MapActivity.this, "Address not found.", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -154,6 +173,65 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         });
         listPopupWindow.show();
     }
+
+    private List<Dwelling> searchWithParser(String input) {
+        List<Dwelling> filteredDwellings;
+        try {
+            ExpressionParser expressionParser = new ExpressionParser(input);
+            Log.d("SearchWithParser", "Starting search with input: " + input);
+            Expression expression = expressionParser.getExpression();
+            Log.d("SearchWithParser", "Expression parsed from input: " + expression);
+
+            List<Dwelling> dwellings = dataLoader.getBTree().getDwellings();
+            filteredDwellings = new ArrayList<>();
+            for (Dwelling dwelling : dwellings) {
+                if (evaluateExpression(expression, dwelling)) {
+                    filteredDwellings.add(dwelling);
+                }
+            }
+            Log.d("SearchWithParser", "Filtered " + filteredDwellings.size() + " dwellings based on the search expression");
+            Log.d("SearchWithParser", "Filtered Dwellings: " + filteredDwellings);
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(this, "Invalid input for search.", Toast.LENGTH_SHORT).show();
+            return new ArrayList<>();
+        }
+        return filteredDwellings;
+    }
+
+
+    private boolean evaluateExpression(Expression expression, Dwelling dwelling) {
+        if (expression instanceof Condition) {
+            Condition condition = (Condition) expression;
+            String valueWithoutQuotes = condition.getValue().replace("\"", "");
+            switch (condition.getKey()) {
+                case "address":
+                    return dwelling.getAddress().contains(valueWithoutQuotes);
+                case "constructionDate":
+                    return dwelling.getConstructionDate().toString().equals(valueWithoutQuotes);
+                case "fireAlarm":
+                    return (dwelling.isFireAlarm() == Boolean.parseBoolean(valueWithoutQuotes));
+                case "buildingMaterial":
+                    return dwelling.getBuildingMaterial().toString().equalsIgnoreCase(valueWithoutQuotes);
+                case "dwellingState":
+                    return dwelling.getDwellingState().toString().equalsIgnoreCase(valueWithoutQuotes);
+                case "lastRepairDate":
+                    return dwelling.getLastRepairDate().toString().equals(valueWithoutQuotes);
+                default:
+                    return false;
+            }
+        } else if (expression instanceof AndExp) {
+            return evaluateExpression(((AndExp) expression).getLeft(), dwelling) &&
+                    evaluateExpression(((AndExp) expression).getRight(), dwelling);
+        } else if (expression instanceof OrExp) {
+            return evaluateExpression(((OrExp) expression).getLeft(), dwelling) ||
+                    evaluateExpression(((OrExp) expression).getRight(), dwelling);
+        } else if (expression instanceof NotExp) {
+            return !evaluateExpression(((NotExp) expression).getExpression(), dwelling);
+        }
+        return false;
+    }
+
+
 
     //    When the map is loaded this method would be called.
     @SuppressLint("PotentialBehaviorOverride")
