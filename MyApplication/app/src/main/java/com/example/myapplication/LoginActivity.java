@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity {
         loginButton = findViewById(R.id.loginButton);
         user = new User();
 //        uncomment to utilize simulating data stream
-        simulateUserInput();
+//        simulateUserInput();
 
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.LOGIN);
 
