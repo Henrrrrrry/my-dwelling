@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,7 @@ import helper_classes_and_methods.*;
 public class UserActivity extends AppCompatActivity {
     User user;
     private StorageHandler fireAlarmStorageHandler;
+    private StorageHandler loginStorageHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +29,39 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         user = (User) getIntent().getExtras().getSerializable("User");
-        ListView logList = findViewById(R.id.logList);
+
         TextView userName = findViewById(R.id.userName);
         userName.setText("Welcome!  "+user.getUserID());
 
-        fireAlarmStorageHandler = new FireAlarmStorageHandler(this);
+        ListView logList = findViewById(R.id.logList);
+
+//        fireAlarmStorageHandler = new FireAlarmStorageHandler(this);
+//        List<String> fireAlarmData = fireAlarmStorageHandler.loadAllLogs();
+//        ArrayAdapter<String> fireALarmAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fireAlarmData);
+//        fireAlarmLogList.setAdapter(fireALarmAdapter);
+//
+//        ListView loginLogList = findViewById(R.id.loginLogList);
+//        loginStorageHandler = new LoginStorageHandler(this);
+//        List<String> loginData = loginStorageHandler.loadAllLogs();
+//        ArrayAdapter<String> loginAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, loginData);
+//        loginLogList.setAdapter(loginAdapter);
+        // Fire Alarm Logs
+        FireAlarmStorageHandler fireAlarmStorageHandler = new FireAlarmStorageHandler(this);
         List<String> fireAlarmData = fireAlarmStorageHandler.loadAllLogs();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fireAlarmData);
+
+        // Login Logs
+        LoginStorageHandler loginStorageHandler = new LoginStorageHandler(this);
+        List<String> loginData = loginStorageHandler.loadAllLogs();
+
+        // Combine the two lists
+        List<String> combinedData = new ArrayList<>();
+        combinedData.addAll(fireAlarmData);
+        combinedData.addAll(loginData);
+
+        // Sort the combined list in descending order
+        Collections.sort(combinedData, Comparator.reverseOrder());
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, combinedData);
         logList.setAdapter(adapter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
