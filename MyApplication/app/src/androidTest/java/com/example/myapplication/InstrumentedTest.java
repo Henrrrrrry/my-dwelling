@@ -23,12 +23,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 
-/**
- * Instrumented test, which will execute on an Android device. Such as UI test, database access, network test...
- *
- * @see <a href="https://developer.android.com/training/testing/instrumented-tests">Testing documentation</a>
- * <a href="https://developer.android.com/studio/test/other-testing-tools/espresso-test-recorder">espresso test, more useful in graphical test</a>
- */
+// notification test
+
 @RunWith(AndroidJUnit4.class)
 public class InstrumentedTest {
     private UiDevice device;
