@@ -236,7 +236,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             Log.d("EvaluateExpression", "Evaluating condition: " + condition.getKey() + " - " + valueWithoutQuotes);
             switch (condition.getKey()) {
                 case "address":
-                    return dwelling.getAddress().contains(valueWithoutQuotes);
+                    return dwelling.getAddress().toLowerCase().contains(valueWithoutQuotes.toLowerCase());
                 case "constructionDate":
                     return dwelling.getConstructionDate().toString().equals(valueWithoutQuotes);
                 case "fireAlarm":
