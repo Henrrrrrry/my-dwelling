@@ -2,6 +2,10 @@ package helper_classes_and_methods;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,16 +29,19 @@ public class FireAlarmStorageHandler implements StorageHandler {
         editor.apply();
     }
 
-    @Override
-    public String loadData(String partialTime) {
+    //     Method to retrieve all log entries
+    public List<String> loadAllLogs() {
         Map<String, ?> allEntries = sharedPreferences.getAll();
-        StringBuilder result = new StringBuilder();
+        List<String> logs = new ArrayList<>();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            if (entry.getKey().startsWith(partialTime)) { // Checks if the key (timestamp) starts with the provided partialTime
-                result.append(entry.getKey()).append(" - ").append(entry.getValue().toString()).append("\n");
-            }
+            String key=entry.getKey();
+            String value=entry.getValue().toString();
+            // Split the value by "-"
+            String[] parts = value.split(" - ");
+            logs.add(key + " \n- " + parts[0] + " \n- " + parts[1]);
         }
-        return result.length() > 0 ? result.toString() : null;
+        Collections.sort(logs);
+        return logs;
     }
 }
 
