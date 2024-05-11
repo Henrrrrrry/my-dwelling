@@ -36,6 +36,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.matches;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
+//authorization test
 @RunWith(AndroidJUnit4.class)
 public class LoginTest {
     @Rule
@@ -81,9 +83,6 @@ public class LoginTest {
         Espresso.onView(ViewMatchers.withId(R.id.loginButton)).check(matches(isDisplayed()));
 
     }
-//    TODO implement this test
-    @Test
-    public void testValidateUserCredentials(){
 
-    }
+
 }
