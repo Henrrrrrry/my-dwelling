@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,16 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-
 import helper_classes_and_methods.BuildingMaterial;
 import helper_classes_and_methods.Dwelling;
-import helper_classes_and_methods.Observer;
-import helper_classes_and_methods.RepairState;
 import helper_classes_and_methods.User;
 import helper_classes_and_methods.StorageFactory;
 import helper_classes_and_methods.StorageHandler;
@@ -99,13 +90,13 @@ public class ProfPageActivity extends BaseActivity {
         buildingTitle.setText("Addr:"+searchDwelling.getAddress());
 
         if(searchDwelling.getBuildingMaterial()==BuildingMaterial.BRICK){
-            buildingImage.setImageResource(R.drawable.brick);
+            buildingImage.setImageResource(R.drawable.wood);
         } else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.STEEL) {
             buildingImage.setImageResource(R.drawable.steel);
         }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.CONCRETE) {
             buildingImage.setImageResource(R.drawable.concrete);
         }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.WOOD) {
-            buildingImage.setImageResource(R.drawable.wood);
+            buildingImage.setImageResource(R.drawable.brick);
         }else{
             buildingImage.setImageResource(R.drawable.img_default_building);
         }
