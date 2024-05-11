@@ -94,6 +94,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
             @Override
             public void afterTextChanged(Editable s) {
+
             }
         });
         //Search button here
@@ -199,31 +200,25 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         Mmap.clear();
         for (Dwelling dwelling : dwellings) {
             LatLng location = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
-            float color = getHueFromColorType(dwelling.getSeismicRating());
-            Marker marker = Mmap.addMarker(new MarkerOptions()
-                    .position(location)
-                    .icon(BitmapDescriptorFactory.defaultMarker(color))
-                    .title(dwelling.getAddress() + ", SR: " + dwelling.getSeismicRating())); // Displaying seismic rating in the marker title
-            marker.setTag(dwelling);
+            int colorType = dwelling.getSeismicRating();
+            String address = dwelling.getAddress();  // 从 Dwelling 对象获取地址
+            addOneMarker(location, colorType, address);  // 使用地址字符串调用 addOneMarker
         }
         if (!dwellings.isEmpty()) {
-            // Zoom to the first dwelling
             LatLng firstLoc = new LatLng(dwellings.get(0).getLocation().getLat(), dwellings.get(0).getLocation().getLng());
             Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(firstLoc, 15));
         } else {
             Toast.makeText(this, "No dwellings match the criteria.", Toast.LENGTH_SHORT).show();
         }
 
-        Mmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                Dwelling dwelling = (Dwelling) marker.getTag(); // Retrieve the Dwelling object associated with the marker
-                if (dwelling != null) {
-                    Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
-                    intent.putExtra("Dwelling", dwelling);
-                    intent.putExtra("User", user);
-                    startActivity(intent);
-                }
+        Mmap.setOnInfoWindowClickListener(marker -> {
+            String address = (String) marker.getTag();  // 从标记中检索地址字符串
+            Dwelling dwelling = dataLoader.getBTree().get(address);  // 用地址获取 Dwelling 对象
+            if (dwelling != null) {
+                Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+                intent.putExtra("Dwelling", dwelling);
+                intent.putExtra("User", user);
+                startActivity(intent);
             }
         });
     }
