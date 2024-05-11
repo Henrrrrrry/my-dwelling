@@ -94,7 +94,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    List<Dwelling> allDwellings = dataLoader.getBTree().getDwellings();
+                    showDwellingsOnMap(allDwellings);
+                }
             }
         });
         //Search button here
