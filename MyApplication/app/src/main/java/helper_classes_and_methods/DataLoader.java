@@ -62,8 +62,8 @@ public class DataLoader {
         BuildingMaterial material = BuildingMaterial.valueOf(jsonObject.optString("buildingMaterial","").toUpperCase());
 
         ArrayList<Observer> observers = new ArrayList<>(); // This should be dynamically filled if needed
-        User user = new User("comp6442@anu.edu.au","comp6442",true,"Bernardo");
-        observers.add(user);
+        //User user = new User("comp6442@anu.edu.au","comp6442",true,"Bernardo");
+        //observers.add(user);
         User maintainer = null;
         try {
             JSONObject maintainerJsonObject = jsonObject.getJSONObject("maintainer");
