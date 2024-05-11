@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:padding="8dp"
-            android:text="all messages"
+            android:text="Fire Alarm History"
             android:textColor="@color/themeOrange"
             android:textSize="18dp"
             android:textStyle="bold" />

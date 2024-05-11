@@ -1,4 +1,7 @@
 package helper_classes_and_methods;
+
+import java.util.List;
+
 /**
  * Author: Xinfei Li
  * ID: u7785177
@@ -7,7 +10,6 @@ package helper_classes_and_methods;
  */
 public interface StorageHandler {
     void saveData(String str1, String str2);
-    String loadData(String str0);
-
+     List<String> loadAllLogs();
 }
 
