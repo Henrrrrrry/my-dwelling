@@ -94,6 +94,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
             @Override
             public void afterTextChanged(Editable s) {
+
             }
         });
         //Search button here
@@ -174,11 +175,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     private List<Dwelling> searchWithParser(String input) {
         List<Dwelling> filteredDwellings;
+        Expression expression = null;
         try {
             ExpressionParser expressionParser = new ExpressionParser(input);
-            Log.d("SearchWithParser", "Starting search with input: " + input);
-            Expression expression = expressionParser.getExpression();
-            Log.d("SearchWithParser", "Expression parsed from input: " + expression);
+            expression = expressionParser.getExpression();
 
             List<Dwelling> dwellings = dataLoader.getBTree().getDwellings();
             filteredDwellings = new ArrayList<>();
@@ -187,8 +187,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                     filteredDwellings.add(dwelling);
                 }
             }
-            Log.d("SearchWithParser", "Filtered " + filteredDwellings.size() + " dwellings based on the search expression");
-            Log.d("SearchWithParser", "Filtered Dwellings: " + filteredDwellings);
+
+
         } catch (IllegalArgumentException e) {
             Toast.makeText(this, "Invalid input for search.", Toast.LENGTH_SHORT).show();
             return new ArrayList<>();
@@ -200,27 +200,25 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         Mmap.clear();
         for (Dwelling dwelling : dwellings) {
             LatLng location = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
-            Marker marker = Mmap.addMarker(new MarkerOptions().position(location).title(dwelling.getAddress()));
-            marker.setTag(dwelling); // 将Dwelling对象与标记关联
+            int colorType = dwelling.getSeismicRating();
+            String address = dwelling.getAddress();  // 从 Dwelling 对象获取地址
+            addOneMarker(location, colorType, address);  // 使用地址字符串调用 addOneMarker
         }
         if (!dwellings.isEmpty()) {
-            // Zoom to the first dwelling
             LatLng firstLoc = new LatLng(dwellings.get(0).getLocation().getLat(), dwellings.get(0).getLocation().getLng());
             Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(firstLoc, 15));
         } else {
             Toast.makeText(this, "No dwellings match the criteria.", Toast.LENGTH_SHORT).show();
         }
 
-        Mmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                Dwelling dwelling = (Dwelling) marker.getTag(); // 获取与标记关联的Dwelling对象
-                if (dwelling != null) {
-                    Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
-                    intent.putExtra("Dwelling", dwelling);
-                    intent.putExtra("User", user);
-                    startActivity(intent);
-                }
+        Mmap.setOnInfoWindowClickListener(marker -> {
+            String address = (String) marker.getTag();  // 从标记中检索地址字符串
+            Dwelling dwelling = dataLoader.getBTree().get(address);  // 用地址获取 Dwelling 对象
+            if (dwelling != null) {
+                Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
+                intent.putExtra("Dwelling", dwelling);
+                intent.putExtra("User", user);
+                startActivity(intent);
             }
         });
     }
@@ -230,9 +228,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         if (expression instanceof Condition) {
             Condition condition = (Condition) expression;
             String valueWithoutQuotes = condition.getValue().replace("\"", "");
+            Log.d("EvaluateExpression", "Evaluating condition: " + condition.getKey() + " - " + valueWithoutQuotes);
             switch (condition.getKey()) {
                 case "address":
-                    return dwelling.getAddress().contains(valueWithoutQuotes);
+                    return dwelling.getAddress().toLowerCase().contains(valueWithoutQuotes.toLowerCase());
                 case "constructionDate":
                     return dwelling.getConstructionDate().toString().equals(valueWithoutQuotes);
                 case "fireAlarm":
@@ -247,12 +246,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                     return false;
             }
         } else if (expression instanceof AndExp) {
+            Log.d("EvaluateExpression", "Evaluating AND expression");
             return evaluateExpression(((AndExp) expression).getLeft(), dwelling) &&
                     evaluateExpression(((AndExp) expression).getRight(), dwelling);
         } else if (expression instanceof OrExp) {
+            Log.d("EvaluateExpression", "Evaluating OR expression");
             return evaluateExpression(((OrExp) expression).getLeft(), dwelling) ||
                     evaluateExpression(((OrExp) expression).getRight(), dwelling);
         } else if (expression instanceof NotExp) {
+            Log.d("EvaluateExpression", "Evaluating NOT expression");
             return !evaluateExpression(((NotExp) expression).getExpression(), dwelling);
         }
         return false;
