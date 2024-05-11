@@ -32,12 +32,18 @@ import helper_classes_and_methods.StorageHandler;
 //import android.widget.ImageView;
 
 public class ProfPageActivity extends BaseActivity {
-    //                test case create channel ID
+    //  created unique channel ID for notification
     public static final String CHANNEL_ID = "uniqueChannelId";
-//     ArrayList<Observer> observers1= new ArrayList<>();
+
     private StorageHandler storageHandler;
 
-    //private ImageView buildingImage;
+    /**
+     * Author: Hongyu Li: implement repair and notification and follow button functions
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,32 +54,44 @@ public class ProfPageActivity extends BaseActivity {
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.FIRE_ALARM);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_page);
-        simulateDataProfilePage();
+
+//        data stream simulate method, uncomment the following line if want to see the data stream
+//        simulateDataProfilePage();
 
         ImageView buildingImage = findViewById(R.id.buildingImage);
-//        buildingImage.setImageResource(R.drawable.img_default_building);
+
 
         Button followButton = findViewById(R.id.followButton);
         Button fireAlarmNoti = findViewById(R.id.fireAlarmButton);
+        fireAlarmNoti.setBackgroundColor(Color.rgb(196, 12, 12));
+        fireAlarmNoti.setTextColor(Color.WHITE);
+
 
 
         User user = (User) getIntent().getExtras().getSerializable("User");
         if (!user.isMaintainer()) fireAlarmNoti.setEnabled(false);
+        if (!user.isMaintainer()) {
+            fireAlarmNoti.setEnabled(false);
+            fireAlarmNoti.setVisibility(View.INVISIBLE);;
+        }
         Button backButton = findViewById(R.id.backButton);
         TextView buildingInfo = findViewById(R.id.buildingInfo);
         TextView buildingTitle= findViewById(R.id.address);
-        //address
 
         Dwelling searchDwelling = (Dwelling) getIntent().getExtras().getSerializable("Dwelling");
 
         Button repairButton = findViewById(R.id.repairButton);
+        if (!user.isMaintainer()) {
+            repairButton.setEnabled(false);
+            repairButton.setVisibility(View.INVISIBLE);;
+        }
         if (!(searchDwelling.needsRepair())){
             repairButton.setEnabled(false);
             repairButton.setText("Don't need Repair");
         }
 
 
-        String infoText = //"Address: " + searchDwelling.getAddress() + "\n" +
+        String infoText =
                 "Seismic Rating: "+searchDwelling.getSeismicRating() + "\n" +
                 "Year of construction: "+searchDwelling.getConstructionDate() + "\n" +
                 "Materials: "+searchDwelling.getBuildingMaterial();
@@ -110,7 +128,7 @@ public class ProfPageActivity extends BaseActivity {
 //                    remove user from observers
                     searchDwelling.detach(user);
 //                    tell users they have unfollowed and next time click on the button will follow again
-                    followButton.setBackgroundColor(Color.rgb(0,0,128));
+                    followButton.setBackgroundColor(Color.rgb(21, 52, 72));
                     followButton.setText("Follow");
 //                    System.out.println(searchDwelling.getObservers());
                     Toast.makeText(getApplicationContext(),"you have unfollowed",Toast.LENGTH_SHORT).show();
@@ -152,6 +170,9 @@ public class ProfPageActivity extends BaseActivity {
                 finish();
             }
         });
+
+//      added an animation for button , if a maintainer repaired his building today he can click on the button,so the lasttimerepair wil be updated,
+//      but since we don't really need to update the JSON file, the date only can be updated in this activity
         repairButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -186,7 +207,12 @@ public class ProfPageActivity extends BaseActivity {
         });
 
     }
-//    create a new channel
+//
+
+    /**
+     * Author:Hongyu Li
+     * Description: create a new channel for notification
+     */
     private void createNotificationChannel() {
         CharSequence name = "NotificationChannel";
         String description = "This is a channel for notification, with this the notification can post in noti bar";
@@ -197,6 +223,10 @@ public class ProfPageActivity extends BaseActivity {
         notificationManager.createNotificationChannel(channel);
     }
 
+    /**
+     * Author: Hongyu Li
+     * Description: simulate data stream
+     */
     private void simulateDataProfilePage() {
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {

@@ -31,7 +31,10 @@ import java.time.Month;
 import java.util.ArrayList;
 
 import helper_classes_and_methods.*;
-
+/**
+ * Author: Hongyu Li
+ * Description: profile page test, since we can't use espresso to click on markers or its info window
+ */
 @RunWith(AndroidJUnit4.class)
 public class ProfilePageTest {
     @Rule

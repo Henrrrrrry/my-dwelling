@@ -33,6 +33,10 @@ import helper_classes_and_methods.*;
 import helper_classes_and_methods.DataLoader;
 import helper_classes_and_methods.parser.*;
 
+/**
+ * Author: Hongyu Li
+ * Description: unit tests to make sure java methods are feasible
+ */
 @RunWith(RobolectricTestRunner.class)
 public class UnitTest {
     private File tempFile;

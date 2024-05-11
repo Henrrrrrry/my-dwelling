@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,13 +19,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListPopupWindow;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -39,11 +35,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import helper_classes_and_methods.Dwelling;
 import helper_classes_and_methods.User;
 import helper_classes_and_methods.parser.AndExp;
@@ -52,24 +46,29 @@ import helper_classes_and_methods.parser.Expression;
 import helper_classes_and_methods.parser.ExpressionParser;
 import helper_classes_and_methods.parser.NotExp;
 import helper_classes_and_methods.parser.OrExp;
-
 public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     private GoogleMap Mmap;
-    private Location location;
+//    private Location location;
     private EditText userInput;
     private ListPopupWindow listPopupWindow;
     User user;
     private Button searchButton;
 
+    /**
+     * Author: Hongyu Li: implemented initial Google Maps API, created edit text and search button, implemented navigation bar
+     *
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Get a handle to the fragment and register the callback. Means loading map I guess
+        //Get a handle to the fragment and register the callback. (loading map )
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         user = (User) getIntent().getExtras().getSerializable("USER");
+//        data stream simulate method, uncomment the following line if want to see the data stream
 //        simulateSearch();
 
         //search_text
@@ -264,8 +263,11 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
 
 
+    /**
+     * Author: Hongyu Li: implemented marker's info window onclick function
+     * Description: When the map is loaded this method would be called.
+      */
 
-    //    When the map is loaded this method would be called.
     @SuppressLint("PotentialBehaviorOverride")
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -273,7 +275,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         addMarkers();
         viewCurrentLocation();//Ask for users current location
         Mmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-
+            /**
+             * Author: Hongyu Li
+             * @param marker:the marker clicked on
+             */
             @Override
             public void onInfoWindowClick(@NonNull Marker marker) {
                 Dwelling searchDwelling = dataLoader.getBTree().get((String) marker.getTag());
@@ -334,9 +339,18 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         });
     }
     //set camera and zoom in default 15
+
+    /**
+     * Author: Hongyu Li: edited argument in addOneMarker method
+     * @param current
+     */
     private void seeCurrent(LatLng current) {
         Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 14));
     }
+
+    /**
+     * Author: Hongyu Li: edited argument in addOneMarker method
+     */
     private void addMarkers() { //markers all dwelling on the initial map
         for (Dwelling d : dataLoader.getBTree().getDwellings()) {
             addOneMarker(new LatLng(d.getLocation().getLat(),
@@ -344,6 +358,14 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                     d.getAddress());
         }
     }
+
+    /**
+     * Author Hongyu Li: added another argument address, also added a "guide" in title
+     *
+     * @param coordinates
+     * @param colorType
+     * @param address
+     */
     private void addOneMarker(LatLng coordinates,int colorType,String address){ //add single mark with special color
         Marker marker=
                 Mmap.addMarker(new MarkerOptions()
@@ -356,7 +378,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
     }
 
-
+    /**
+     * Author: Hongyu Li
+     * Description: simulating data stream
+     */
     private void simulateSearch() {
         // write "ACT"
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -406,7 +431,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         }, 13000);
     }
-//since there's no performclick for info window, so use this mock clicking on info window
+
+
+    /**
+     * Author: Hongyu Li
+     * Description: helper method, since there's no performclick() method for info window, so use this mock clicking on info window
+     * @param dwelling: the dwelling appeared in the edit text
+     */
     private void onMarkerClicked(Dwelling dwelling) {
         Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
         intent.putExtra("Dwelling", dwelling);

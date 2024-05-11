@@ -4,6 +4,10 @@ import android.content.Context;
 
 import java.io.Serializable;
 
+/**
+ * Author: Hongyu Li
+ * Description: state that the building need to be repaired
+ */
 public class RepairState extends DwellingState implements Serializable {
 
     @Override

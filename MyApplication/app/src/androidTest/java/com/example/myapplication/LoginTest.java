@@ -37,7 +37,11 @@ import static org.mockito.ArgumentMatchers.matches;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-//authorization test
+
+/**
+ * Author: Hongyu Li
+ * Description: authorization test
+ */
 @RunWith(AndroidJUnit4.class)
 public class LoginTest {
     @Rule

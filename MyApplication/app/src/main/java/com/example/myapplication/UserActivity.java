@@ -23,6 +23,14 @@ public class UserActivity extends AppCompatActivity {
     private StorageHandler fireAlarmStorageHandler;
     private StorageHandler loginStorageHandler;
 
+    /**
+     * Author: Hongyu Li: implemented bottom navi bar
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,16 +43,6 @@ public class UserActivity extends AppCompatActivity {
 
         ListView logList = findViewById(R.id.logList);
 
-//        fireAlarmStorageHandler = new FireAlarmStorageHandler(this);
-//        List<String> fireAlarmData = fireAlarmStorageHandler.loadAllLogs();
-//        ArrayAdapter<String> fireALarmAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fireAlarmData);
-//        fireAlarmLogList.setAdapter(fireALarmAdapter);
-//
-//        ListView loginLogList = findViewById(R.id.loginLogList);
-//        loginStorageHandler = new LoginStorageHandler(this);
-//        List<String> loginData = loginStorageHandler.loadAllLogs();
-//        ArrayAdapter<String> loginAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, loginData);
-//        loginLogList.setAdapter(loginAdapter);
         // Fire Alarm Logs
         FireAlarmStorageHandler fireAlarmStorageHandler = new FireAlarmStorageHandler(this);
         List<String> fireAlarmData = fireAlarmStorageHandler.loadAllLogs();

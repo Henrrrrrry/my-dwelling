@@ -29,7 +29,12 @@ import org.hamcrest.TypeSafeMatcher;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-//test: after login, we would be in the mapactivity
+
+/**
+ * Author: Hongyu Li
+ * Description: test: after login, it would be in the mapactivity
+ */
+
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class LoginActivityTest {

@@ -22,9 +22,6 @@ import helper_classes_and_methods.StorageHandler;
 
 /**
  * Author: Xinfei Li
- * ID: u7785177
- * Create: 28/04/2024   6:00 pm
- * Last Edit: 10/05/2024   02:20 am
  */
 public class LoginActivity extends BaseActivity {
 
@@ -43,6 +40,7 @@ public class LoginActivity extends BaseActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         user = new User();
+//        uncomment to utilize simulating data stream
         simulateUserInput();
 
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.LOGIN);
@@ -69,19 +67,23 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
-//  simulate a data stream, enter username and password then click login
+
+    /**
+     * Author: Hongyu Li
+     * Description: simulate a data stream, enter username and password then click login
+     */
     @SuppressLint("SetTextI18n")
     private void simulateUserInput() {
         // delay 5s
         Handler handler = new Handler();
         handler.postDelayed(() -> {
             // write username
-            usernameEditText.setText("comp2100@anu.edu.au");
+            usernameEditText.setText("comp6442@anu.edu.au");
         }, 3000);
 
         // write password
         handler.postDelayed(() -> {
-            passwordEditText.setText("comp2100");
+            passwordEditText.setText("comp6442");
         }, 5000);
 
         // click login button

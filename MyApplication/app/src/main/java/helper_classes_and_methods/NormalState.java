@@ -4,6 +4,11 @@ import android.content.Context;
 
 import java.io.Serializable;
 
+/**
+ * Author: Hongyu Li: normal state, do nothing when the dwelling state is normal
+ *         Xinrui Zhang: implements serializable
+ */
+
 public class NormalState extends DwellingState implements Serializable {
 
 

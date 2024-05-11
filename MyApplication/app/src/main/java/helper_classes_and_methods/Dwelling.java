@@ -8,7 +8,9 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 
-
+/**
+ * Author: Hongyu Li: created the skeleton
+ */
 public class Dwelling implements  Subject, Serializable {
 
     public static class Location implements Serializable{
@@ -62,7 +64,7 @@ public class Dwelling implements  Subject, Serializable {
     private boolean fireAlarm;
 //    define a user as maintainer for each building
     private User maintainer;
-//    TODO: maybe need to modify this constructor when the building materials and state functions are determined
+
     public Dwelling(String address, LocalDate constructionDate, BuildingMaterial buildingMaterial,ArrayList<Observer> observers,User maintainer,Location location) {
         this.address = address;
 
@@ -204,7 +206,6 @@ public class Dwelling implements  Subject, Serializable {
         this.observers = observers;
     }
 
-//    TODO: seems like not correct
     public void setDwellingState(DwellingState newDwellingState,Context context) {
         this.dwellingState = newDwellingState;
         this.dwellingState.handle(this,context);
@@ -218,22 +219,40 @@ public class Dwelling implements  Subject, Serializable {
         this.location = location;
     }
 
-    //    add current user to the observers list when current user click follow
+    /**
+     * Author: Hongyu Li
+     * Description: add current user to the observers list when current user click follow
+     * @param observer: the current observer, which is user
+     */
     @Override
     public void attach(Observer observer) {
         observers.add(observer);
     }
-//    remove user from observers if the user click unfollow(the button twice)
+    /**
+     * Author: Hongyu Li
+     * Description: remove user from observers if the user click unfollow(the button twice)
+     * @param observer: the current observer, which is user
+     */
     @Override
     public void detach(Observer observer) {
         observers.remove(observer);
     }
-//    notify all users there's a fire alarm
+
+    /**
+     * Author: Hongyu Li
+     * Description:  notify all users there's a fire alarm
+     * @param context: the current context
+     */
     @Override
     public void notifyAllObservers(Context context) {
         for (Observer observer:observers) observer.update(getAddress(),context);
     }
-//    notify maintainer of the building it need repairs
+
+    /**
+     * Author: Hongyu Li
+     * Description:   notify maintainer of the building it need repairs, this function is designed for the service provider (server)
+     * @param context: the current context
+     */
     @Override
     public void notifyMaintainer(Context context) {
         maintainer.maintainUpdate(getAddress(), context);

@@ -4,9 +4,8 @@ import java.io.Serializable;
 
 /**
  * Author: Xinfei Li
- * ID: u7785177
- * Create: 29/04/2024   3:00 pm
- * Last Edit: 29/04/2024   11:10 pm
+ *         Hongyu Li: created the initial enums (STEEL,BRICK,CONCRETE,WOOD)
+ *
  */
 
 public enum BuildingMaterial implements Serializable {

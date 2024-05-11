@@ -23,8 +23,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 
-// notification test
 
+
+/**
+ * Author: Hongyu Li
+ * Description: notification test
+ */
 @RunWith(AndroidJUnit4.class)
 public class InstrumentedTest {
     private UiDevice device;

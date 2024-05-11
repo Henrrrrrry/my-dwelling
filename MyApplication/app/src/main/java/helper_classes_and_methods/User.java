@@ -22,6 +22,9 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Author: Hongyu Li: created the skeleton
+ */
 
 public class User implements Observer, Serializable {
     private String username;
@@ -81,23 +84,40 @@ public class User implements Observer, Serializable {
                 '}';
     }
 
+    /**
+     * Auhtor: Hongyu Li
+     * Description: override the update method
+     * @param location the location msg users will get
+     * @param context  the current context
+     */
     @Override
     public void update(String location, Context context) {
         String msg = "Hi,Dear " + userID + ", there's an emergency at your followed address: " + location + ".";
         String title = "Fire Alarm";
         notifyUsers(msg, title, context);
-//        System.out.println("helloworld1");
     }
 
+    /**
+     * Auhtor: Hongyu Li
+     * Description: override method
+     * @param location the location msg maintainers will get
+     * @param context the current context
+     */
     @Override
     public void maintainUpdate(String location, Context context) {
         String msg = "Hi,Dear " + userID + ", the building you are responsible for: " + location + " need repairs.";
         String title = "Repair Request";
         notifyUsers(msg, title, context);
-//        System.out.println("helloworld2");
     }
 
-    // implemented android notification api, followed the tut: https://developer.android.com/develop/ui/views/notifications/build-notification
+    /**
+     * Author: Hongyu Li
+     * Descripotion: implemented android notification api, followed the tut: <a href="https://developer.android.com/develop/ui/views/notifications/build-notification">...</a>
+     * @param msg the msg maintainers will get
+     * @param title firealarm or need repair
+     * @param context the current context
+     */
+
     public void notifyUsers(String msg, String title, Context context) {
 //        This intent leads to profilePageActivity, before starting clear the previous activity
         Intent tapNotificationIntent = new Intent(context, ProfPageActivity.class);

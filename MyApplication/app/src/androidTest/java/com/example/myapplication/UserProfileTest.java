@@ -29,7 +29,10 @@ import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
+/**
+ * Author: Hongyu Li
+ * Description: user profile test
+ */
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class UserProfileTest {
