@@ -21,7 +21,10 @@ import helper_classes_and_methods.StorageFactory;
 import helper_classes_and_methods.StorageHandler;
 
 /**
+ * This page is designed for login
+ *
  * Author: Xinfei Li
+ * ID: u7785177
  */
 public class LoginActivity extends BaseActivity {
 
@@ -40,9 +43,11 @@ public class LoginActivity extends BaseActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         user = new User();
+
 //        uncomment to utilize simulating data stream
 //        simulateUserInput();
 
+        // Initialize the storage factory to store the login details
         storageHandler = StorageFactory.getStorageHandler(this, StorageFactory.HandlerType.LOGIN);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +59,8 @@ public class LoginActivity extends BaseActivity {
                 if (user.validateUserCredentials(username, password, getAssets())) {
                     // Successful login, save login status
                     Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
+                    //Storage the login details local
                     storageHandler.saveData(username, "logged_in");
 
                     // Intent to next activity here

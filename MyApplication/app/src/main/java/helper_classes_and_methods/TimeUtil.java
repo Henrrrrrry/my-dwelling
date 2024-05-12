@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 /**
+ * For save the current time in the log
  * Author: Xinfei Li
  * ID: u7785177
  * Create: 09/05/2024   7:00 pm

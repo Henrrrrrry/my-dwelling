@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface StorageHandler {
     void saveData(String str1, String str2);
-     List<String> loadAllLogs();
+    List<String> loadAllLogs();
 }
 

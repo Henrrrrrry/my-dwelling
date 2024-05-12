@@ -147,7 +147,14 @@ public class User implements Observer, Serializable {
         }
         notificationCompat.notify(0, notification);
     }
+
     /**
+     * Design for validate the user login username and password
+     * @param inputUsername
+     * @param inputPassword
+     * @param assetManager
+     * @return true for validated user, false for wrong username or password.
+     *
      * Author: Xinfei Li
      * ID: u7785177
      * Create: 29/04/2024   6:00 pm
@@ -187,9 +194,6 @@ public class User implements Observer, Serializable {
         }
         return isValidUser;
     }
-
-
-
 
 }
 

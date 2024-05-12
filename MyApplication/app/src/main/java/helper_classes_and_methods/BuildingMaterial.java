@@ -3,7 +3,10 @@ package helper_classes_and_methods;
 import java.io.Serializable;
 
 /**
- * Author: Xinfei Li
+ * Building material enum, design for calculate the current strength of building,
+ * get the seismic rating, determine if a building is need a repair and repair it
+ *
+ * Author: Xinfei Li u7785177 enum development
  *         Hongyu Li: created the initial enums (STEEL,BRICK,CONCRETE,WOOD)
  *
  */

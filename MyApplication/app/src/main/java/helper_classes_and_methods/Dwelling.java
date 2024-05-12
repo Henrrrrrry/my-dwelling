@@ -85,6 +85,8 @@ public class Dwelling implements  Subject, Serializable {
 
     /**
      * Method to determine if the building needs repairs
+     * It change the state of the building, change to NormalState() if no repair needed and return false
+     * change to RepairState() if repair needed and return true;
      * @return true for need repair and false for no need
      *
      * Author: Xinfei Li
@@ -99,7 +101,7 @@ public class Dwelling implements  Subject, Serializable {
         // If it's been more than 1 day since last repair, consider repair needed
         if (daysSinceLastRepair >= 1) {
             // Extract material properties
-            double initialStrength = this.buildingMaterial.getInitialStrength(); // Using double for more accurate calculations
+            double initialStrength = this.buildingMaterial.getInitialStrength();
             double corrosionFactor = this.buildingMaterial.getCorrosionFactor();
 
             // Calculate the updated material strength based on degradation and repairs
@@ -117,8 +119,10 @@ public class Dwelling implements  Subject, Serializable {
     }
 
     /**
+     * (This method has not been called yet and is set for future function expansion)
      * Method to perform repairs on the building
      * Updating the lastRepairDate, set the strength to the initial strength
+     * Change the building state to NormalState()
      * divide it by 10 to update the seismicRating
      *
      * Author: Xinfei Li
@@ -161,7 +165,7 @@ public class Dwelling implements  Subject, Serializable {
         LocalDate currentDate = LocalDate.now(); // Get the current date
         int daysSinceLastRepair = (int) java.time.temporal.ChronoUnit.DAYS.between(this.lastRepairDate, currentDate); // Calculate days since last repair
 
-        double initialStrength = this.buildingMaterial.getInitialStrength(); // Using double for more accurate calculations
+        double initialStrength = this.buildingMaterial.getInitialStrength();
         double corrosionFactor = this.buildingMaterial.getCorrosionFactor();
 
         // Calculate the updated material strength based on degradation and repairs

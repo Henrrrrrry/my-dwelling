@@ -18,13 +18,15 @@ import java.util.Map;
 
 import helper_classes_and_methods.*;
 
+/**
+ * This page is designed for showing the user history (including the login history and fire alarm history)
+ */
 public class UserActivity extends AppCompatActivity {
     User user;
-    private StorageHandler fireAlarmStorageHandler;
-    private StorageHandler loginStorageHandler;
 
     /**
-     * Author: Yujing Zhang u7671098:set display parameters
+     * Author: Xinfei Li u7785177: the backend development of the history list
+     * Author: Yujing Zhang u7671098: set display parameters
      * Author: Hongyu Li: implemented bottom navi bar
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most

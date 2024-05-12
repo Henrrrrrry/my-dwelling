@@ -2,6 +2,7 @@ package helper_classes_and_methods;
 
 import android.content.Context;
 /**
+ * Factory method for the logger (storage and load the logs)
  * Author: Xinfei Li
  * ID: u7785177
  * Create: 09/05/2024   7:00 pm
