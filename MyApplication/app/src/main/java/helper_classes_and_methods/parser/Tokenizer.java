@@ -3,6 +3,9 @@ package helper_classes_and_methods.parser;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author: Xinrui Zhang:implemented tokenizer function
+ */
 
 public class Tokenizer {
 
@@ -12,7 +15,11 @@ public class Tokenizer {
         tokenList = new ArrayList<>();
         parseToken(expressionStr);
     }
-
+    /**
+     * Author: Xinrui Zhang
+     * Description: parse token from given format string
+     * @param input: the text string
+     */
     private void parseToken(String input) {
         input = input.trim();
         char[] chars = input.toCharArray();

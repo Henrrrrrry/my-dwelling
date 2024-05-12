@@ -2,6 +2,9 @@ package com.example.myapplication;
 
 import android.app.Application;
 import helper_classes_and_methods.DataLoader;
+/**
+ * Author: Xinrui Zhang:implemented class for data loading
+ */
 
 public class MyApp extends Application {
     private static MyApp instance;

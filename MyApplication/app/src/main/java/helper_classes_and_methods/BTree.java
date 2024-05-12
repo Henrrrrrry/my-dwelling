@@ -3,6 +3,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+
+/**
+ * Author: Xinrui Zhang:implemented part of b-tree search function
+ *
+ */
 public class BTree {
 
     /**

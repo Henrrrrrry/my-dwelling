@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Author: Xinrui Zhang:implemented parser function
+ */
+
 public class ExpressionParser {
 
     private Expression expression;
@@ -16,7 +20,11 @@ public class ExpressionParser {
     public Expression getExpression() {
         return expression;
     }
-
+    /**
+     * Author: Xinrui Zhang
+     * Description: parse expression from given token list
+     * @param tokenList: the current token
+     */
     private Expression parseExpression(List<Token> tokenList) throws IllegalArgumentException {
         if (tokenList == null || tokenList.isEmpty()) {
             return null;
