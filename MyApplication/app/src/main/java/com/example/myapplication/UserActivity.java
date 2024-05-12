@@ -24,7 +24,7 @@ public class UserActivity extends AppCompatActivity {
     private StorageHandler loginStorageHandler;
 
     /**
-     * Author: Yujing Zhang:set display parameters
+     * Author: Yujing Zhang u7671098:set display parameters
      * Author: Hongyu Li: implemented bottom navi bar
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most

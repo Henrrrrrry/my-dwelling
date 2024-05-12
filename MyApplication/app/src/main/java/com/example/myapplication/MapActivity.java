@@ -299,7 +299,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         });
     }
     /**
-     * Author：Yujing Zhang
+     * Author：Yujing Zhang u7671098
      * Description: Get GPS coordination, and move camera
      */
     private void viewCurrentLocation() {
@@ -341,7 +341,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         });
     }
     /**
-     * Author：Yujing Zhang
+     * Author：Yujing Zhang u7671098
      * Discription: Move camera and set zoom in
      *
      * @param current
@@ -351,7 +351,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 15));
     }
     /**
-     * Author：Yujing Zhang: created method and implement with test dataset.
+     * Author：Yujing Zhang u7671098: created method and implement with test dataset.
      * Author: Hongyu Li: edited argument in addOneMarker method
      */
     private void addMarkers() { //markers all dwelling on the initial map
@@ -363,7 +363,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
 
     /**
-     * Author：Yujing Zhang: Created method and implement Markers with colors, and show text)
+     * Author：Yujing Zhang u7671098: Created method and implement Markers with colors, and show text)
      * Author Hongyu Li: added another argument address, also added a "guide" in title
      *
      * @param coordinates
@@ -379,7 +379,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         marker.setTag(address);
     }
     /**
-     * Author：Yujing Zhang
+     * Author：Yujing Zhang u7671098
      *
      * @param colorType:sceismic level
      */

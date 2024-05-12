@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#FFF1EB"
     tools:context=".LoginActivity">
-
+    <!--@Author:Xinfei Li -->
+    <!--@Author:Yujing Zhang u7671098: added icon and fixed layout-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="158dp"

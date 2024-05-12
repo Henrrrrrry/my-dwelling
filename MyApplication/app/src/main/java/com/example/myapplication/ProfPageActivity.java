@@ -29,7 +29,7 @@ public class ProfPageActivity extends BaseActivity {
     private StorageHandler storageHandler;
 
     /**
-     * Author: Yujing Zhang: Set how to display and param
+     * Author: Yujing Zhang u7671098: Set how to display and param
      * Author: Hongyu Li: implement repair and notification and follow button functions
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most

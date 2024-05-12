@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">My Application</string>
+<!--@Author: Yujing Zhang u7671098: edited part of the string-->
+    <string name="app_name">My Dwelling</string>
     <string name="fire_alarm">Fire Alarm</string>
     <string name="follow">Follow</string>
     <string name="addr_n_seismicrating_n_needrepair_n_year_of_construction_n_building_life_n_materials_n">Addr: \n SeismicRating: \n NeedRepair: \n Year of Construction: \n Building Life: \n Materials: \n</string>
