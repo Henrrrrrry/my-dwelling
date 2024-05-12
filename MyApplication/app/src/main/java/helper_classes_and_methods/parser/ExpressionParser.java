@@ -5,7 +5,7 @@ import java.util.List;
 
 
 /**
- * Author: Xinrui Zhang:implemented parser function
+ * Author: Xinrui Zhang u7728429:implemented parser function
  */
 
 public class ExpressionParser {
@@ -21,7 +21,7 @@ public class ExpressionParser {
         return expression;
     }
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: parse expression from given token list
      * @param tokenList: the current token
      */

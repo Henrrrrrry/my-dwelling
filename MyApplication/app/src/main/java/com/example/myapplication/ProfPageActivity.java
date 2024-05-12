@@ -31,7 +31,7 @@ public class ProfPageActivity extends BaseActivity {
     /**
      * Author: Yujing Zhang u7671098: Set how to display and param
      * Author: Hongyu Li: implement repair and notification and follow button functions
-     * Author: Xinrui Zhang: implement part of basic search function
+     * Author: Xinrui Zhang u7728429: implement part of basic search function
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
      *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>

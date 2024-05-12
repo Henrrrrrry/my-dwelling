@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import helper_classes_and_methods.DataLoader;
 /**
- * Author: Xinrui Zhang:implemented basic activity
+ * Author: Xinrui Zhang u7728429:implemented basic activity
  */
 public abstract class BaseActivity extends AppCompatActivity {
     protected DataLoader dataLoader;

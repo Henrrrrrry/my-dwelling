@@ -5,7 +5,7 @@ import java.util.List;
 
 
 /**
- * Author: Xinrui Zhang:implemented part of b-tree search function
+ * Author: Xinrui Zhang u7728429:implemented part of b-tree search function
  *
  */
 public class BTree {

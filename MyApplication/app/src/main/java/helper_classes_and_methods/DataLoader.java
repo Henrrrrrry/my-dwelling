@@ -18,7 +18,7 @@ import java.util.List;
 import com.example.myapplication.MapActivity;
 
 /**
- * Author: Xinrui Zhang:implemented dataloader class to create data from json file and store data to json file
+ * Author: Xinrui Zhang u7728429:implemented dataloader class to create data from json file and store data to json file
  */
 
 public class DataLoader {
@@ -32,7 +32,7 @@ public class DataLoader {
     }
 
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: load data from different file path
      * @param fileName: the current filename
      */
@@ -52,7 +52,7 @@ public class DataLoader {
     }
 
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: load data from file path
      * @param filePath: the current filepath
      */
@@ -73,7 +73,7 @@ public class DataLoader {
     }
 
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: load data from json file and create dwelling
      * @param jsonObject: the current dataset file
      */
@@ -104,7 +104,7 @@ public class DataLoader {
 
 
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: transform b-tree format dataset to json
      * @param dwelling: the current dwelling
      */
@@ -133,7 +133,7 @@ public class DataLoader {
     }
 
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: save dwelling to given file path
      * @param filePath: the current filepath
      */
@@ -154,7 +154,7 @@ public class DataLoader {
         }
     }
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: save data to current internal storage
      */
     public void saveDataInternalStorage(String data, Context context, String filename) {
@@ -168,7 +168,7 @@ public class DataLoader {
         }
     }
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: get b-tree by dataLoader class
      */
     public BTree getBTree() {

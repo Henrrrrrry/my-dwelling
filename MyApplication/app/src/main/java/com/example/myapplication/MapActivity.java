@@ -57,7 +57,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     /**
      * Author: Hongyu Li: implemented initial Google Maps API, created edit text and search button, implemented navigation bar
-     * Author: Xinrui Zhang: implemented fuzzy search
+     * Author: Xinrui Zhang u7728429: implemented fuzzy search
      *
      */
     @Override

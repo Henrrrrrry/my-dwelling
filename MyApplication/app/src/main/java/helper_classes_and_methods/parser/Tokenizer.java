@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author: Xinrui Zhang:implemented tokenizer function
+ * Author: Xinrui Zhang u7728429:implemented tokenizer function
  */
 
 public class Tokenizer {
@@ -16,7 +16,7 @@ public class Tokenizer {
         parseToken(expressionStr);
     }
     /**
-     * Author: Xinrui Zhang
+     * Author: Xinrui Zhang u7728429
      * Description: parse token from given format string
      * @param input: the text string
      */
