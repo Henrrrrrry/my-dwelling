@@ -345,7 +345,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
      * @param current
      */
     private void seeCurrent(LatLng current) {
-        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 14));
+        Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 15));
     }
 
     /**

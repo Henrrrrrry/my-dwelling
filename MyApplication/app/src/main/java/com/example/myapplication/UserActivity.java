@@ -39,7 +39,7 @@ public class UserActivity extends AppCompatActivity {
         user = (User) getIntent().getExtras().getSerializable("User");
 
         TextView userName = findViewById(R.id.userName);
-        userName.setText("Welcome!  "+user.getUserID());
+        userName.setText("Welcome! "+user.getUserID());
 
         ListView logList = findViewById(R.id.logList);
 
