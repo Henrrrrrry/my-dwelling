@@ -298,8 +298,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
     }
-
-
+    /**
+     * Author：Yujing Zhang
+     * Description: Get GPS coordination, and move camera
+     */
     private void viewCurrentLocation() {
         String serviceString = Context.LOCATION_SERVICE;
         LocationManager locationManager = (LocationManager) getSystemService(serviceString); // use  getSystemService() set LocationManager
@@ -338,17 +340,18 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
     }
-    //set camera and zoom in default 15
-
     /**
-     * Author: Hongyu Li: edited argument in addOneMarker method
+     * Author：Yujing Zhang
+     * Discription: Move camera and set zoom in
+     *
      * @param current
      */
+    //set camera and zoom in default 15
     private void seeCurrent(LatLng current) {
         Mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 15));
     }
-
     /**
+     * Author：Yujing Zhang: created method and implement with test dataset.
      * Author: Hongyu Li: edited argument in addOneMarker method
      */
     private void addMarkers() { //markers all dwelling on the initial map
@@ -360,6 +363,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
 
     /**
+     * Author：Yujing Zhang: Created method and implement Markers with colors, and show text)
      * Author Hongyu Li: added another argument address, also added a "guide" in title
      *
      * @param coordinates
@@ -374,10 +378,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 .title("SR: " + colorType+", click to see more detail"));//show SR level 1-10
         marker.setTag(address);
     }
+    /**
+     * Author：Yujing Zhang
+     *
+     * @param colorType:sceismic level
+     */
+    // how different colors according to sceismic level
     private float getHueFromColorType(int colorType) {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
     }
-
     /**
      * Author: Hongyu Li
      * Description: simulating data stream
@@ -432,7 +441,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         }, 13000);
     }
 
-
     /**
      * Author: Hongyu Li
      * Description: helper method, since there's no performclick() method for info window, so use this mock clicking on info window
@@ -444,5 +452,4 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         intent.putExtra("User", user);
         startActivity(intent);
     }
-
 }

@@ -24,6 +24,7 @@ public class UserActivity extends AppCompatActivity {
     private StorageHandler loginStorageHandler;
 
     /**
+     * Author: Yujing Zhang:set display parameters
      * Author: Hongyu Li: implemented bottom navi bar
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
@@ -40,7 +41,6 @@ public class UserActivity extends AppCompatActivity {
 
         TextView userName = findViewById(R.id.userName);
         userName.setText("Welcome!  "+user.getUserID());
-
         ListView logList = findViewById(R.id.logList);
 
         // Fire Alarm Logs
