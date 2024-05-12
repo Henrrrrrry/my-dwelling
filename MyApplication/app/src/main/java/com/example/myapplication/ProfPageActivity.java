@@ -90,13 +90,13 @@ public class ProfPageActivity extends BaseActivity {
         buildingTitle.setText("Addr:"+searchDwelling.getAddress());
 
         if(searchDwelling.getBuildingMaterial()==BuildingMaterial.BRICK){
-            buildingImage.setImageResource(R.drawable.wood);
+            buildingImage.setImageResource(R.drawable.brick);
         } else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.STEEL) {
             buildingImage.setImageResource(R.drawable.steel);
         }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.CONCRETE) {
             buildingImage.setImageResource(R.drawable.concrete);
         }else if (searchDwelling.getBuildingMaterial()==BuildingMaterial.WOOD) {
-            buildingImage.setImageResource(R.drawable.brick);
+            buildingImage.setImageResource(R.drawable.wood);
         }else{
             buildingImage.setImageResource(R.drawable.img_default_building);
         }
