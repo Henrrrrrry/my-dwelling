@@ -1,6 +1,8 @@
 package helper_classes_and_methods.parser;
 
-
+/**
+ * Author: Xinrui Zhang:implemented tokenizer function
+ */
 public enum TokenType {
     AND,
     OR,

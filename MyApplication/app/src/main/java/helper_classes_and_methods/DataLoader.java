@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.myapplication.MapActivity;
 
+/**
+ * Author: Xinrui Zhang:implemented dataloader class to create data from json file and store data to json file
+ */
+
 public class DataLoader {
     private BTree bTree;
     private Context context;
@@ -26,6 +30,12 @@ public class DataLoader {
         this.bTree = new BTree(5, String::compareTo);
         this.context = context;
     }
+
+    /**
+     * Author: Xinrui Zhang
+     * Description: load data from different file path
+     * @param fileName: the current filename
+     */
     public JSONArray loadData(String fileName) throws Exception {
         InputStream is;
         try {
@@ -40,6 +50,12 @@ public class DataLoader {
         String json = new String(buffer, "UTF-8");
         return new JSONArray(json);
     }
+
+    /**
+     * Author: Xinrui Zhang
+     * Description: load data from file path
+     * @param filePath: the current filepath
+     */
     public void loadDataFromFile(String filePath) {
         try {
 
@@ -56,12 +72,17 @@ public class DataLoader {
         }
     }
 
+    /**
+     * Author: Xinrui Zhang
+     * Description: load data from json file and create dwelling
+     * @param jsonObject: the current dataset file
+     */
     private Dwelling createDwellingFromJson(JSONObject jsonObject) throws Exception {
         String address = jsonObject.optString("address","");
         LocalDate constructionDate = LocalDate.parse(jsonObject.optString("constructionDate",""));
         BuildingMaterial material = BuildingMaterial.valueOf(jsonObject.optString("buildingMaterial","").toUpperCase());
 
-        ArrayList<Observer> observers = new ArrayList<>(); // This should be dynamically filled if needed
+        ArrayList<Observer> observers = new ArrayList<>();
         //User user = new User("comp6442@anu.edu.au","comp6442",true,"Bernardo");
         //observers.add(user);
         User maintainer = null;
@@ -81,6 +102,12 @@ public class DataLoader {
         return dwelling;
     }
 
+
+    /**
+     * Author: Xinrui Zhang
+     * Description: transform b-tree format dataset to json
+     * @param dwelling: the current dwelling
+     */
     private JSONObject dwellingToJson(Dwelling dwelling) throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("address", dwelling.getAddress());
@@ -105,7 +132,11 @@ public class DataLoader {
         return jsonObject;
     }
 
-
+    /**
+     * Author: Xinrui Zhang
+     * Description: save dwelling to given file path
+     * @param filePath: the current filepath
+     */
     public void saveDwellingsToFile(String filePath) {
         try {
             List<Dwelling> dwellings = bTree.getDwellings();
@@ -122,7 +153,10 @@ public class DataLoader {
             System.err.println("Failed to write JSON file: " + e.getMessage());
         }
     }
-
+    /**
+     * Author: Xinrui Zhang
+     * Description: save data to current internal storage
+     */
     public void saveDataInternalStorage(String data, Context context, String filename) {
         try {
             FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
@@ -133,7 +167,10 @@ public class DataLoader {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Author: Xinrui Zhang
+     * Description: get b-tree by dataLoader class
+     */
     public BTree getBTree() {
         return bTree;
     }
