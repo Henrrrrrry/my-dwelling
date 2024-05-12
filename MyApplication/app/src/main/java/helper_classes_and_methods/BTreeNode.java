@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+
+/**
+ * Author:Juliang Xiao u7757959:Constructs a new BTreeNode with the specified comparator.
+ */
+
 class BTreeNode {
     public List<Element> elements;
     public List<BTreeNode> children;
@@ -50,8 +55,8 @@ class BTreeNode {
     }
 
     /**
-     * 返回是否为叶子节点。
-     * @return true 如果这个节点没有子节点，否则返回 false。
+     * Author :Juliang Xiao u7747949 :Checks if this node is a leaf node.
+     * @return true if this node has no children, false otherwise
      */
     boolean isLeaf() {
         return children.isEmpty();

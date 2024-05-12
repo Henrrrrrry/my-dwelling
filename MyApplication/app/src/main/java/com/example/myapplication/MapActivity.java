@@ -58,7 +58,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     /**
      * Author: Hongyu Li: implemented initial Google Maps API, created edit text and search button, implemented navigation bar
      * Author: Xinrui Zhang u7728429: implemented fuzzy search
-     *
+     * Author: Juliang Xiao u7757949: Reload data when the search box is cleared
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +101,16 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         });
         //Search button here
         searchButton = findViewById(R.id.search_button);
+
+        /**
+         * Author: Juliang Xiao u7757949 : judge the input of the search. If the content of the search contains ':', employ parser search; otherwise, employ fuzz search
+         *
+         *
+         *
+         */
+
+
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,6 +185,11 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         listPopupWindow.show();
     }
 
+    /**
+     * Author: Juliang Xiao: u7757949:Filter the search content using ExpressionParser
+     * @param input
+     * @return
+     */
     private List<Dwelling> searchWithParser(String input) {
         List<Dwelling> filteredDwellings;
         Expression expression = null;
@@ -198,13 +213,17 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         return filteredDwellings;
     }
 
+    /**
+     * Author :Juliang Xiao : u7757949:Display the filtered address results on the map.
+     * @param dwellings
+     */
     private void showDwellingsOnMap(List<Dwelling> dwellings) {
         Mmap.clear();
         for (Dwelling dwelling : dwellings) {
             LatLng location = new LatLng(dwelling.getLocation().getLat(), dwelling.getLocation().getLng());
             int colorType = dwelling.getSeismicRating();
-            String address = dwelling.getAddress();  // 从 Dwelling 对象获取地址
-            addOneMarker(location, colorType, address);  // 使用地址字符串调用 addOneMarker
+            String address = dwelling.getAddress();
+            addOneMarker(location, colorType, address);
         }
         if (!dwellings.isEmpty()) {
             LatLng firstLoc = new LatLng(dwellings.get(0).getLocation().getLat(), dwellings.get(0).getLocation().getLng());
@@ -214,8 +233,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         }
 
         Mmap.setOnInfoWindowClickListener(marker -> {
-            String address = (String) marker.getTag();  // 从标记中检索地址字符串
-            Dwelling dwelling = dataLoader.getBTree().get(address);  // 用地址获取 Dwelling 对象
+            String address = (String) marker.getTag();
+            Dwelling dwelling = dataLoader.getBTree().get(address);
             if (dwelling != null) {
                 Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
                 intent.putExtra("Dwelling", dwelling);
@@ -225,7 +244,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         });
     }
 
-
+    /**
+     * Author :Juliang Xiao u7757949:Analyze the input content using a tokenizer.
+     * @param expression
+     * @param dwelling
+     * @return
+     */
     private boolean evaluateExpression(Expression expression, Dwelling dwelling) {
         if (expression instanceof Condition) {
             Condition condition = (Condition) expression;

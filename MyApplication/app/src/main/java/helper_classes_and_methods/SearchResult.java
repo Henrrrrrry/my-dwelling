@@ -1,19 +1,18 @@
 package helper_classes_and_methods;
 
+
+/**
+ * Author: Juliang Xiao u7757949
+ *
+ * The SearchResult class represents the result of a search operation in a B-tree,
+ * encapsulating information about the found status, node, and index of the search key.
+ */
+
+
 class SearchResult {
-    /**
-     * 是否找到对应关键字
-     */
+
     private boolean found;
-
-    /**
-     * 对应的节点
-     */
     private BTreeNode node;
-
-    /**
-     * 关键字在node的index, -1代表不在该节点中
-     */
     private int index;
 
     public SearchResult(boolean found, BTreeNode node, int index) {

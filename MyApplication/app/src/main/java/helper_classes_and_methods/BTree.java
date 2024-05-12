@@ -10,63 +10,28 @@ import java.util.List;
  */
 public class BTree {
 
-    /**
-     * 普通节点最大关键字数量
-     */
+
     private final int NODE_MAX_KEY_SIZE;
-
-    /**
-     * 普通节点最小关键字数量
-     */
     private final int NODE_MIN_KEY_SIZE;
-
-    /**
-     * 根节点
-     */
     private BTreeNode root;
-
     private final Comparator<String> comparator;
 
+    /**
+     * Author: Juliang Xiao u7757949: Constructs a B-tree with the given degree and comparator.
+     */
     public BTree(int degree, Comparator<String> comparator) {
-        int ROOT_MAX_KEY_SIZE = degree - 1;
-        int ROOT_MIN_KEY_SIZE = 1;
-        NODE_MAX_KEY_SIZE = degree - 1;
-        NODE_MIN_KEY_SIZE = ((int) Math.ceil(degree / 2.0)) - 1;
-        root = new BTreeNode(comparator);
-
+        this.NODE_MAX_KEY_SIZE = degree - 1;
+        this.NODE_MIN_KEY_SIZE = (int) Math.ceil(degree / 2.0) - 1;
+        this.root = new BTreeNode(comparator);
         this.comparator = comparator;
-
-        System.out.println("degree: " + degree);
-        System.out.println("ROOT_MAX_KEY_SIZE: " + ROOT_MAX_KEY_SIZE);
-        System.out.println("ROOT_MIN_KEY_SIZE: " + ROOT_MIN_KEY_SIZE);
-        System.out.println("NODE_MAX_KEY_SIZE: " + NODE_MAX_KEY_SIZE);
-        System.out.println("NODE_MIN_KEY_SIZE: " + NODE_MIN_KEY_SIZE);
-        System.out.println("\n");
     }
 
     /**
-     * 在指定节点插入新的键值对。
-     * @param node 目标节点
-     * @param key 插入的键
-     * @param value 插入的值
-     * @param index 插入的位置；如果是 -1，需要在方法内确定插入位置
-     * @return 插入后的位置索引
+     * Author: Juliang Xiao u7757949: Inserts a new key-value pair into the specified node.
      */
-
     private int insertElement(BTreeNode node, String key, Dwelling value, int index) {
         if (index == -1) {
-            index = 0;
-            int size = node.elements.size();
-
-            while (index < size) {
-                Element element = node.elements.get(index);
-                int comparatorResult = comparator.compare(key, element.getKey());
-                if (comparatorResult >= 0) {
-                    index++;
-                } else {
-                    break;
-                }
-            }
+            index = findInsertionIndex(node, key);
         }
 
         node.elements.add(index, new Element(key, value));
@@ -74,88 +39,126 @@ public class BTree {
     }
 
     /**
-     * 插入或更新节点中的键值对。
-     * @param key 要插入或更新的键
-     * @param value 要插入或更新的值
-     * @return 如果键存在并被更新，返回原先的值；否则返回 null
+     * Author: Juliang Xiao u7757949: Finds the index at which a key should be inserted in a node's elements list.
      */
+    private int findInsertionIndex(BTreeNode node, String key) {
+        int size = node.elements.size();
+        int index = 0;
 
+        while (index < size && comparator.compare(key, node.elements.get(index).getKey()) >= 0) {
+            index++;
+        }
+
+        return index;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Inserts a key-value pair into the B-tree.
+     */
     public Dwelling put(String key, Dwelling value) {
         SearchResult searchResult = search(key, root);
         BTreeNode node = searchResult.getNode();
+
         if (searchResult.isFound()) {
-            Element element = node.elements.get(searchResult.getIndex());
-            Dwelling originValue = element.getValue();
-            element.setValue(value);
-            return originValue;
+            return updateElement(node, searchResult.getIndex(), value);
         }
 
         insertElement(node, key, value, searchResult.getIndex());
+        splitNodeIfNeeded(node);
+        return null;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Updates the value of an existing element in a node.
+     */
+    private Dwelling updateElement(BTreeNode node, int index, Dwelling value) {
+        Element element = node.elements.get(index);
+        Dwelling originValue = element.getValue();
+        element.setValue(value);
+        return originValue;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Splits a node if it exceeds the maximum number of keys allowed.
+     */
+    private void splitNodeIfNeeded(BTreeNode node) {
         while (node.elements.size() > NODE_MAX_KEY_SIZE) {
-            BTreeNode left = new BTreeNode(comparator);
-            for (int i = 0; i < NODE_MIN_KEY_SIZE; i++) {
-                left.elements.add(node.elements.get(i));
-            }
-            if (!node.children.isEmpty()) {
-                for (int i = 0; i < NODE_MIN_KEY_SIZE + 1; i++) {
-                    left.children.add(node.children.get(i));
-                }
-            }
-
+            BTreeNode left = createLeftNode(node);
             Element mid = node.elements.get(NODE_MIN_KEY_SIZE);
-
-            BTreeNode right = new BTreeNode(comparator);
-            for (int i = NODE_MIN_KEY_SIZE + 1; i < node.elements.size(); i++) {
-                right.elements.add(node.elements.get(i));
-            }
-            if (!node.children.isEmpty()) {
-                for (int i = NODE_MIN_KEY_SIZE + 1; i < node.children.size(); i++) {
-                    right.children.add(node.children.get(i));
-                }
-            }
+            BTreeNode right = createRightNode(node);
 
             BTreeNode parent = node.parent;
-            if (null == parent) {
-                parent = new BTreeNode(comparator);
-                parent.elements.add(mid);
-                parent.children.add(left);
-                parent.children.add(right);
-                left.parent = parent;
-                right.parent = parent;
+            if (parent == null) {
+                parent = createNewParent(left, mid, right);
                 root = parent;
                 break;
             }
 
             int i = insertElement(parent, mid.getKey(), mid.getValue(), -1);
-
-            // 移除child并插入新的children
-            parent.children.set(i, left);
-            parent.children.add(i + 1, right);
-            left.parent = parent;
-            right.parent = parent;
+            updateParentChildren(parent, i, left, right);
             node.parent = null;
-            // do loop
             node = parent;
         }
-
-        return null;
-    }
-
-    public Dwelling get(String key) {
-        SearchResult searchResult = search(key, root);
-        if (searchResult.isFound()) {
-            Element element = searchResult.getNode().elements.get(searchResult.getIndex());
-            return element.getValue();
-        }
-        return null;
     }
 
     /**
-     * 根据键删除对应的元素，并返回其值。
-     * @param key 要删除的键
-     * @return 如果找到并成功删除，返回被删除的值；如果键不存在，返回 null
+     * Author: Juliang Xiao u7757949: Creates a new left node during a node split.
      */
+    private BTreeNode createLeftNode(BTreeNode node) {
+        BTreeNode left = new BTreeNode(comparator);
+        left.elements.addAll(node.elements.subList(0, NODE_MIN_KEY_SIZE));
+        if (!node.children.isEmpty()) {
+            left.children.addAll(node.children.subList(0, NODE_MIN_KEY_SIZE + 1));
+        }
+        return left;
+    }
 
+    /**
+     * Author: Juliang Xiao u7757949: Creates a new right node during a node split.
+     */
+    private BTreeNode createRightNode(BTreeNode node) {
+        BTreeNode right = new BTreeNode(comparator);
+        right.elements.addAll(node.elements.subList(NODE_MIN_KEY_SIZE + 1, node.elements.size()));
+        if (!node.children.isEmpty()) {
+            right.children.addAll(node.children.subList(NODE_MIN_KEY_SIZE + 1, node.children.size()));
+        }
+        return right;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Creates a new parent node during a node split.
+     */
+    private BTreeNode createNewParent(BTreeNode left, Element mid, BTreeNode right) {
+        BTreeNode parent = new BTreeNode(comparator);
+        parent.elements.add(mid);
+        parent.children.add(left);
+        parent.children.add(right);
+        left.parent = parent;
+        right.parent = parent;
+        return parent;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Updates the children of a parent node during a node split.
+     */
+    private void updateParentChildren(BTreeNode parent, int i, BTreeNode left, BTreeNode right) {
+        parent.children.set(i, left);
+        parent.children.add(i + 1, right);
+        left.parent = parent;
+        right.parent = parent;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Retrieves the value associated with the given key from the B-tree.
+     */
+    public Dwelling get(String key) {
+        SearchResult searchResult = search(key, root);
+        return searchResult.isFound() ? searchResult.getNode().elements.get(searchResult.getIndex()).getValue() : null;
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Removes a key-value pair from the B-tree.
+     */
     public Dwelling remove(String key) {
         SearchResult searchResult = search(key, root);
         if (!searchResult.isFound()) {
@@ -164,25 +167,34 @@ public class BTree {
 
         BTreeNode node = searchResult.getNode();
         Dwelling value = node.elements.get(searchResult.getIndex()).getValue();
-        if (!node.isLeaf()) {
-            SearchResult replaceSearchResult = searchPrev(node, searchResult.getIndex());
-            BTreeNode replaceNode = replaceSearchResult.getNode();
-            if (replaceNode.elements.size() == NODE_MIN_KEY_SIZE) {
-                replaceSearchResult = searchNext(node, searchResult.getIndex());
-                replaceNode = replaceSearchResult.getNode();
 
-            }
-            node.elements.set(searchResult.getIndex(), replaceNode.elements.remove(replaceSearchResult.getIndex()));
-            adjust(replaceNode);
-        } else {
+        if (node.isLeaf()) {
             node.elements.remove(searchResult.getIndex());
-            adjust(node);
+        } else {
+            SearchResult replaceSearchResult = findReplacementElement(node, searchResult.getIndex());
+            BTreeNode replaceNode = replaceSearchResult.getNode();
+            node.elements.set(searchResult.getIndex(), replaceNode.elements.remove(replaceSearchResult.getIndex()));
         }
 
+        adjustAfterRemoval(node);
         return value;
     }
 
-    private void adjust(BTreeNode node) {
+    /**
+     * Author: Juliang Xiao u7757949: Finds the replacement element during a key removal.
+     */
+    private SearchResult findReplacementElement(BTreeNode node, int index) {
+        SearchResult searchResult = searchPrev(node, index);
+        if (searchResult.getNode().elements.size() > NODE_MIN_KEY_SIZE) {
+            return searchResult;
+        }
+        return searchNext(node, index);
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Adjusts the B-tree after a key removal to maintain balance.
+     */
+    private void adjustAfterRemoval(BTreeNode node) {
         if (root == node || node.elements.size() >= NODE_MIN_KEY_SIZE) {
             return;
         }
@@ -190,76 +202,110 @@ public class BTree {
         BTreeNode parent = node.parent;
         int index = parent.children.indexOf(node);
 
+        if (rotateLeftIfPossible(node, parent, index) || rotateRightIfPossible(node, parent, index)) {
+            return;
+        }
+
+        mergeWithSibling(node, parent, index);
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Performs a left rotation if possible during key removal.
+     */
+    private boolean rotateLeftIfPossible(BTreeNode node, BTreeNode parent, int index) {
         BTreeNode leftSibling = index > 0 ? parent.children.get(index - 1) : null;
-        if (null != leftSibling && leftSibling.elements.size() > NODE_MIN_KEY_SIZE) {
-            // 右旋
+        if (leftSibling != null && leftSibling.elements.size() > NODE_MIN_KEY_SIZE) {
             Element parentElement = parent.elements.get(index - 1);
             parent.elements.set(index - 1, leftSibling.elements.remove(leftSibling.elements.size() - 1));
             node.elements.add(0, parentElement);
             if (!node.isLeaf()) {
                 node.children.add(0, leftSibling.children.remove(leftSibling.children.size() - 1));
             }
-            return;
+            return true;
         }
+        return false;
+    }
 
+    /**
+     * Author: Juliang Xiao u7757949: Performs a right rotation if possible during key removal.
+     */
+    private boolean rotateRightIfPossible(BTreeNode node, BTreeNode parent, int index) {
         BTreeNode rightSibling = index < parent.children.size() - 1 ? parent.children.get(index + 1) : null;
-        if (null != rightSibling && rightSibling.elements.size() > NODE_MIN_KEY_SIZE) {
-            // 左旋
+        if (rightSibling != null && rightSibling.elements.size() > NODE_MIN_KEY_SIZE) {
             Element parentElement = parent.elements.get(index);
             parent.elements.set(index, rightSibling.elements.remove(0));
             node.elements.add(parentElement);
             if (!node.isLeaf()) {
                 node.children.add(rightSibling.children.remove(0));
             }
-            return;
+            return true;
         }
+        return false;
+    }
 
-        if (null != leftSibling) {
-            // 向左合并
-            Element parentElement = parent.elements.remove(index - 1);
-            parent.children.remove(index);
-            leftSibling.elements.add(parentElement);
-            leftSibling.elements.addAll(node.elements);
-            if (!node.isLeaf()) {
-                leftSibling.children.addAll(node.children);
-            }
+    /**
+     * Author: Juliang Xiao u7757949: Merges a node with its sibling during key removal.
+     */
+    private void mergeWithSibling(BTreeNode node, BTreeNode parent, int index) {
+        BTreeNode leftSibling = index > 0 ? parent.children.get(index - 1) : null;
+        BTreeNode rightSibling = index < parent.children.size() - 1 ? parent.children.get(index + 1) : null;
 
-            if (root == parent && parent.elements.isEmpty()) {
-                root = leftSibling;
-            } else {
-                adjust(parent);
-            }
-        } else if (null != rightSibling) {
-            // 向右合并
-            Element parentElement = parent.elements.remove(index);
-            parent.children.remove(index);
-            rightSibling.elements.add(0, parentElement);
-            rightSibling.elements.addAll(0, node.elements);
-            if (!node.isLeaf()) {
-                rightSibling.children.addAll(0, node.children);
-            }
-
-            if (root == parent && parent.elements.isEmpty()) {
-                root = rightSibling;
-            } else {
-                adjust(parent);
-            }
+        if (leftSibling != null) {
+            mergeWithLeftSibling(node, parent, index, leftSibling);
+        } else if (rightSibling != null) {
+            mergeWithRightSibling(node, parent, index, rightSibling);
         }
     }
 
-    private SearchResult search(String key, BTreeNode node) {
-        int i = 0;
-        while (i < node.elements.size()) {
-            Element element = node.elements.get(i);
-            int comparatorResult = comparator.compare(key, element.getKey());
-            if (comparatorResult == 0) {
-                return new SearchResult(true, node, i);
-            } else if (comparatorResult > 0) {
-                i++;
-            } else {
-                break;
-            }
+    /**
+     * Author: Juliang Xiao u7757949: Merges a node with its left sibling during key removal.
+     */
+    private void mergeWithLeftSibling(BTreeNode node, BTreeNode parent, int index, BTreeNode leftSibling) {
+        Element parentElement = parent.elements.remove(index - 1);
+        parent.children.remove(index);
+        leftSibling.elements.add(parentElement);
+        leftSibling.elements.addAll(node.elements);
+        if (!node.isLeaf()) {
+            leftSibling.children.addAll(node.children);
         }
+
+        if (parent == root && parent.elements.isEmpty()) {
+            root = leftSibling;
+        } else {
+            adjustAfterRemoval(parent);
+        }
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Merges a node with its right sibling during key removal.
+     */
+    private void mergeWithRightSibling(BTreeNode node, BTreeNode parent, int index, BTreeNode rightSibling) {
+        Element parentElement = parent.elements.remove(index);
+        parent.children.remove(index);
+        rightSibling.elements.add(0, parentElement);
+        rightSibling.elements.addAll(0, node.elements);
+        if (!node.isLeaf()) {
+            rightSibling.children.addAll(0, node.children);
+        }
+
+        if (parent == root && parent.elements.isEmpty()) {
+            root = rightSibling;
+        } else {
+            adjustAfterRemoval(parent);
+        }
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Searches for a key in the B-tree.
+     */
+    private SearchResult search(String key, BTreeNode node) {
+        int i = binarySearch(key, node.elements);
+
+        if (i >= 0) {
+            return new SearchResult(true, node, i);
+        }
+
+        i = -(i + 1);
 
         if (node.isLeaf()) {
             return new SearchResult(false, node, i);
@@ -269,31 +315,50 @@ public class BTree {
     }
 
     /**
-     * 获取指定索引位置的前驱元素的搜索结果。
-     * @param node 当前节点
-     * @param index 当前元素的索引
-     * @return 返回前驱元素的搜索结果
+     * Author: Juliang Xiao u7757949: Performs a binary search on a list of elements.
      */
+    private int binarySearch(String key, List<Element> elements) {
+        int low = 0;
+        int high = elements.size() - 1;
 
-    private SearchResult searchPrev(BTreeNode node, int index) {
-        BTreeNode child = node.children.get(index);
-        while (!child.isLeaf()) {
-            child = child.children.get(child.children.size() - 1);
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            Element midElement = elements.get(mid);
+            int comparatorResult = comparator.compare(key, midElement.getKey());
+
+            if (comparatorResult < 0) {
+                high = mid - 1;
+            } else if (comparatorResult > 0) {
+                low = mid + 1;
+            } else {
+                return mid;
+            }
         }
 
+        return -(low + 1);
+    }
+
+    /**
+     * Author: Juliang Xiao u7757949: Searches for the previous element of a given index in a node.
+     */
+    private SearchResult searchPrev(BTreeNode node, int index) {
+        BTreeNode child = node.children.get(index);
         int prevIndex = child.elements.size() - 1;
+
+        while (!child.isLeaf()) {
+            child = child.children.get(prevIndex + 1);
+            prevIndex = child.elements.size() - 1;
+        }
+
         return new SearchResult(true, child, prevIndex);
     }
 
     /**
-     * 获取指定索引位置的后继元素的搜索结果。
-     * @param node 当前节点
-     * @param index 当前元素的索引
-     * @return 返回后继元素的搜索结果
+     * Author: Juliang Xiao u7757949: Searches for the next element of a given index in a node.
      */
-
     private SearchResult searchNext(BTreeNode node, int index) {
         BTreeNode child = node.children.get(index + 1);
+
         while (!child.isLeaf()) {
             child = child.children.get(0);
         }
@@ -302,37 +367,9 @@ public class BTree {
     }
 
 
-    public List<Dwelling> searchPrefix(String prefix) {
-        List<Dwelling> result = new ArrayList<>();
-        searchPrefixHelper(prefix, root, result);
-        return result;
-    }
 
-    private void searchPrefixHelper(String prefix, BTreeNode node, List<Dwelling> result) {
-        if (node == null) {
-            return;
-        }
 
-        int i = 0;
-        while (i < node.elements.size()) {
-            Element element = node.elements.get(i);
-            String key = element.getKey();
-            if (key.startsWith(prefix)) {
-                result.add(element.getValue());
-                searchPrefixHelper(prefix, node.children.get(i), result);
-                i++;
-            } else if (key.compareTo(prefix) > 0) {
-                searchPrefixHelper(prefix, node.children.get(i), result);
-                break;
-            } else {
-                i++;
-            }
-        }
 
-        if (!node.isLeaf()) {
-            searchPrefixHelper(prefix, node.children.get(i), result);
-        }
-    }
 
 
 
