@@ -39,7 +39,7 @@ import static org.mockito.Mockito.verify;
 
 
 /**
- * Author: Hongyu Li
+ * Author: Hongyu Li u7776180
  * Description: authorization test
  */
 @RunWith(AndroidJUnit4.class)

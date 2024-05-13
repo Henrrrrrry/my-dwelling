@@ -76,7 +76,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description: simulate a data stream, enter username and password then click login
      */
     @SuppressLint("SetTextI18n")

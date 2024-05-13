@@ -5,7 +5,7 @@ import android.content.Context;
 import java.io.Serializable;
 
 /**
- * Author: Hongyu Li: create an abstract class, used for State pattern
+ * Author: Hongyu Li u7776180: create an abstract class, used for State pattern
  *         Xinrui Zhang: implements serializable
  */
 

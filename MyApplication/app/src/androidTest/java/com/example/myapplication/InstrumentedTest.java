@@ -31,7 +31,7 @@ import helper_classes_and_methods.User;
 
 
 /**
- * Author: Hongyu Li
+ * Author: Hongyu Li u7776180
  * Description: notification test
  */
 @RunWith(AndroidJUnit4.class)

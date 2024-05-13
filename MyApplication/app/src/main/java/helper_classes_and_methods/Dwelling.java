@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Author: Hongyu Li: created the skeleton
+ * Author: Hongyu Li u7776180: created the skeleton
  */
 public class Dwelling implements  Subject, Serializable {
 
@@ -222,7 +222,7 @@ public class Dwelling implements  Subject, Serializable {
     }
 
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description: add current user to the observers list when current user click follow
      * @param observer: the current observer, which is user
      */
@@ -231,7 +231,7 @@ public class Dwelling implements  Subject, Serializable {
         observers.add(observer);
     }
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description: remove user from observers if the user click unfollow(the button twice)
      * @param observer: the current observer, which is user
      */
@@ -241,7 +241,7 @@ public class Dwelling implements  Subject, Serializable {
     }
 
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description:  notify all users there's a fire alarm
      * @param context: the current context
      */
@@ -251,7 +251,7 @@ public class Dwelling implements  Subject, Serializable {
     }
 
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description:   notify maintainer of the building it need repairs, this function is designed for the service provider (server)
      * @param context: the current context
      */

@@ -31,7 +31,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 /**
- * Author: Hongyu Li
+ * Author: Hongyu Li u7776180
  * Description: user profile test
  */
 @LargeTest

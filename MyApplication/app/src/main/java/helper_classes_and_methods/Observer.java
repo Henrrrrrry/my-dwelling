@@ -3,7 +3,7 @@ package helper_classes_and_methods;
 import android.content.Context;
 
 /**
- * Author: Hongyu Li
+ * Author: Hongyu Li u7776180
  * Description: observer design pattern
  */
 public interface Observer {

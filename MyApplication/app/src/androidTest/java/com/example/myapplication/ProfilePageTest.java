@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 import helper_classes_and_methods.*;
 /**
- * Author: Hongyu Li
+ * Author: Hongyu Li u7776180
  * Description: profile page test, since we can't use espresso to click on markers or its info window
  */
 @RunWith(AndroidJUnit4.class)
