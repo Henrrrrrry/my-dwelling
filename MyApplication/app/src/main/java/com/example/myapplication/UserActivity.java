@@ -27,7 +27,7 @@ public class UserActivity extends AppCompatActivity {
     /**
      * Author: Xinfei Li u7785177: the backend development of the history list
      * Author: Yujing Zhang u7671098: set display parameters
-     * Author: Hongyu Li: implemented bottom navi bar
+     * Author: Hongyu Li u7776180: implemented bottom navi bar
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
      *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>

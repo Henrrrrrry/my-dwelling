@@ -56,7 +56,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     private Button searchButton;
 
     /**
-     * Author: Hongyu Li: implemented initial Google Maps API, created edit text and search button, implemented navigation bar
+     * Author: Hongyu Li u7776180: implemented initial Google Maps API, created edit text and search button, implemented navigation bar
      * Author: Xinrui Zhang u7728429: implemented fuzzy search
      * Author: Juliang Xiao u7757949: Reload data when the search box is cleared
      */
@@ -300,7 +300,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         viewCurrentLocation();//Ask for users current location
         Mmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             /**
-             * Author: Hongyu Li
+             * Author: Hongyu Li u7776180
              * @param marker:the marker clicked on
              */
             @Override
@@ -388,7 +388,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     /**
      * Author：Yujing Zhang u7671098: Created method and implement Markers with colors, and show text)
-     * Author Hongyu Li: added another argument address, also added a "guide" in title
+     * Author Hongyu Li u7776180: added another argument address, also added a "guide" in title
      *
      * @param coordinates
      * @param colorType
@@ -412,7 +412,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         return 12f * (colorType - 1); // 1-red,... ,10-green: SR level color
     }
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description: simulating data stream
      */
     private void simulateSearch() {
@@ -466,7 +466,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     }
 
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Description: helper method, since there's no performclick() method for info window, so use this mock clicking on info window
      * @param dwelling: the dwelling appeared in the edit text
      */

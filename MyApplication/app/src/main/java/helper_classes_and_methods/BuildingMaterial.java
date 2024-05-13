@@ -7,7 +7,7 @@ import java.io.Serializable;
  * get the seismic rating, determine if a building is need a repair and repair it
  *
  * Author: Xinfei Li u7785177 enum development
- *         Hongyu Li: created the initial enums (STEEL,BRICK,CONCRETE,WOOD)
+ *         Hongyu Li u7776180: created the initial enums (STEEL,BRICK,CONCRETE,WOOD)
  *
  */
 

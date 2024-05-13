@@ -5,7 +5,7 @@ import android.content.Context;
 import java.io.Serializable;
 
 /**
- * Author: Hongyu Li
+ * Author: Hongyu Li u7776180
  * Description: state that the building need to be repaired
  */
 public class RepairState extends DwellingState implements Serializable {

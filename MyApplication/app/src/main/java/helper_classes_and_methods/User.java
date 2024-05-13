@@ -23,7 +23,7 @@ import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Author: Hongyu Li: created the skeleton
+ * Author: Hongyu Li u7776180: created the skeleton
  */
 
 public class User implements Observer, Serializable {
@@ -85,7 +85,7 @@ public class User implements Observer, Serializable {
     }
 
     /**
-     * Auhtor: Hongyu Li
+     * Auhtor: Hongyu Li u7776180
      * Description: override the update method
      * @param location the location msg users will get
      * @param context  the current context
@@ -98,7 +98,7 @@ public class User implements Observer, Serializable {
     }
 
     /**
-     * Auhtor: Hongyu Li
+     * Auhtor: Hongyu Li u7776180
      * Description: override method
      * @param location the location msg maintainers will get
      * @param context the current context
@@ -111,7 +111,7 @@ public class User implements Observer, Serializable {
     }
 
     /**
-     * Author: Hongyu Li
+     * Author: Hongyu Li u7776180
      * Descripotion: implemented android notification api, followed the tut: <a href="https://developer.android.com/develop/ui/views/notifications/build-notification">...</a>
      * @param msg the msg maintainers will get
      * @param title firealarm or need repair
