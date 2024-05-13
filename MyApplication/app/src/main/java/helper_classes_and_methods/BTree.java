@@ -372,7 +372,10 @@ public class BTree {
 
 
 
-
+    /**
+     * Author: Xinrui Zhang u7728429
+     * Description: get all the dwellings from tree
+     */
 
     public List<Dwelling> getDwellings() {
         List<Dwelling> dwellingsList = new ArrayList<>();
@@ -380,7 +383,10 @@ public class BTree {
         return dwellingsList;
     }
 
-
+    /**
+     * Author: Xinrui Zhang u7728429
+     * Description: inorder traversal dwellings
+     */
     private void inorderTraversalDwellings(BTreeNode node, List<Dwelling> dwellingsList) {
         if (node == null) {
             return;
