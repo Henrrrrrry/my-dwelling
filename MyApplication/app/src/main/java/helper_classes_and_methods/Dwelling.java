@@ -79,6 +79,9 @@ public class Dwelling implements  Subject, Serializable {
         this.maintainer =maintainer;
         this.location=location;
     }
+    public Dwelling(){
+
+    }
 
 
 

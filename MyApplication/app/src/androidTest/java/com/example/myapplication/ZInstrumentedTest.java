@@ -13,6 +13,7 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,14 +36,16 @@ import helper_classes_and_methods.User;
  * Description: notification test
  */
 @RunWith(AndroidJUnit4.class)
-public class InstrumentedTest {
+public class ZInstrumentedTest {
     private UiDevice device;
+
 
     @Before
     public void setUp() {
 //        initialize device
         device = UiDevice.getInstance(getInstrumentation());
     }
+
 
     @Test
     public void testFireAlarmNotification() throws UiObjectNotFoundException {
@@ -69,6 +72,5 @@ public class InstrumentedTest {
         UiObject notificationTitle = device.findObject(new UiSelector().textContains("Fire Alarm"));
         assertTrue(notificationTitle.exists());
     }
-
 
 }
