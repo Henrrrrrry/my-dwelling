@@ -8,8 +8,7 @@ public class Token {
     private String content;
     private TokenType type;
 
-    public Token() {
-    }
+
 
     public Token(String content, TokenType type) {
         this.content = content;
@@ -26,9 +25,5 @@ public class Token {
 
     public TokenType getType() {
         return type;
-    }
-
-    public void setType(TokenType type) {
-        this.type = type;
     }
 }
