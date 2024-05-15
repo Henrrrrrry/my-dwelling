@@ -80,15 +80,15 @@ Note that the core criteria of contribution is based on `code contribution` (the
 2. **U7785177, Xinfei Li**  I have 20% contribution, as follows: <br>
   - ...
 
-3. **u7671098, Yujing Zhang**  I have 0% contribution, as follows: <br>
+3. **u7671098, Yujing Zhang**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
+    - GPS function - class MapActivity: [viewCurrentLocation()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L329-366)
+    - show Data(the way to mark on the map) -  class MapActivity: [addMarkers()，addOneMarker(),getHueFromColorType()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L374-413)
+    - profile page and user page(display):[activity_prof_page.xml](../src/main/res/layout/activity_prof_page.xml), [activity_user.xml](../src/main/res/layout/activity_user.xml)
+    - UI Landscape: [activity_login.xml(land)](../src/main/res/layout-land/activity_login.xml), [activity_main.xml(land)](../src/main/res/layout-land/activity_main.xml), [activity_prof_page(land)](..src/main/res/layout-land/activity_prof_page.xml),[activity_user(land)](../src/main/res/layout-land/activity_user.xml)
 
 - **Code and App Design**
-    - [What design patterns, data structures, did the involved member propose?]*
-    - [UI Design. Specify what design did the involved member propose? What tools were used for the design?]* <br><br>
+    - UI Design: Adjusting the pages layout, Theme color, Launch icon,tools:Sketch,Photoshop]* <br><br>
 
 - **Others**: (only if significant and significantly different from an "average contribution")
     - [Report Writing?] [Slides preparation?]*
