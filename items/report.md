@@ -234,12 +234,13 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 
 ### <u>Grammar(s)</u>
 *[How do you design the grammar? What are the advantages of your designs?]*
-*If there are several grammars, list them all under this section and what they relate to.*
+*I modeled the design after the parser method on lection.The and and or statements require two key-value pairs separated by commas, while the not statement has only one key-value pair.*
 
 Production Rules:
 
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+    and(key:value,key:value)
+    or(key:value,key:value)
+    not(key:value)
 
 
 ### <u>Tokenizers and Parsers</u>
