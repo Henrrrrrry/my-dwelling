@@ -78,7 +78,10 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
 2. **U7785177, Xinfei Li**  I have 20% contribution, as follows: <br>
-  - ...
+- **Code Contribution in the final App**
+    - Feature Login - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
+    - Factory Design Pattern -  BuildingMaterial class: [BuildingMaterial.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
+    - ... (any other contribution in the code, including UI and data files)
 
 3. **u7671098, Yujing Zhang**  I have 0% contribution, as follows: <br>
 - **Code Contribution in the final App**
@@ -190,18 +193,21 @@ Here is a partial (short) example for the subsection `Data Structures`:*
    * *Reasons:*
       * ...
 1. *Factory Pattern*
-    * *Objective: used for storing login and fire alarm history for DataFile feature.*
+    * *Objective: used for storing and loading login and fire alarm history for LoadShowData feature.*
     * Code Locations: Interface: [Interface StorageHandler](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/StorageHandler.java) 
     * Helper class: [TimeUtil.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/TimeUtil.java); 
     * 2 Handler: [FireAlarmStorageHandler.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java);
     * and [LoginStorageHandler.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java);
     * Factory: [StorageFactory.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/StorageFactory.java);
-    * Processed in [ProfPageActivity.java line 36, 46 and 139](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java) 
-    * and [LoginActivity.java.java line 35, 48 and 58](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java)
+    * Record logs in [ProfPageActivity.java line 29, 47 and 149](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java) 
+    * and [LoginActivity.java.java line 35, 51 and 64](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java)
+    * Present the history in [UserActivity.java line 48-65](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L48-65)
     * *Reasons:*
-        * Easy to add more local logs in the future.
-        * Storage the login history locally, better for track the user activity.
-        * Storage the fire alarm history locally, better for track the fire alarm history.
+        * Scalable Logging: Easily add more local logs as needed.
+        * Local Storage: Keeps login and fire alarm history on-device for better activity tracking.
+        * Persistent Logs: Maintains logs across restarts, ensuring data isn't lost, enhancing system reliability and historical data accessibility.
+          
+          
 <hr>
 
 ### Parser
@@ -234,7 +240,7 @@ Production Rules:
 *List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-1. [LogIn]. Description of the feature ... (easy)
+1. [LogIn]. User can login in different username and password
    * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
    * Description of feature: ... <br>
    * Description of your implementation: ... <br>
@@ -253,8 +259,13 @@ Feature Category: Privacy <br>
    * Description of your implementation: ... <br>
      <br>
 
-2. [Privacy-Block]. Description ... ... (medium)
-   ... ...
+2. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
+    * Code: [Class User, methods validateUserCredentials](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
+    * Description of your implementation: Read local csv file. <br>
+    * Code: [Class LoginStorageHandler, methods loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class LoginStorageHandler, methods loadAllLogs()]
+    * Description of your implementation: Read xml file that on the mobile device. <br>
+    * Code: [TODO](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
+    * Description of your implementation: Read json file. <br>
    <br><br>
 
 Feature Category: Firebase Integration <br>
