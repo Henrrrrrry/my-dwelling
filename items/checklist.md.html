@@ -1,0 +1,359 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html class="ui-indigo with-top-bar " lang="en">
+<head prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>items/checklist.md · main · comp2100 / group-project / GP-24s1 · GitLab</title>
+<script>
+//<![CDATA[
+window.gon={};gon.features={"blobBlameInfo":true,"highlightJsWorker":true,"explainCodeChat":false,"encodingLogsTree":false};
+//]]>
+</script>
+<script>
+//<![CDATA[
+window.uploads_path = "/comp2100/group-project/gp-24s1/uploads";
+
+
+
+//]]>
+</script>
+<script>
+//<![CDATA[
+var gl = window.gl || {};
+gl.startup_calls = {"/comp2100/group-project/gp-24s1/-/blob/main/items/checklist.md?format=json\u0026ref_type=heads\u0026viewer=rich":{}};
+gl.startup_graphql_calls = [{"query":"query getBlobInfo(\n  $projectPath: ID!\n  $filePath: String!\n  $ref: String!\n  $refType: RefType\n  $shouldFetchRawText: Boolean!\n) {\n  project(fullPath: $projectPath) {\n    __typename\n    id\n    repository {\n      __typename\n      empty\n      blobs(paths: [$filePath], ref: $ref, refType: $refType) {\n        __typename\n        nodes {\n          __typename\n          id\n          webPath\n          name\n          size\n          rawSize\n          rawTextBlob @include(if: $shouldFetchRawText)\n          fileType\n          language\n          path\n          blamePath\n          editBlobPath\n          gitpodBlobUrl\n          ideEditPath\n          forkAndEditPath\n          ideForkAndEditPath\n          codeNavigationPath\n          projectBlobPathRoot\n          forkAndViewPath\n          environmentFormattedExternalUrl\n          environmentExternalUrlForRouteMap\n          canModifyBlob\n          canCurrentUserPushToBranch\n          archived\n          storedExternally\n          externalStorage\n          externalStorageUrl\n          rawPath\n          replacePath\n          pipelineEditorPath\n          simpleViewer {\n            fileType\n            tooLarge\n            type\n            renderError\n          }\n          richViewer {\n            fileType\n            tooLarge\n            type\n            renderError\n          }\n        }\n      }\n    }\n  }\n}\n","variables":{"projectPath":"comp2100/group-project/gp-24s1","ref":"main","refType":"HEADS","filePath":"items/checklist.md","shouldFetchRawText":false}}];
+
+if (gl.startup_calls && window.fetch) {
+  Object.keys(gl.startup_calls).forEach(apiCall => {
+   gl.startup_calls[apiCall] = {
+      fetchCall: fetch(apiCall, {
+        // Emulate XHR for Rails AJAX request checks
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        // fetch won’t send cookies in older browsers, unless you set the credentials init option.
+        // We set to `same-origin` which is default value in modern browsers.
+        // See https://github.com/whatwg/fetch/pull/585 for more information.
+        credentials: 'same-origin'
+      })
+    };
+  });
+}
+if (gl.startup_graphql_calls && window.fetch) {
+  const headers = {"X-CSRF-Token":"16lkzXJ2UHJGbH7-NX5ccb8U4j4jlR2dApVY7qwriAHyZPrQ8adOJi4OisSC2cSMJxPEUxxJ5Wx8sHaVkd8x-g","x-gitlab-feature-category":"source_code_management"};
+  const url = `https://gitlab.cecs.anu.edu.au/api/graphql`
+
+  const opts = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    }
+  };
+
+  gl.startup_graphql_calls = gl.startup_graphql_calls.map(call => ({
+    ...call,
+    fetchCall: fetch(url, {
+      ...opts,
+      credentials: 'same-origin',
+      body: JSON.stringify(call)
+    })
+  }))
+}
+
+
+//]]>
+</script>
+
+<link rel="prefetch" href="/assets/webpack/monaco.d34f2466.chunk.js">
+<link rel="stylesheet" href="/assets/themes/theme_indigo-6f380a5d7a5392715e919686a7c92f9b5aa7de522bb5e289a8bfcaf4b59bedf0.css" />
+
+<link rel="stylesheet" href="/assets/application-8e1fac7546e10d24ab7482b66e2863732a6795cce85e9ff10d8bfd59cad1cd9f.css" media="all" />
+<link rel="stylesheet" href="/assets/page_bundles/tree-a5089dc5ce426c5f11ae90f6dc4a5b0be7ec204192f87d6438b0500eaf370d7c.css" media="all" /><link rel="stylesheet" href="/assets/page_bundles/projects-5607bd5be3ced38d6a7ed3afc0b32793aca283fbd27c21c26ca01d576fb445fb.css" media="all" />
+<link rel="stylesheet" href="/assets/application_utilities-2cbab288829ca99cf9e28ce29af9c76d5a1091f05c3809a6133dd8ccbbbf1ddf.css" media="all" />
+
+
+<link rel="stylesheet" href="/assets/fonts-115c4704cb8c77e2fdf3fd0243eebf164e2e9b54bbab7bf6a4c14868b865ddf8.css" media="all" />
+<link rel="stylesheet" href="/assets/highlight/themes/white-96f127bcbdab3caa86a6cc73183496a2fa61f5fdac1f3b410eaf990adbc6ea3b.css" media="all" />
+
+
+<link rel="preload" href="/assets/application_utilities-2cbab288829ca99cf9e28ce29af9c76d5a1091f05c3809a6133dd8ccbbbf1ddf.css" as="style" type="text/css">
+<link rel="preload" href="/assets/application-8e1fac7546e10d24ab7482b66e2863732a6795cce85e9ff10d8bfd59cad1cd9f.css" as="style" type="text/css">
+<link rel="preload" href="/assets/highlight/themes/white-96f127bcbdab3caa86a6cc73183496a2fa61f5fdac1f3b410eaf990adbc6ea3b.css" as="style" type="text/css">
+
+
+
+
+
+<script src="/assets/webpack/runtime.4f15cae9.bundle.js" defer="defer"></script>
+<script src="/assets/webpack/main.19445d5f.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/graphql.d06f65d4.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.admin.abuse_reports-pages.admin.abuse_reports.show-pages.admin.application_settings-pa-3df0e834.600cc825.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.search.show-super_sidebar.c5d03425.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/super_sidebar.995c3399.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-jira_connect_app-pages.abuse_reports-pages.admin.abuse_reports.show-pages.admin.application_-595aaa56.8aa469b9.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.admin.runners.show-pages.clusters.agents.dashboard-pages.explore.catalog-pages.groups.-fa999277.e6aae721.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.branches.new-pages.projects.commits.show-pages.proje-81161c0b.7ab48b4c.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.edit-pages.projects.sni-42df7d4c.06c41973.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.show-pages.projects.tre-c684fcf6.f9ac2a86.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blame.show-pages.projects.blame.streaming-pages.projects.blob.show-pages.proj-9f3d272f.3be2b63f.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.groups.show-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.3bc8a5bd.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.forks.new-pages.projects.show-pages.projects.tree.show.fb14fd25.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.69ce8209.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.tree.show-treeList.a0fd13c9.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/pages.projects.blob.show.d14c31ab.chunk.js" defer="defer"></script>
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="items/checklist.md · main · comp2100 / group-project / GP-24s1 · GitLab" property="og:title">
+<meta content="CECS Teaching GitLab" property="og:description">
+<meta content="https://gitlab.cecs.anu.edu.au/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="og:image">
+<meta content="64" property="og:image:width">
+<meta content="64" property="og:image:height">
+<meta content="https://gitlab.cecs.anu.edu.au/comp2100/group-project/gp-24s1/-/blob/main/items/checklist.md?ref_type=heads" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="items/checklist.md · main · comp2100 / group-project / GP-24s1 · GitLab" property="twitter:title">
+<meta content="CECS Teaching GitLab" property="twitter:description">
+<meta content="https://gitlab.cecs.anu.edu.au/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
+
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="JB5mSNhEPChfhuOez7iEbdCBfOrrtvu0NzcN66hR8NEB0_hVW5UifDfkF6R4HxyQSIZah9RqA0VJEiOQlaVJKg" />
+<meta name="csp-nonce" />
+<meta name="action-cable-url" content="/-/cable" />
+<link href="/-/manifest.json" rel="manifest">
+<link rel="icon" type="image/png" href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" id="favicon" data-original-href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" />
+<link rel="apple-touch-icon" type="image/x-icon" href="/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png" />
+<link href="/search/opensearch.xml" rel="search" title="Search GitLab" type="application/opensearchdescription+xml">
+
+
+
+
+<meta content="CECS Teaching GitLab" name="description">
+<meta content="#222261" name="theme-color">
+</head>
+
+<body class="tab-width-8 gl-browser-safari gl-platform-mac" data-find-file="/comp2100/group-project/gp-24s1/-/find_file/main?ref_type=heads" data-group="group-project" data-group-full-path="comp2100/group-project" data-namespace-id="10335" data-page="projects:blob:show" data-page-type-id="main/items/checklist.md" data-project="gp-24s1" data-project-id="233854">
+
+<script>
+//<![CDATA[
+gl = window.gl || {};
+gl.client = {"isSafari":true,"isMac":true};
+
+
+//]]>
+</script>
+
+
+
+<div class="layout-page page-with-super-sidebar">
+<aside class="js-super-sidebar super-sidebar super-sidebar-loading" data-command-palette="{&quot;project_files_url&quot;:&quot;/comp2100/group-project/gp-24s1/-/files/main?format=json&quot;,&quot;project_blob_url&quot;:&quot;/comp2100/group-project/gp-24s1/-/blob/main&quot;}" data-force-desktop-expanded-sidebar="" data-root-path="/" data-sidebar="{&quot;is_logged_in&quot;:true,&quot;context_switcher_links&quot;:[{&quot;title&quot;:&quot;Your work&quot;,&quot;link&quot;:&quot;/&quot;,&quot;icon&quot;:&quot;work&quot;},{&quot;title&quot;:&quot;Explore&quot;,&quot;link&quot;:&quot;/explore&quot;,&quot;icon&quot;:&quot;compass&quot;},{&quot;title&quot;:&quot;Profile&quot;,&quot;link&quot;:&quot;/-/profile&quot;,&quot;icon&quot;:&quot;profile&quot;},{&quot;title&quot;:&quot;Preferences&quot;,&quot;link&quot;:&quot;/-/profile/preferences&quot;,&quot;icon&quot;:&quot;preferences&quot;}],&quot;current_menu_items&quot;:[{&quot;id&quot;:&quot;project_overview&quot;,&quot;title&quot;:&quot;GP-24s1&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:233854,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-project&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;manage_menu&quot;,&quot;title&quot;:&quot;Manage&quot;,&quot;icon&quot;:&quot;users&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/activity&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;activity&quot;,&quot;title&quot;:&quot;Activity&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/activity&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-project-activity&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;members&quot;,&quot;title&quot;:&quot;Members&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/project_members&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;labels&quot;,&quot;title&quot;:&quot;Labels&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/labels&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;plan_menu&quot;,&quot;title&quot;:&quot;Plan&quot;,&quot;icon&quot;:&quot;planning&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;project_issue_list&quot;,&quot;title&quot;:&quot;Issues&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues&quot;,&quot;pill_count&quot;:&quot;1&quot;,&quot;link_classes&quot;:&quot;shortcuts-issues has-sub-items&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;boards&quot;,&quot;title&quot;:&quot;Issue boards&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/boards&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-issue-boards&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;milestones&quot;,&quot;title&quot;:&quot;Milestones&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/milestones&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;code_menu&quot;,&quot;title&quot;:&quot;Code&quot;,&quot;icon&quot;:&quot;code&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/tree/main&quot;,&quot;is_active&quot;:true,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;files&quot;,&quot;title&quot;:&quot;Repository&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/tree/main&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-tree&quot;,&quot;is_active&quot;:true},{&quot;id&quot;:&quot;branches&quot;,&quot;title&quot;:&quot;Branches&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/branches&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;commits&quot;,&quot;title&quot;:&quot;Commits&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/commits/main?ref_type=heads&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-commits&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;tags&quot;,&quot;title&quot;:&quot;Tags&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/tags&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;graphs&quot;,&quot;title&quot;:&quot;Repository graph&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/network/main?ref_type=heads&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-network&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;compare&quot;,&quot;title&quot;:&quot;Compare revisions&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/compare?from=main\u0026to=main&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;build_menu&quot;,&quot;title&quot;:&quot;Build&quot;,&quot;icon&quot;:&quot;rocket&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/pipelines&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;pipelines&quot;,&quot;title&quot;:&quot;Pipelines&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/pipelines&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-pipelines&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;jobs&quot;,&quot;title&quot;:&quot;Jobs&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/jobs&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;pipeline_schedules&quot;,&quot;title&quot;:&quot;Pipeline schedules&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/pipeline_schedules&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;artifacts&quot;,&quot;title&quot;:&quot;Artifacts&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/artifacts&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;deploy_menu&quot;,&quot;title&quot;:&quot;Deploy&quot;,&quot;icon&quot;:&quot;deployments&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/releases&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;releases&quot;,&quot;title&quot;:&quot;Releases&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/releases&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-deployments-releases&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;packages_registry&quot;,&quot;title&quot;:&quot;Package Registry&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/packages&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-container-registry&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;operations_menu&quot;,&quot;title&quot;:&quot;Operate&quot;,&quot;icon&quot;:&quot;cloud-pod&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/environments&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;environments&quot;,&quot;title&quot;:&quot;Environments&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/environments&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:&quot;shortcuts-environments&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;infrastructure_registry&quot;,&quot;title&quot;:&quot;Terraform modules&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/infrastructure_registry&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;monitor_menu&quot;,&quot;title&quot;:&quot;Monitor&quot;,&quot;icon&quot;:&quot;monitor&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues/service_desk&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;service_desk&quot;,&quot;title&quot;:&quot;Service Desk&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues/service_desk&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;analyze_menu&quot;,&quot;title&quot;:&quot;Analyze&quot;,&quot;icon&quot;:&quot;chart&quot;,&quot;avatar&quot;:null,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/graphs/main?ref_type=heads&quot;,&quot;is_active&quot;:false,&quot;pill_count&quot;:null,&quot;items&quot;:[{&quot;id&quot;:&quot;contributors&quot;,&quot;title&quot;:&quot;Contributor analytics&quot;,&quot;icon&quot;:null,&quot;avatar&quot;:null,&quot;entity_id&quot;:null,&quot;link&quot;:&quot;/comp2100/group-project/gp-24s1/-/graphs/main?ref_type=heads&quot;,&quot;pill_count&quot;:null,&quot;link_classes&quot;:null,&quot;is_active&quot;:false}],&quot;separated&quot;:false}],&quot;current_context_header&quot;:&quot;Project&quot;,&quot;support_path&quot;:&quot;https://about.gitlab.com/get-help/&quot;,&quot;display_whats_new&quot;:true,&quot;whats_new_most_recent_release_items_count&quot;:2,&quot;whats_new_version_digest&quot;:&quot;ae8077b3a8781c118c10b869a06fb420228ee4fa00401fbb652cd88adf3b3bd9&quot;,&quot;show_version_check&quot;:false,&quot;gitlab_version&quot;:{&quot;major&quot;:16,&quot;minor&quot;:7,&quot;patch&quot;:5,&quot;suffix_s&quot;:&quot;&quot;},&quot;gitlab_version_check&quot;:null,&quot;search&quot;:{&quot;search_path&quot;:&quot;/search&quot;,&quot;issues_path&quot;:&quot;/dashboard/issues&quot;,&quot;mr_path&quot;:&quot;/dashboard/merge_requests&quot;,&quot;autocomplete_path&quot;:&quot;/search/autocomplete&quot;,&quot;search_context&quot;:{&quot;group&quot;:{&quot;id&quot;:10335,&quot;name&quot;:&quot;group-project&quot;,&quot;full_name&quot;:&quot;comp2100 / group-project&quot;},&quot;group_metadata&quot;:{&quot;issues_path&quot;:&quot;/groups/comp2100/group-project/-/issues&quot;,&quot;mr_path&quot;:&quot;/groups/comp2100/group-project/-/merge_requests&quot;},&quot;project&quot;:{&quot;id&quot;:233854,&quot;name&quot;:&quot;GP-24s1&quot;},&quot;project_metadata&quot;:{&quot;mr_path&quot;:&quot;/comp2100/group-project/gp-24s1/-/merge_requests&quot;,&quot;issues_path&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues&quot;},&quot;code_search&quot;:true,&quot;ref&quot;:&quot;main&quot;,&quot;scope&quot;:null,&quot;for_snippets&quot;:null}},&quot;panel_type&quot;:&quot;project&quot;,&quot;shortcut_links&quot;:[{&quot;title&quot;:&quot;Milestones&quot;,&quot;href&quot;:&quot;/dashboard/milestones&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-milestones&quot;},{&quot;title&quot;:&quot;Snippets&quot;,&quot;href&quot;:&quot;/dashboard/snippets&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-snippets&quot;},{&quot;title&quot;:&quot;Activity&quot;,&quot;href&quot;:&quot;/dashboard/activity&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-activity&quot;},{&quot;title&quot;:&quot;Groups&quot;,&quot;href&quot;:&quot;/dashboard/groups&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-groups&quot;},{&quot;title&quot;:&quot;Projects&quot;,&quot;href&quot;:&quot;/dashboard/projects&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-projects&quot;},{&quot;title&quot;:&quot;Create a new issue&quot;,&quot;href&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues/new&quot;,&quot;css_class&quot;:&quot;shortcuts-new-issue&quot;}],&quot;is_admin&quot;:false,&quot;name&quot;:&quot;Xinrui Zhang&quot;,&quot;username&quot;:&quot;u7728429&quot;,&quot;admin_url&quot;:&quot;https://gitlab.cecs.anu.edu.au/admin&quot;,&quot;avatar_url&quot;:&quot;https://secure.gravatar.com/avatar/7d7dba9031e95ce86781d13a8befa6d6?s=80\u0026d=identicon&quot;,&quot;has_link_to_profile&quot;:true,&quot;link_to_profile&quot;:&quot;/u7728429&quot;,&quot;logo_url&quot;:null,&quot;status&quot;:{&quot;can_update&quot;:true,&quot;busy&quot;:null,&quot;customized&quot;:null,&quot;availability&quot;:&quot;&quot;,&quot;emoji&quot;:null,&quot;message_html&quot;:null,&quot;message&quot;:null,&quot;clear_after&quot;:null},&quot;settings&quot;:{&quot;has_settings&quot;:true,&quot;profile_path&quot;:&quot;/-/profile&quot;,&quot;profile_preferences_path&quot;:&quot;/-/profile/preferences&quot;},&quot;user_counts&quot;:{&quot;assigned_issues&quot;:0,&quot;assigned_merge_requests&quot;:0,&quot;review_requested_merge_requests&quot;:0,&quot;todos&quot;:0,&quot;last_update&quot;:1715762985795},&quot;can_sign_out&quot;:true,&quot;sign_out_link&quot;:&quot;/users/sign_out&quot;,&quot;issues_dashboard_path&quot;:&quot;/dashboard/issues?assignee_username=u7728429&quot;,&quot;todos_dashboard_path&quot;:&quot;/dashboard/todos&quot;,&quot;create_new_menu_groups&quot;:[{&quot;name&quot;:&quot;In this project&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;New issue&quot;,&quot;href&quot;:&quot;/comp2100/group-project/gp-24s1/-/issues/new&quot;,&quot;component&quot;:null,&quot;extraAttrs&quot;:{&quot;data-track-label&quot;:&quot;new_issue&quot;,&quot;data-track-action&quot;:&quot;click_link&quot;,&quot;data-track-property&quot;:&quot;nav_create_menu&quot;,&quot;data-testid&quot;:&quot;create_menu_item&quot;,&quot;data-qa-create-menu-item&quot;:&quot;new_issue&quot;}}]},{&quot;name&quot;:&quot;In GitLab&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;New project/repository&quot;,&quot;href&quot;:&quot;/projects/new&quot;,&quot;component&quot;:null,&quot;extraAttrs&quot;:{&quot;data-track-label&quot;:&quot;general_new_project&quot;,&quot;data-track-action&quot;:&quot;click_link&quot;,&quot;data-track-property&quot;:&quot;nav_create_menu&quot;,&quot;data-testid&quot;:&quot;create_menu_item&quot;,&quot;data-qa-create-menu-item&quot;:&quot;general_new_project&quot;}},{&quot;text&quot;:&quot;New snippet&quot;,&quot;href&quot;:&quot;/-/snippets/new&quot;,&quot;component&quot;:null,&quot;extraAttrs&quot;:{&quot;data-track-label&quot;:&quot;general_new_snippet&quot;,&quot;data-track-action&quot;:&quot;click_link&quot;,&quot;data-track-property&quot;:&quot;nav_create_menu&quot;,&quot;data-testid&quot;:&quot;create_menu_item&quot;,&quot;data-qa-create-menu-item&quot;:&quot;general_new_snippet&quot;}}]}],&quot;merge_request_menu&quot;:[{&quot;name&quot;:&quot;Merge requests&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;Assigned&quot;,&quot;href&quot;:&quot;/dashboard/merge_requests?assignee_username=u7728429&quot;,&quot;count&quot;:0,&quot;userCount&quot;:&quot;assigned_merge_requests&quot;,&quot;extraAttrs&quot;:{&quot;data-track-action&quot;:&quot;click_link&quot;,&quot;data-track-label&quot;:&quot;merge_requests_assigned&quot;,&quot;data-track-property&quot;:&quot;nav_core_menu&quot;,&quot;class&quot;:&quot;dashboard-shortcuts-merge_requests&quot;}},{&quot;text&quot;:&quot;Review requests&quot;,&quot;href&quot;:&quot;/dashboard/merge_requests?reviewer_username=u7728429&quot;,&quot;count&quot;:0,&quot;userCount&quot;:&quot;review_requested_merge_requests&quot;,&quot;extraAttrs&quot;:{&quot;data-track-action&quot;:&quot;click_link&quot;,&quot;data-track-label&quot;:&quot;merge_requests_to_review&quot;,&quot;data-track-property&quot;:&quot;nav_core_menu&quot;,&quot;class&quot;:&quot;dashboard-shortcuts-review_requests&quot;}}]}],&quot;projects_path&quot;:&quot;/dashboard/projects&quot;,&quot;groups_path&quot;:&quot;/dashboard/groups&quot;,&quot;gitlab_com_but_not_canary&quot;:false,&quot;gitlab_com_and_canary&quot;:false,&quot;canary_toggle_com_url&quot;:&quot;https://next.gitlab.com&quot;,&quot;current_context&quot;:{&quot;namespace&quot;:&quot;projects&quot;,&quot;item&quot;:{&quot;id&quot;:233854,&quot;name&quot;:&quot;GP-24s1&quot;,&quot;namespace&quot;:&quot;comp2100 / group-project / GP-24s1&quot;,&quot;webUrl&quot;:&quot;/comp2100/group-project/gp-24s1&quot;,&quot;avatarUrl&quot;:null}},&quot;pinned_items&quot;:[&quot;project_issue_list&quot;,&quot;project_merge_request_list&quot;],&quot;update_pins_url&quot;:&quot;/-/users/pins&quot;,&quot;is_impersonating&quot;:false,&quot;stop_impersonation_path&quot;:&quot;/admin/impersonation&quot;,&quot;track_visits_path&quot;:&quot;/-/track_namespace_visits&quot;}"></aside>
+
+<div class="content-wrapper">
+<div class="mobile-overlay"></div>
+
+<div class="alert-wrapper gl-force-block-formatting-context">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="top-bar-fixed container-fluid" data-testid="top-bar">
+<div class="top-bar-container gl-display-flex gl-align-items-center gl-gap-2">
+<button class="gl-button btn btn-icon btn-md btn-default btn-default-tertiary js-super-sidebar-toggle-expand super-sidebar-toggle gl-ml-n3" aria-controls="super-sidebar" aria-expanded="false" aria-label="Primary navigation sidebar" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="sidebar-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#sidebar"></use></svg>
+
+</button>
+<nav aria-label="Breadcrumbs" class="breadcrumbs gl-breadcrumbs" data-testid="breadcrumb-links">
+<ul class="breadcrumb gl-breadcrumb-list js-breadcrumbs-list">
+<li class="gl-breadcrumb-item"><a class="group-path breadcrumb-item-text js-breadcrumb-item-text " href="/comp2100">comp2100</a></li><li class="gl-breadcrumb-item"><a class="group-path breadcrumb-item-text js-breadcrumb-item-text " href="/comp2100/group-project">group-project</a></li> <li class="gl-breadcrumb-item"><a href="/comp2100/group-project/gp-24s1"><span class="breadcrumb-item-text js-breadcrumb-item-text">GP-24s1</span></a></li>
+
+<li class="gl-breadcrumb-item" data-testid="breadcrumb-current-link">
+<a href="/comp2100/group-project/gp-24s1/-/blob/main/items/checklist.md?ref_type=heads">Repository</a>
+</li>
+</ul>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"comp2100","item":"https://gitlab.cecs.anu.edu.au/comp2100"},{"@type":"ListItem","position":2,"name":"group-project","item":"https://gitlab.cecs.anu.edu.au/comp2100/group-project"},{"@type":"ListItem","position":3,"name":"GP-24s1","item":"https://gitlab.cecs.anu.edu.au/comp2100/group-project/gp-24s1"},{"@type":"ListItem","position":4,"name":"Repository","item":"https://gitlab.cecs.anu.edu.au/comp2100/group-project/gp-24s1/-/blob/main/items/checklist.md?ref_type=heads"}]}
+
+</script>
+</nav>
+
+
+
+</div>
+</div>
+
+</div>
+<div class="container-fluid container-limited project-highlight-puc">
+<main class="content" id="content-body" itemscope itemtype="http://schema.org/SoftwareSourceCode">
+<div class="flash-container flash-container-page sticky" data-testid="flash-container">
+<div id="js-global-alerts"></div>
+</div>
+
+
+
+
+<div class="js-signature-container" data-signatures-path="/comp2100/group-project/gp-24s1/-/commits/d994ee2f5cabf844e66fcebb062fd0e5ec1c6be4/signatures?limit=1"></div>
+
+<div class="tree-holder gl-pt-4" id="tree-holder">
+<div class="nav-block">
+<div class="tree-ref-container">
+<div class="tree-ref-holder gl-max-w-26">
+<div data-project-id="233854" data-project-root-path="/comp2100/group-project/gp-24s1" data-ref="main" data-ref-type="heads" id="js-tree-ref-switcher"></div>
+</div>
+<ul class="breadcrumb repo-breadcrumb">
+<li class="breadcrumb-item">
+<a href="/comp2100/group-project/gp-24s1/-/tree/main?ref_type=heads">gp-24s1
+</a></li>
+<li class="breadcrumb-item">
+<a href="/comp2100/group-project/gp-24s1/-/tree/main/items?ref_type=heads">items</a>
+</li>
+<li class="breadcrumb-item">
+<a href="/comp2100/group-project/gp-24s1/-/blob/main/items/checklist.md?ref_type=heads"><strong>checklist.md</strong>
+</a></li>
+</ul>
+</div>
+<div class="tree-controls gl-display-flex gl-flex-wrap gl-sm-flex-nowrap gl-align-items-baseline gl-gap-3">
+<a class="gl-button btn btn-md btn-default shortcuts-find-file" rel="nofollow" href="/comp2100/group-project/gp-24s1/-/find_file/main?ref_type=heads"><span class="gl-button-text">
+Find file
+
+</span>
+
+</a>
+<a class="gl-button btn btn-md btn-default js-blob-blame-link" href="/comp2100/group-project/gp-24s1/-/blame/main/items/checklist.md?ref_type=heads"><span class="gl-button-text">
+Blame
+</span>
+
+</a>
+<a class="gl-button btn btn-md btn-default " href="/comp2100/group-project/gp-24s1/-/commits/main/items/checklist.md?ref_type=heads"><span class="gl-button-text">
+History
+</span>
+
+</a>
+<a class="gl-button btn btn-md btn-default js-data-file-blob-permalink-url" href="/comp2100/group-project/gp-24s1/-/blob/d994ee2f5cabf844e66fcebb062fd0e5ec1c6be4/items/checklist.md"><span class="gl-button-text">
+Permalink
+</span>
+
+</a>
+</div>
+</div>
+
+<div class="info-well d-none d-sm-block">
+<div class="well-segment">
+<ul class="blob-commit-info">
+<li class="commit flex-row js-toggle-container" id="commit-d994ee2f">
+<div class="avatar-cell d-none d-sm-block">
+<a href="/u7323583"><img alt="Cathy Cheung&#39;s avatar" src="https://secure.gravatar.com/avatar/03d57ee09ac01e40cb8abb3f7dfe29ce?s=80&amp;d=identicon" class="avatar s40 gl-display-none gl-sm-display-inline-block" title="Cathy Cheung"></a>
+</div>
+<div class="commit-detail flex-list gl-display-flex gl-justify-content-space-between gl-align-items-center gl-flex-grow-1 gl-min-w-0">
+<div class="commit-content" data-testid="commit-content">
+<a class="commit-row-message item-title js-onboarding-commit-item " href="/comp2100/group-project/gp-24s1/-/commit/d994ee2f5cabf844e66fcebb062fd0e5ec1c6be4">Group Project root repository for 2024 s1</a>
+<span class="commit-row-message d-inline d-sm-none">
+&middot;
+d994ee2f
+</span>
+<div class="committer">
+<a class="commit-author-link js-user-link" data-user-id="7723" href="/u7323583">Cathy Cheung</a> authored <time class="js-timeago" title="Feb 24, 2024 11:28pm" datetime="2024-02-24T12:28:48Z" data-toggle="tooltip" data-placement="bottom" data-container="body">Feb 24, 2024</time>
+</div>
+
+</div>
+<div class="commit-actions flex-row">
+
+<div class="js-commit-pipeline-status" data-endpoint="/comp2100/group-project/gp-24s1/-/commit/d994ee2f5cabf844e66fcebb062fd0e5ec1c6be4/pipelines?ref=main"></div>
+<div class="commit-sha-group btn-group d-none d-sm-flex">
+<div class="label label-monospace monospace">
+d994ee2f
+</div>
+<button class="gl-button btn btn-icon btn-md btn-default " title="Copy commit SHA" aria-label="Copy commit SHA" aria-live="polite" data-toggle="tooltip" data-placement="bottom" data-container="body" data-category="primary" data-size="medium" data-clipboard-text="d994ee2f5cabf844e66fcebb062fd0e5ec1c6be4" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="copy-to-clipboard-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#copy-to-clipboard"></use></svg>
+
+</button>
+
+</div>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+
+</div>
+<div class="blob-content-holder js-per-page" data-blame-per-page="1000" id="blob-content-holder">
+<div data-blob-path="items/checklist.md" data-original-branch="main" data-project-path="comp2100/group-project/gp-24s1" data-ref-type="heads" data-resource-id="gid://gitlab/Project/233854" data-target-branch="main" data-user-id="gid://gitlab/User/11345" id="js-view-blob-app">
+<div class="gl-spinner-container" role="status"><span aria-label="Loading" class="gl-spinner gl-spinner-md gl-spinner-dark gl-vertical-align-text-bottom!"></span></div>
+</div>
+</div>
+
+</div>
+
+<script>
+//<![CDATA[
+  window.gl = window.gl || {};
+  window.gl.webIDEPath = '/-/ide/project/u7728429/gp-24s1/edit/main/-/items/checklist.md'
+
+
+//]]>
+</script>
+<div data-ambiguous="false" data-ref="main" id="js-ambiguous-ref-modal"></div>
+
+</main>
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+//<![CDATA[
+if ('loading' in HTMLImageElement.prototype) {
+  document.querySelectorAll('img.lazy').forEach(img => {
+    img.loading = 'lazy';
+    let imgUrl = img.dataset.src;
+    // Only adding width + height for avatars for now
+    if (imgUrl.indexOf('/avatar/') > -1 && imgUrl.indexOf('?') === -1) {
+      const targetWidth = img.getAttribute('width') || img.width;
+      imgUrl += `?width=${targetWidth}`;
+    }
+    img.src = imgUrl;
+    img.removeAttribute('data-src');
+    img.classList.remove('lazy');
+    img.classList.add('js-lazy-loaded');
+    img.dataset.testid = 'js-lazy-loaded-content';
+  });
+}
+
+//]]>
+</script>
+<script>
+//<![CDATA[
+gl = window.gl || {};
+gl.experiments = {};
+
+
+//]]>
+</script>
+
+</body>
+</html>
+
