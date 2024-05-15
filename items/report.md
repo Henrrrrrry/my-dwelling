@@ -116,17 +116,22 @@ Note that the core criteria of contribution is based on `code contribution` (the
 - 
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
+[//]: # (*[What is your application, what does it do? Include photos or diagrams if necessary]*)
 
-*Here is a pet specific application example*
+[//]: # (*Here is a pet specific application example*)
 
-*PetBook is a social media application specifically targetting pet owners... it provides... certified practitioners, such as veterians are indicated by a label next to their profile...*
+*The inspiration for My Dwelling comes from the idea that 'Sustainable development is about the way urban spaces are built and managed.
+' The objective is to offer a safe dwelling map for an area or city, which will display the seismic level 0-10 (red to green) of each building on the map. 
+This will be beneficial for areas likely to be impacted by earthquakes, supporting local governments in making decisions about city planning.
+Local residents will also benefit from this app because it provides fire alarm notifications for dwellings, which improves community safety. 
+For community managers, the app provides automatic notifications for repairs based on multiple parameter calculations and the function to report the fire alarm as well.*
+![seismic map](media/app_mapview.png)
 
 ### Application Use Cases and or Examples
 
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+[//]: # (*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*)
 
-*Here is a pet training application example*
+[//]: # (*Here is a pet training application example*)
 
 *Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
 1. *Molly notices that McPurr has been hostile since...*
@@ -137,18 +142,22 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 *Here is a map navigation application example*
 
-*Targets Users: Drivers*
+*Target User: Residents*
 
-* *Users can use it to navigate in order to reach the destinations.*
-* *Users can learn the traffic conditions*
-* ...
+* *Users can view the current street, follow the buildings they care about.*
+* *receive fire alarm notifications*
+* *and view the login and notifications log*
 
-*Target Users: Those who want to find some good restaurants*
+*target user: building managers*
 
-* *Users can find nearby restaurants and the application can give recommendations*
-* ...
+* *Can view if the building need repairs, the app provides automatic notifications for repairs based on multiple parameter calculations*
+* *Sent fire alarm to the subscriber*...
 
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+*target user: local government/communities*
+* *view the building on the map.*
+* *view the visual seismic ‘color’ of each building, allowing officials to monitor specific buildings or areas. These data help officials in urban planning and emergency management decisions, such as determining which buildings need reinforcement or reconstruction.*
+
+[//]: # (*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*)
 
 <hr> 
 
