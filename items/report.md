@@ -37,13 +37,13 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
 
-| UID        |      Name      |   Role |
-|:-----------|:--------------:|-------:|
-| [uid]      |     [name]     | [role] |
-| [uid]      |     [name]     | [role] |
-| [u7671098] | [Yujing Zhang] | [role] |
-| [uid]      |     [name]     | [role] |
-| [uid]      |     [name]     | [role] |
+| UID        |      Name      |          Role |
+|:-----------|:--------------:|--------------:|
+| [uid]      |     [name]     |        [role] |
+| [uid]      |     [name]     |        [role] |
+| [u7671098] | [Yujing Zhang] |        [role] |
+| [uid]      |     [name]     |        [role] |
+| [u7728429] | [Xinrui Zhang] | [Team member] |
 
 
 ## Summary of Individual Contributions
@@ -94,8 +94,19 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-4. **UID2, Name2**  I have xx% contribution, as follows: <br>
-- ...
+4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
+- **Code Contribution in the final App**
+    - Load data from local file and save data to json file - class DataLoader: [DataLoader.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
+    - parser - class ExpressionParser: [ExpressionParser.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads)
+    - tokenizer - class Tokenizer: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/Tokenizer.java?ref_type=heads)
+    - fuzzy search - class MapActivity: [showListPopupWindow()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
+    
+- **Code and App Design**
+    - data structures: part of B-tree searching function [B-tree search](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L380-406),tools:Android studio]* <br><br>
+
+- **Others**: (only if significant and significantly different from an "average contribution")
+    - [Report Writing?] [Slides preparation?]*
+    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
 5. **UID2, Name2**  I have xx% contribution, as follows: <br>
 - ...
@@ -219,6 +230,9 @@ Production Rules:
 ### <u>Tokenizers and Parsers</u>
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+
+We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+
 
 <hr>
 
