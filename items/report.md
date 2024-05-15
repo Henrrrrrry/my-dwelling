@@ -267,8 +267,7 @@ Feature Category: Firebase Integration <br>
 
 ### Surprise Features
 
-- If implemented, explain how your solution addresses the task (any detail requirements will be released with the surprise feature specifications).
-- State that "Suprised feature is not implemented" otherwise.
+- Suprised feature is not implemented.
 
 <br> <hr>
 
@@ -317,11 +316,11 @@ Feature Category: Firebase Integration <br>
 * Your meetings should also have a reasonable date spanning across Week 6 to 11.*
 
 
-- *[Team Meeting 1](meeting-template.md)*
-- ...
-- ...
-- [Team Meeting 4](link_to_md_file.md)
-- ... (Add any descriptions if needed) ...
+- *[Team Meeting 1](meeting.md)*
+- *[Team Meeting 3](meeting3.md)*
+- *[Team Meeting 4](meeting4.md)*
+- *[Team Meeting 5](meeting5.md)*
+- ... (p.s.meeting2 submitted late) ...
 
 <hr>
 
