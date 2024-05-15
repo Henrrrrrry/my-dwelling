@@ -39,10 +39,10 @@ The key area(s) of responsibilities for each member
 
 | UID        |      Name      |          Role |
 |:-----------|:--------------:|--------------:|
-| [uid]      |     [name]     |        [role] |
-| [uid]      |     [name]     |        [role] |
-| [u7671098] | [Yujing Zhang] |        [role] |
-| [uid]      |     [name]     |        [role] |
+| [u7776180] |  [Hongyu Li]   | [Team member] |
+| [u7757949] | [Juliang Xiao] | [Team member] |
+| [u7671098] | [Yujing Zhang] | [Team member] |
+| [u7785177] |  [Xinfei Li]   | [Team member] |
 | [u7728429] | [Xinrui Zhang] | [Team member] |
 
 
