@@ -37,13 +37,13 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
 
-| UID        |      Name      |   Role |
-|:-----------|:--------------:|-------:|
-| [uid]      |     [name]     | [role] |
-| [uid]      |     [name]     | [role] |
-| [u7671098] | [Yujing Zhang] | [role] |
-| [uid]      |     [name]     | [role] |
-| [uid]      |     [name]     | [role] |
+| UID        |      Name      |          Role |
+|:-----------|:--------------:|--------------:|
+| [u7776180] |  [Hongyu Li]   | [Team member] |
+| [u7757949] | [Juliang Xiao] | [Team member] |
+| [u7671098] | [Yujing Zhang] | [Team member] |
+| [u7785177] |  [Xinfei Li]   | [Team member] |
+| [u7728429] | [Xinrui Zhang] | [Team member] |
 
 
 ## Summary of Individual Contributions
@@ -83,22 +83,33 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - Factory Design Pattern -  BuildingMaterial class: [BuildingMaterial.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
     - ... (any other contribution in the code, including UI and data files)
 
-3. **u7671098, Yujing Zhang**  I have 0% contribution, as follows: <br>
+3. **u7671098, Yujing Zhang**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
+    - GPS function - class MapActivity: [viewCurrentLocation()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L329-366)
+    - show Data(the way to mark on the map) -  class MapActivity: [addMarkers()，addOneMarker(),getHueFromColorType()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L374-413)
+    - profile page and user page(display):[activity_prof_page.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_prof_page.xml?ref_type=heads), [activity_user.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_user.xml?ref_type=heads)
+    - UI Landscape: [activity_login.xml(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_login.xml?ref_type=heads), [activity_main.xml(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_main.xml?ref_type=heads), [activity_prof_page(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_prof_page.xml?ref_type=heads),[activity_user(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_user.xml?ref_type=heads)
 
 - **Code and App Design**
-    - [What design patterns, data structures, did the involved member propose?]*
-    - [UI Design. Specify what design did the involved member propose? What tools were used for the design?]* <br><br>
+    - UI Design: Adjusting the pages layout, Theme color,images [Launch icon](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/drawable/app_logo.png?ref_type=heads),tools:Sketch,Photoshop]* <br><br>
 
 - **Others**: (only if significant and significantly different from an "average contribution")
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-4. **UID2, Name2**  I have xx% contribution, as follows: <br>
-- ...
+4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
+- **Code Contribution in the final App**
+    - Load data from local file and save data to json file - class DataLoader: [DataLoader.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
+    - parser - class ExpressionParser: [ExpressionParser.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads)
+    - tokenizer - class Tokenizer: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/Tokenizer.java?ref_type=heads)
+    - fuzzy search - class MapActivity: [showListPopupWindow()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
+    
+- **Code and App Design**
+    - data structures: part of B-tree searching function [B-tree search](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L380-406),tools:Android studio]* <br><br>
+
+- **Others**: (only if significant and significantly different from an "average contribution")
+    - [Report Writing?] [Slides preparation?]*
+    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
 5. **UID2, Name2**  I have xx% contribution, as follows: <br>
 - ...
@@ -225,6 +236,9 @@ Production Rules:
 ### <u>Tokenizers and Parsers</u>
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+
+We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+
 
 <hr>
 

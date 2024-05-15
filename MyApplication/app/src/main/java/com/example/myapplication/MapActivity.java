@@ -159,6 +159,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     }
 
+    /**
+     * Author: Xinrui Zhang: u7728429:show list popup window
+     */
     private void showListPopupWindow(List<String> addressList) {
         if (listPopupWindow != null && listPopupWindow.isShowing()) {
             listPopupWindow.dismiss();
