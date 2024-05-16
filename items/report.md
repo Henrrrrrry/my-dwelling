@@ -174,7 +174,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
 
-- Details about the parser (describe the formal grammar and language used)
+- Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
 
 - Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
 
@@ -243,13 +243,13 @@ Production Rules:
     and(key:value,key:value)
     or(key:value,key:value)
     not(key:value)
-
+    for example: and(fireAlarm:"false", not(buildingMaterial:"wood"))
 
 ### <u>Tokenizers and Parsers</u>
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 
-We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format. It can be very useful when searching particular dwellings.
 
 
 <hr>
