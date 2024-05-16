@@ -207,14 +207,15 @@ public class Dwelling implements  Subject, Serializable {
     public ArrayList<Observer> getObservers() {
         return observers;
     }
-    public void setObservers(ArrayList<Observer> observers) {
-        this.observers = observers;
-    }
 
-    public void setDwellingState(DwellingState newDwellingState,Context context) {
-        this.dwellingState = newDwellingState;
-        this.dwellingState.handle(this,context);
-    }
+//    public void setObservers(ArrayList<Observer> observers) {
+//        this.observers = observers;
+//    }
+//
+//    public void setDwellingState(DwellingState newDwellingState,Context context) {
+//        this.dwellingState = newDwellingState;
+//        this.dwellingState.handle(this,context);
+//    }
 
     public Location getLocation() {
         return location;

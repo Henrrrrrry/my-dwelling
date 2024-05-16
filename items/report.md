@@ -31,8 +31,8 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 - Firebase Repository Link: <insert-link-to-firebase-repository>
    - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
 - Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless there are exceptional circumstances. Note that they are not real e-mail addresses in use):
-   - Username: comp2100@anu.edu.au	Password: comp2100
-   - Username: comp6442@anu.edu.au	Password: comp6442
+   - Username: comp2100@anu.edu.au	Password: comp2100  Role: Resident
+   - Username: comp6442@anu.edu.au	Password: comp6442  Role: Building manager
 
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
@@ -65,7 +65,20 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
+  - Login activity layout: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml?ref_type=heads#L22-57)
+
+
+- Data stream:
+  [login  Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100), [Map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  [profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
+- Follow and notification button function:
+  [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
+- Tests:
+  [login Activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java?ref_type=heads#L1-124),
+[login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java?ref_type=heads#L1-92),
+[profileage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java?ref_type=heads#L2-121),
+[userprofile activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java?ref_type=heads#L1-130), 
+[ZInstrumentedTest](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ZInstrumentedTest.java?ref_type=heads#L1-76)
+- Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
     - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
     - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
 
@@ -157,12 +170,12 @@ For community managers, the app provides automatic notifications for repairs bas
 * *receive fire alarm notifications*
 * *and view the login and notifications log*
 
-*target user: building managers*
+*Target user: Building managers*
 
 * *Can view if the building need repairs, the app provides automatic notifications for repairs based on multiple parameter calculations*
 * *Sent fire alarm to the subscriber*...
 
-*target user: local government/communities*
+*Target user: Local government/communities*
 * *view the building on the map.*
 * *view the visual seismic ‘color’ of each building, allowing officials to monitor specific buildings or areas. These data help officials in urban planning and emergency management decisions, such as determining which buildings need reinforcement or reconstruction.*
 
@@ -181,12 +194,22 @@ For community managers, the app provides automatic notifications for repairs bas
 
 This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
 
-- Details about the parser (describe the formal grammar and language used)
+- Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+
+
+The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format
+
 
 - Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
 
-- Details about the design patterns used (where in the code, justification of the choice, etc)
 
+In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
+
+
+The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
+
+
+- Details about the design patterns used (where in the code, justification of the choice, etc)
 *Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
 
 <hr>
@@ -242,21 +265,19 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 ### Parser
 
 ### <u>Grammar(s)</u>
-*[How do you design the grammar? What are the advantages of your designs?]*
-*I modeled the design after the parser method on lection.The and and or statements require two key-value pairs separated by commas, while the not statement has only one key-value pair.*
+*We modeled the design after the parser method on lection.The and and or statements require two key-value pairs separated by commas, while the not statement has only one key-value pair.*
 
 Production Rules:
 
     and(key:value,key:value)
     or(key:value,key:value)
     not(key:value)
-
+    for example: and(fireAlarm:"false",not(buildingMaterial:"wood"))
 
 ### <u>Tokenizers and Parsers</u>
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 
-We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format. It can be very useful when searching particular dwellings.
 
 
 <hr>
@@ -430,15 +451,92 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 
 *Here is an example:*
 
-1. Tests for Search
-   - Code: [TokenizerTest Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java) for the [Tokenizer Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-   - *Number of test cases: ...*
-   - *Code coverage: ...*
-   - *Types of tests created and descriptions: ...*
+1. Tests for notification when click on the fire alarm button
 
-2. xxx
 
-...
+- Code:[InstrumentedTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/InstrumentedTest.java?ref_type=heads#L1-74)
+  for the [ProfilePageActivity class, Notification method](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L156-165)
+
+
+- *Number of test cases: 1*
+- *Types of tests created and descriptions: instrumented test, mocked a context with a maintainer user and has already followed this dwelling, then test fire alarm button*
+
+
+2. Tests for loginactivity to mapactivity
+
+
+- Code: [LoginActivityTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java?ref_type=heads#L1-125)
+  for the [LoginActivity class, interface](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L28-70),[MapActivity class, interface](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L103-150)
+
+
+
+
+
+
+
+
+- *Number of test cases: 1*
+- *Types of tests created and descriptions: instrumented test, test they can use provided username and password to login and after user log in the map activity’s items are all good *
+
+
+3. Tests for authorization
+
+
+- Code: [LoginTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java?ref_type=heads#L1-92)
+  for the [User class, authorization](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L157-189)
+
+
+
+
+
+
+- *Number of test cases: 2*
+- *Types of tests created and descriptions: instrumented test, test the correct password can be authorized and vise versa *
+
+
+4. Tests for ProfilePageActivity
+
+
+- Code: [ProfilePageTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java?ref_type=heads#L2-121)
+  for the [User class, entire file except fire alarm button](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L1-209)
+
+
+
+
+- *Number of test cases: 3*
+- *Types of tests created and descriptions: instrumented test, the first test is for follow button, the unfollowed user first time click on the button the text would be Unfollow and next click on the button, it would become to Follow. The second test ensures the image corresponding to the material will be displayed correctly. The last test tests the back button’s functionality*
+
+
+5. Tests for UserActivity
+
+
+- Code: [UserProfileTest Class, entire file
+  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java?ref_type=heads#L1-131)
+  for the [User class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L1-86)
+
+
+
+
+
+
+- *Number of test cases: *
+- *Types of tests created and descriptions: instrumented espresso test, ensured the items can be displayed correctly*
+
+
+6. Tests for helper methods
+
+
+- Code: [UnitTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UnitTest.java?ref_type=heads#L1-168)
+  for the [Dataloader class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L1-141),[BTree class, insert and delete methods](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L78-243), [ExpressionParser class, entire file
+  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads#L1-92)
+
+
+
+
+
+
+- *Number of test cases: 10*
+- *Types of tests created and descriptions: unit test, as we can see in the following report’s screenshot, these tests ensured the helper methods can be called with no errors*
 
 <br> <hr>
 

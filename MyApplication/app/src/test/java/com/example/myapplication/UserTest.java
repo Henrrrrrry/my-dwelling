@@ -124,5 +124,11 @@ public class UserTest {
         boolean isValid = user.validateUserCredentials("testuser", "password", mockAssetManager);
         assertFalse(isValid);
     }
+    @Test
+    public void testEmptyArgument(){
+        User user = new User();
+        assertNull(user.getUsername());
+        assertFalse(user.isMaintainer());
+    }
 
 }

@@ -12,6 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -327,7 +328,7 @@ public class UnitTest {
     }
 
     @Test
-    public void testToString() {
+    public void testNodeToString() {
         Comparator<String> comparator = String::compareTo;
         BTreeNode node = new BTreeNode(comparator);
         BTreeNode parent = new BTreeNode(comparator);
@@ -335,6 +336,125 @@ public class UnitTest {
         String expectedString = "BTreeNode{elements=[], children=[BTreeNode{elements=[], children=[]}]}";
         assertEquals(expectedString, node.toString());
     }
+//    element test
+
+
+
+
+    @Test
+    public void testEquals_EqualObjects() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        Element element2 = new Element("key1", mockDwelling1);
+        assertEquals(element1, element2);
+    }
+
+    @Test
+    public void testEquals_DifferentKeys() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        Dwelling mockDwelling2 = mock(Dwelling.class);
+        Element element3 = new Element("key2", mockDwelling2);
+        assertNotEquals(element1, element3);
+    }
+
+    @Test
+    public void testEquals_DifferentValues() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        Dwelling mockDwelling2 = mock(Dwelling.class);
+        Element element4 = new Element("key1", mockDwelling2);
+        assertNotEquals(element1, element4);
+    }
+
+
+    @Test
+    public void testEquals_SameObject() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        assertEquals(element1, element1);
+    }
+
+    @Test
+    public void testEquals_NullObject() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        assertNotEquals(element1, null);
+    }
+
+    @Test
+    public void testEquals_DifferentClass() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        String differentClassObject = "I am not an Element";
+        assertNotEquals(element1, differentClassObject);
+    }
+
+    @Test
+    public void testEquals_NullKey() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element(null, mockDwelling1);
+        Element element2 = new Element(null, mockDwelling1);
+        assertEquals(element1, element2);
+    }
+
+    @Test
+    public void testEquals_NullValue() {
+        Element element1 = new Element("key1", null);
+        Element element2 = new Element("key1", null);
+        assertEquals(element1, element2);
+    }
+
+    @Test
+    public void testEquals_NullKeyAndValue() {
+        Element element1 = new Element(null, null);
+        Element element2 = new Element(null, null);
+        assertEquals(element1, element2);
+    }
+
+    @Test
+    public void testEquals_NullKeyDifferentValue() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Dwelling mockDwelling2 = mock(Dwelling.class);
+        Element element1 = new Element(null, mockDwelling1);
+        Element element2 = new Element(null, mockDwelling2);
+        assertNotEquals(element1, element2);
+    }
+
+    @Test
+    public void testEquals_DifferentKeyNullValue() {
+        Element element1 = new Element("key1", null);
+        Element element2 = new Element("key2", null);
+        assertNotEquals(element1, element2);
+    }
+
+
+
+    @Test
+    public void testHashCode_DifferentObjects() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        Dwelling mockDwelling2 = mock(Dwelling.class);
+        Element element3 = new Element("key2", mockDwelling2);
+        assertNotEquals(element1.hashCode(), element3.hashCode());
+    }
+
+    @Test
+    public void testElementToString() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        String expectedString = "key1: " + mockDwelling1.toString();
+        assertEquals(expectedString, element1.toString());
+    }
+
+    @Test
+    public void testElementSetKey() {
+        Dwelling mockDwelling1 = mock(Dwelling.class);
+        Element element1 = new Element("key1", mockDwelling1);
+        element1.setKey("newKey");
+        assertEquals("newKey", element1.getKey());
+    }
+
 
 
 

@@ -17,6 +17,11 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+
+import static org.hamcrest.Matchers.not;
+
 
 import static org.junit.Assert.assertTrue;
 
@@ -116,6 +121,79 @@ public class ProfilePageTest {
         onView(withId(R.id.backButton)).perform(click());
 
         assertTrue(intentsTestRule.getActivity().isFinishing());
+    }
+
+    @Test
+    public void testFireAlarmButtonDisabledForNonMaintainer() {
+        User testUser = new User("comp2100@anu.edu.au", "comp2100", false, "Bernardo");
+        Dwelling testDwelling = new Dwelling("14A Kirkpatrick St, Weston ACT 2611, Australia", LocalDate.of(1998, Month.MAY, 29), BuildingMaterial.STEEL, new ArrayList<>(), testUser, new Dwelling.Location(-35.3219007, 149.0565663));
+
+        Intent intent = new Intent();
+        intent.putExtra("User", testUser);
+        intent.putExtra("Dwelling", testDwelling);
+
+        intentsTestRule.launchActivity(intent);
+
+        onView(withId(R.id.fireAlarmButton)).check(matches(not(isEnabled())));
+    }
+
+    @Test
+    public void testFireAlarmButtonEnabledForMaintainer() {
+        User testUser = new User("comp2100@anu.edu.au", "comp2100", true, "Bernardo");
+        Dwelling testDwelling = new Dwelling("14A Kirkpatrick St, Weston ACT 2611, Australia", LocalDate.of(1998, Month.MAY, 29), BuildingMaterial.STEEL, new ArrayList<>(), testUser, new Dwelling.Location(-35.3219007, 149.0565663));
+
+        Intent intent = new Intent();
+        intent.putExtra("User", testUser);
+        intent.putExtra("Dwelling", testDwelling);
+
+        intentsTestRule.launchActivity(intent);
+
+        onView(withId(R.id.fireAlarmButton)).check(matches(isEnabled()));
+    }
+
+    @Test
+    public void testRepairButtonDisabledForNonMaintainer() {
+        User testUser = new User("comp2100@anu.edu.au", "comp2100", false, "Bernardo");
+        Dwelling testDwelling = new Dwelling("14A Kirkpatrick St, Weston ACT 2611, Australia", LocalDate.of(1998, Month.MAY, 29), BuildingMaterial.STEEL, new ArrayList<>(), testUser, new Dwelling.Location(-35.3219007, 149.0565663));
+
+        Intent intent = new Intent();
+        intent.putExtra("User", testUser);
+        intent.putExtra("Dwelling", testDwelling);
+
+        intentsTestRule.launchActivity(intent);
+
+        onView(withId(R.id.repairButton)).check(matches(not(isEnabled())));
+    }
+
+    @Test
+    public void testRepairButtonFunctionality() {
+        User testUser = new User("comp2100@anu.edu.au", "comp2100", true, "Bernardo");
+        Dwelling testDwelling = new Dwelling("14A Kirkpatrick St, Weston ACT 2611, Australia", LocalDate.of(1998, Month.MAY, 29), BuildingMaterial.STEEL, new ArrayList<>(), testUser, new Dwelling.Location(-35.3219007, 149.0565663));
+
+        Intent intent = new Intent();
+        intent.putExtra("User", testUser);
+        intent.putExtra("Dwelling", testDwelling);
+
+        intentsTestRule.launchActivity(intent);
+
+        onView(withId(R.id.repairButton)).perform(click());
+        onView(withId(R.id.repairButton)).check(matches(not(isDisplayed())));
+    }
+
+    @Test
+    public void testRepairButtonDisabledIfNoRepairNeeded() {
+        User testUser = new User("comp2100@anu.edu.au", "comp2100", true, "Bernardo");
+        Dwelling testDwelling = new Dwelling("14A Kirkpatrick St, Weston ACT 2611, Australia", LocalDate.of(1998, Month.MAY, 29), BuildingMaterial.STEEL, new ArrayList<>(), testUser, new Dwelling.Location(-35.3219007, 149.0565663));
+        testDwelling.repair(); // Ensure dwelling does not need repair
+
+        Intent intent = new Intent();
+        intent.putExtra("User", testUser);
+        intent.putExtra("Dwelling", testDwelling);
+
+        intentsTestRule.launchActivity(intent);
+
+        onView(withId(R.id.repairButton)).check(matches(not(isEnabled())));
+        onView(withId(R.id.repairButton)).check(matches(withText("Don't need Repair")));
     }
 
 }
