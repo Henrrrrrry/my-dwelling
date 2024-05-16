@@ -63,6 +63,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 *Here is an example: (Note that you should remove the entire section (e.g. "others") if it is not applicable)*
 
+
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
   - Login activity layout: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml?ref_type=heads#L22-57)
