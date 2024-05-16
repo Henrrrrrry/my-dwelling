@@ -31,8 +31,8 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 - Firebase Repository Link: <insert-link-to-firebase-repository>
    - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
 - Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless there are exceptional circumstances. Note that they are not real e-mail addresses in use):
-   - Username: comp2100@anu.edu.au	Password: comp2100
-   - Username: comp6442@anu.edu.au	Password: comp6442
+   - Username: comp2100@anu.edu.au	Password: comp2100  Role: Resident
+   - Username: comp6442@anu.edu.au	Password: comp6442  Role: Building manager
 
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
@@ -79,9 +79,11 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **U7785177, Xinfei Li**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-    - Feature Login - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - Factory Design Pattern -  BuildingMaterial class: [BuildingMaterial.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files)
+    - Feature Login - [Link to Login Feature](#Basic-Features)
+    - Factory Design Pattern - [Link to Factory Pattern](#factory-pattern)
+    - Dwelling Material class - [BuildingMaterial.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BuildingMaterial.java?ref_type=heads)
+    - Seismic Rating method - [Class Dwelling Method getSeismicRating](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L155-182)
+    - repair and needsRepair method - [Class Dwelling Method needsRepair](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L89-122) and [Class Dwelling Method repair](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L123-148)
 
 3. **u7671098, Yujing Zhang**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
@@ -171,7 +173,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
 
-- Details about the parser (describe the formal grammar and language used)
+- Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
 
 - Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
 
@@ -211,7 +213,7 @@ Here is a partial (short) example for the subsection `Data Structures`:*
    * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
    * *Reasons:*
       * ...
-1. *Factory Pattern*
+1. <a id="factory-pattern"></a>*Factory Pattern*
     * *Objective: used for storing and loading login and fire alarm history for LoadShowData feature.*
     * Code Locations: Interface: [Interface StorageHandler](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/StorageHandler.java) 
     * Helper class: [TimeUtil.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/TimeUtil.java); 
@@ -232,20 +234,20 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 ### Parser
 
 ### <u>Grammar(s)</u>
-*[How do you design the grammar? What are the advantages of your designs?]*
-*If there are several grammars, list them all under this section and what they relate to.*
+*We modeled the design after the parser method on lection.The and and or statements require two key-value pairs separated by commas, while the not statement has only one key-value pair.*
 
 Production Rules:
 
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
-
+    and(key:value,key:value)
+    or(key:value,key:value)
+    not(key:value)
+    for example: and(fireAlarm:"false",not(buildingMaterial:"wood"))
 
 ### <u>Tokenizers and Parsers</u>
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 
-We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format. It can be very useful when searching particular dwellings.
 
 
 <hr>
@@ -264,8 +266,8 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
 ### Basic Features
 1. [LogIn]. Users must be able to log in (not necessarily sign up). (easy)
    * Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189) and [Class UserActivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads)
-   * Description of feature: User can login in different username and password, mismatched username and password will not allow to login  <br>
-   * Description of your implementation:  User input username and password in Class UserActivity. Then use Class User, method validateUserCredentials to validate the user information. After successful login, turn to MapActivity page.<br>
+   * Feature: User can log in different username and password, mismatched username and password will not allow to login  <br>
+   * Implementation:  User input username and password in Class UserActivity. Then use Class User, method validateUserCredentials to validate the user information. After successful login, turn to MapActivity page.<br>
 
 2. [DataFiles]. Description  ... ... (...)
    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
@@ -283,11 +285,11 @@ Feature Category: Privacy <br>
 
 2. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
     * Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189)
-    * Description of your implementation: Read local csv file. <br>
+    * Implementation: Read local csv file. <br>
     * Code: [Class LoginStorageHandler, method loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class FireAlarmStorageHandler, methods loadAllLogs()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L35-52)
-    * Description of your implementation: Using Read xml file that on the mobile device. <br>
+    * Implementation: Using SharedPreferences of Android to store and read the xml file on the mobile device. <br>
     * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads) 
-    * Description of your implementation: Read json file. <br>
+    * Implementation: Read json file. <br>
    <br><br>
 
 Feature Category: Firebase Integration <br>
@@ -358,6 +360,7 @@ Feature Category: Firebase Integration <br>
 <hr>
 
 ### Conflict Resolution Protocol
+* [Detailed version](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/items/Conflict_Resolution_Strategy.md?ref_type=heads)
 1. **Member Illness and Unforeseen Incidents**
     - **Challenge:** A team member falls ill, or unexpected incidents occur.
     - **Strategy:** Plan for flexibility by including buffer times. If incidents occur, redistribute tasks fairly among remaining members. Pre-emptively develop a contingency plan to outline steps for adjusting project timelines and responsibilities.
