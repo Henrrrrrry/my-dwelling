@@ -18,6 +18,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        dataLoader.saveDwellingsToFile("dataset.json");
+        if (dataLoader != null) {
+            dataLoader.saveDwellingsToFile("dataset.json");
+        }
     }
 }

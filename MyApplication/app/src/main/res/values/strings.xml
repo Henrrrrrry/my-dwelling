@@ -1,5 +1,5 @@
 <resources>
-<!--@Author: Yujing Zhang u7671098: edited part of the string-->
+    <!--@Author: Yujing Zhang u7671098: edited part of the string-->
     <string name="app_name">My Dwelling</string>
     <string name="fire_alarm">Fire Alarm</string>
     <string name="follow">Follow</string>

@@ -9,7 +9,7 @@ package helper_classes_and_methods;
  */
 
 
-class SearchResult {
+public class SearchResult {
 
     private boolean found;
     private BTreeNode node;
@@ -25,25 +25,16 @@ class SearchResult {
         return found;
     }
 
-    public void setFound(boolean found) {
-        this.found = found;
-    }
-
     public BTreeNode getNode() {
         return node;
     }
 
-    public void setNode(BTreeNode node) {
-        this.node = node;
-    }
 
     public int getIndex() {
         return index;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
+
 
     @Override
     public String toString() {

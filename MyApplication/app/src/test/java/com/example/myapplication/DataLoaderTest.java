@@ -11,6 +11,7 @@ import static org.mockito.Mockito.when;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -19,6 +20,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
@@ -62,4 +64,40 @@ public class DataLoaderTest {
     public void testGetBTree() {
         assertNotNull(dataLoader.getBTree());
     }
+
+    @Test
+    public void testCreateDwellingFromJson_Successful() throws Exception {
+        JSONObject jsonObject = mock(JSONObject.class);
+        when(jsonObject.optString("address", "")).thenReturn("123 Main St");
+        when(jsonObject.optString("constructionDate", "")).thenReturn("2021-05-20");
+        when(jsonObject.optString("buildingMaterial", "")).thenReturn("WOOD");
+
+        JSONObject locationObject = mock(JSONObject.class);
+        when(locationObject.optDouble("lat", 0.0)).thenReturn(35.6895);
+        when(locationObject.optDouble("lng", 0.0)).thenReturn(139.6917);
+        when(jsonObject.getJSONObject("location")).thenReturn(locationObject);
+
+        Dwelling dwelling = dataLoader.createDwellingFromJson(jsonObject);
+
+        assertEquals("123 Main St", dwelling.getAddress());
+        assertEquals(LocalDate.of(2021, 5, 20), dwelling.getConstructionDate());
+        assertEquals(BuildingMaterial.WOOD, dwelling.getBuildingMaterial());
+        assertEquals(35.6895, dwelling.getLocation().getLat(), 0.001);
+        assertEquals(139.6917, dwelling.getLocation().getLng(), 0.001);
+    }
+
+
+    @Test
+    public void testCreateDwellingFromJson_MissingFields() throws Exception {
+        JSONObject jsonObject = new JSONObject();
+        // Intentionally missing mandatory fields to see how it handles
+
+        assertThrows(Exception.class, () -> {
+            dataLoader.createDwellingFromJson(jsonObject);
+        });
+
+
+
+    }
+
 }

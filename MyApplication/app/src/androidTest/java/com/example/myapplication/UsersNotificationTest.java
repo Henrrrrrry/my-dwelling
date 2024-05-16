@@ -13,7 +13,6 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,7 +35,7 @@ import helper_classes_and_methods.User;
  * Description: notification test
  */
 @RunWith(AndroidJUnit4.class)
-public class ZInstrumentedTest {
+public class UsersNotificationTest {
     private UiDevice device;
 
 

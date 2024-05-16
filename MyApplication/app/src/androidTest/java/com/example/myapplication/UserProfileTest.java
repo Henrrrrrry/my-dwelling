@@ -11,8 +11,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.Matchers.allOf;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -22,14 +24,20 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.GrantPermissionRule;
+import androidx.test.uiautomator.UiDevice;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.core.IsInstanceOf;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.io.IOException;
+
 /**
  * Author: Hongyu Li u7776180
  * Description: user profile test
@@ -47,6 +55,42 @@ public class UserProfileTest {
             GrantPermissionRule.grant(
                     "android.permission.ACCESS_FINE_LOCATION",
                     "android.permission.ACCESS_COARSE_LOCATION");
+
+    @Before
+    public void setup() {
+        // Ensure each test starts with a clean slate
+        disableAnimations();
+        mActivityScenarioRule.getScenario().onActivity(activity -> {
+            activity.finish();
+            activity.startActivity(new Intent(activity, LoginActivity.class));
+        });
+    }
+    @After
+    public void tearDown(){
+        enableAnimations();
+    }
+    public void disableAnimations() {
+        UiDevice uiDevice = UiDevice.getInstance(getInstrumentation());
+        try {
+            uiDevice.executeShellCommand("settings put global window_animation_scale 0");
+            uiDevice.executeShellCommand("settings put global transition_animation_scale 0");
+            uiDevice.executeShellCommand("settings put global animator_duration_scale 0");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void enableAnimations() {
+        UiDevice uiDevice = UiDevice.getInstance(getInstrumentation());
+        try {
+            uiDevice.executeShellCommand("settings put global window_animation_scale 1");
+            uiDevice.executeShellCommand("settings put global transition_animation_scale 1");
+            uiDevice.executeShellCommand("settings put global animator_duration_scale 1");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Test
     public void userProfileTest() {

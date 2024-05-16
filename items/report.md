@@ -65,7 +65,20 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
-    - Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
+  - Login activity layout: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml?ref_type=heads#L22-57)
+
+
+- Data stream:
+  [login  Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100), [Map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  [profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
+- Follow and notification button function:
+  [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
+- Tests:
+  [login Activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java?ref_type=heads#L1-124),
+[login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java?ref_type=heads#L1-92),
+[profileage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java?ref_type=heads#L2-121),
+[userprofile activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java?ref_type=heads#L1-130), 
+[ZInstrumentedTest](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ZInstrumentedTest.java?ref_type=heads#L1-76)
+- Feature A1, A2, A3 - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
     - XYZ Design Pattern -  class AnotherClass: [functionOne()](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
     - ... (any other contribution in the code, including UI and data files) ... [Student class](../src/path/to/class/Student.java), ..., etc.*, [LanguageTranslator class](../src/path/to/class/LanguageTranslator.java): function1(), function2(), ... <br><br>
 
@@ -113,8 +126,15 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-5. **UID2, Name2**  I have xx% contribution, as follows: <br>
-- ...
+5. **u7757949, Juliang Xiao**  I have 18% contribution, as follows: <br>
+- **Code Contribution in the final App**
+- data structures: almost all the data structure of B-tree-class BTree:[BTree.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads)
+- other part of data structure-class Btree node,Element,SearchResult:[BtreeNode.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads)[Element.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java?ref_type=heads)[SearchResult.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/SearchResult.java?ref_type=heads)
+  - Parser search:class MapActivity:[onClick(),afterTextChanged(),searchWithParser(),showDwellingsOnMap(),evaluateExpressio()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L94-160)(https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-290)
+
+
+**Others**: (only if significant and significantly different from an "average contribution")
+- draw UML diagrams
 - 
 ## Application Description
 
@@ -175,10 +195,20 @@ This is an important section of your report and should include all technical dec
 
 - Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
 
+
+The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format
+
+
 - Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
 
-- Details about the design patterns used (where in the code, justification of the choice, etc)
 
+In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
+
+
+The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
+
+
+- Details about the design patterns used (where in the code, justification of the choice, etc)
 *Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
 
 <hr>
@@ -277,28 +307,119 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
    <br>
 
 ### Custom Features
-Feature Category: Privacy <br>
-1. [Privacy-Request]. Description of the feature  (easy)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ... <br>
-     <br>
-
-2. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
-    * Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189)
+Feature Category:Search-related features <br>
+1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
+   and correctly handle partially invalid search queries and give meaningful results. (medium)
+    * Code: 
     * Implementation: Read local csv file. <br>
-    * Code: [Class LoginStorageHandler, method loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class FireAlarmStorageHandler, methods loadAllLogs()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L35-52)
-    * Implementation: Using SharedPreferences of Android to store and read the xml file on the mobile device. <br>
-    * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads) 
+    * Code:
+    * Implementation:<br>
+    * Code: 
     * Implementation: Read json file. <br>
-   <br><br>
+      <br><br>
 
-Feature Category: Firebase Integration <br>
-3. [FB-Auth] Description of the feature (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ... <br>
+   
+
+
+Feature Category:UI Design and Testing  <br>
+2. [UI-Layout] Incorporate suitable layout adjustments in the UI components for portrait and landscape
+   layout variants, as well as different screen sizes. (easy)
+   a. No marks awarded by only using Android studio's automated support for orientation and
+   screen sizes without proper adjustments.
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+
+
+3. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and
+   coverage of the App. (hard)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+
+
+Feature Category:Greater Data Usage, Handling and Sophistication <br>
+4.[Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
+* Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189)
+* Implementation: Read local csv file. <br>
+* Code: [Class LoginStorageHandler, method loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class FireAlarmStorageHandler, methods loadAllLogs()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L35-52)
+* Implementation: Using SharedPreferences of Android to store and read the xml file on the mobile device. <br>
+* Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
+* Implementation: Read json file. <br>
+<br><br>
+   
+Feature Category:Greater Data Usage, Handling and Sophistication <br>
+5. [Data-Profile] Create a Profile Page for Users or any Entities, which contains a media file (image,
+   animation (e.g., gif), video). (easy)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+    * 
+6. [Data-GPS] Use GPS information based on location data in your App. (easy)  
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+
+
+7. [Interact-Follow] The ability to ‘follow’ items. There must be a section that presents all the items
+   followed by a user, grouped, and ordered. [stored in-memory] (medium)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+8. [Interact-Noti] The ability to send notifications for interactions (e.g., follow request, product viewed,
+   etc.). A notification must be sent only after a predetermined number of interactions are set [e.g.,
+   when ≥2 requests have been received or 2 follow requests have been received). (medium)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+   a. (Hint: see the demo presented by our tutors).
+   Feature Category:User Interactivity <br>
+
+
+
+
+
+
+
+
+
+
 
 <hr>
+
+
+
+
+
+
+
+
+
+
 
 ### Surprise Features
 
@@ -330,15 +451,92 @@ Feature Category: Firebase Integration <br>
 
 *Here is an example:*
 
-1. Tests for Search
-   - Code: [TokenizerTest Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java) for the [Tokenizer Class, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-   - *Number of test cases: ...*
-   - *Code coverage: ...*
-   - *Types of tests created and descriptions: ...*
+1. Tests for notification when click on the fire alarm button
 
-2. xxx
 
-...
+- Code:[InstrumentedTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/InstrumentedTest.java?ref_type=heads#L1-74)
+  for the [ProfilePageActivity class, Notification method](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L156-165)
+
+
+- *Number of test cases: 1*
+- *Types of tests created and descriptions: instrumented test, mocked a context with a maintainer user and has already followed this dwelling, then test fire alarm button*
+
+
+2. Tests for loginactivity to mapactivity
+
+
+- Code: [LoginActivityTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java?ref_type=heads#L1-125)
+  for the [LoginActivity class, interface](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L28-70),[MapActivity class, interface](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L103-150)
+
+
+
+
+
+
+
+
+- *Number of test cases: 1*
+- *Types of tests created and descriptions: instrumented test, test they can use provided username and password to login and after user log in the map activity’s items are all good *
+
+
+3. Tests for authorization
+
+
+- Code: [LoginTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java?ref_type=heads#L1-92)
+  for the [User class, authorization](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L157-189)
+
+
+
+
+
+
+- *Number of test cases: 2*
+- *Types of tests created and descriptions: instrumented test, test the correct password can be authorized and vise versa *
+
+
+4. Tests for ProfilePageActivity
+
+
+- Code: [ProfilePageTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java?ref_type=heads#L2-121)
+  for the [User class, entire file except fire alarm button](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L1-209)
+
+
+
+
+- *Number of test cases: 3*
+- *Types of tests created and descriptions: instrumented test, the first test is for follow button, the unfollowed user first time click on the button the text would be Unfollow and next click on the button, it would become to Follow. The second test ensures the image corresponding to the material will be displayed correctly. The last test tests the back button’s functionality*
+
+
+5. Tests for UserActivity
+
+
+- Code: [UserProfileTest Class, entire file
+  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java?ref_type=heads#L1-131)
+  for the [User class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L1-86)
+
+
+
+
+
+
+- *Number of test cases: *
+- *Types of tests created and descriptions: instrumented espresso test, ensured the items can be displayed correctly*
+
+
+6. Tests for helper methods
+
+
+- Code: [UnitTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UnitTest.java?ref_type=heads#L1-168)
+  for the [Dataloader class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L1-141),[BTree class, insert and delete methods](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L78-243), [ExpressionParser class, entire file
+  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads#L1-92)
+
+
+
+
+
+
+- *Number of test cases: 10*
+- *Types of tests created and descriptions: unit test, as we can see in the following report’s screenshot, these tests ensured the helper methods can be called with no errors*
 
 <br> <hr>
 
