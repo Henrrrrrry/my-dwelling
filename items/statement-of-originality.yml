@@ -35,7 +35,11 @@ declaration: >-
 
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external assets)
-
+assets:
+  # NOTE: "Bliss" is just here as an example, you SHOULD REMOVE IT
+  - comment: "Google Maps API implementation"
+    url: https://developers.google.com/maps/documentation/android-sdk/overview
+    licence: https://cloud.google.com/maps-platform/terms/
 
 
 ### Questions (answer before final submission):
