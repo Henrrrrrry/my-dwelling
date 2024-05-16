@@ -14,6 +14,7 @@ public class StorageFactory {
     }
 
     public static StorageHandler getStorageHandler(Context context, HandlerType type) {
+        if (type==null) throw new IllegalArgumentException();
         switch (type) {
             case LOGIN:
                 return new LoginStorageHandler(context);

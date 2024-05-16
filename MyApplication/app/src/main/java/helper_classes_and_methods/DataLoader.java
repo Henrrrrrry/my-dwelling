@@ -77,7 +77,7 @@ public class DataLoader {
      * Description: load data from json file and create dwelling
      * @param jsonObject: the current dataset file
      */
-    private Dwelling createDwellingFromJson(JSONObject jsonObject) throws Exception {
+    public Dwelling createDwellingFromJson(JSONObject jsonObject) throws Exception {
         String address = jsonObject.optString("address","");
         LocalDate constructionDate = LocalDate.parse(jsonObject.optString("constructionDate",""));
         BuildingMaterial material = BuildingMaterial.valueOf(jsonObject.optString("buildingMaterial","").toUpperCase());
@@ -108,7 +108,7 @@ public class DataLoader {
      * Description: transform b-tree format dataset to json
      * @param dwelling: the current dwelling
      */
-    private JSONObject dwellingToJson(Dwelling dwelling) throws Exception {
+    public JSONObject dwellingToJson(Dwelling dwelling) throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("address", dwelling.getAddress());
         jsonObject.put("constructionDate", dwelling.getConstructionDate().toString());
