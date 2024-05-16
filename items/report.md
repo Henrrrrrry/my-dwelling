@@ -133,12 +133,11 @@ For community managers, the app provides automatic notifications for repairs bas
 
 [//]: # (*Here is a pet training application example*)
 
-*Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
-1. *Molly notices that McPurr has been hostile since...*
-2. *She makes a post about... with the tag...*
-3. *Lachlan, a vet, writes a reply to Molly's post...*
-4. ...
-5. *Molly gives Lachlan's reply a 'tick' response*
+*Jane is an officer, and is responsible for building and community safety in an area.*
+1. *She needs to know the dwelling seismic and report to local government...*
+2. *She needs to know if the building needs repairs and to connect with a house repair company.*
+3. *she need to alarm the residents when emergent*
+
 
 *Here is a map navigation application example*
 
@@ -148,12 +147,12 @@ For community managers, the app provides automatic notifications for repairs bas
 * *receive fire alarm notifications*
 * *and view the login and notifications log*
 
-*target user: building managers*
+*Target user: Building Managers*
 
 * *Can view if the building need repairs, the app provides automatic notifications for repairs based on multiple parameter calculations*
 * *Sent fire alarm to the subscriber*...
 
-*target user: local government/communities*
+*Target user: Local Government*
 * *view the building on the map.*
 * *view the visual seismic ‘color’ of each building, allowing officials to monitor specific buildings or areas. These data help officials in urban planning and emergency management decisions, such as determining which buildings need reinforcement or reconstruction.*
 
