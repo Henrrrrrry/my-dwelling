@@ -60,9 +60,7 @@ public class User implements Observer, Serializable {
         this.username = username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+
 
     public void setMaintainer(boolean isMaintainer) {
         this.isMaintainer = isMaintainer;
@@ -72,9 +70,7 @@ public class User implements Observer, Serializable {
         return userID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
+
 
     @Override
     public String toString() {
@@ -136,7 +132,7 @@ public class User implements Observer, Serializable {
         Notification notification = builder.build();
         NotificationManagerCompat notificationCompat = NotificationManagerCompat.from(context);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
+            //  Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,

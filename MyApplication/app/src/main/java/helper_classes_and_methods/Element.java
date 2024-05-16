@@ -1,6 +1,6 @@
 package helper_classes_and_methods;
 
-class Element {
+public class Element {
     private String key;
     private Dwelling value;
 

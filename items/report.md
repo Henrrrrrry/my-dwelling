@@ -79,9 +79,11 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 2. **U7785177, Xinfei Li**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
-    - Feature Login - class Dummy: [Dummy.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java)
-    - Factory Design Pattern -  BuildingMaterial class: [BuildingMaterial.java](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43), [function2()](the-URL)
-    - ... (any other contribution in the code, including UI and data files)
+    - Feature Login - [Link to Login Feature](#Basic-Features)
+    - Factory Design Pattern - [Link to Factory Pattern](#factory-pattern)
+    - Dwelling Material class - [BuildingMaterial.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BuildingMaterial.java?ref_type=heads)
+    - Seismic Rating method - [Class Dwelling Method getSeismicRating](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L155-182)
+    - repair and needsRepair method - [Class Dwelling Method needsRepair](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L89-122) and [Class Dwelling Method repair](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L123-148)
 
 3. **u7671098, Yujing Zhang**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
@@ -116,17 +118,22 @@ Note that the core criteria of contribution is based on `code contribution` (the
 - 
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
+[//]: # (*[What is your application, what does it do? Include photos or diagrams if necessary]*)
 
-*Here is a pet specific application example*
+[//]: # (*Here is a pet specific application example*)
 
-*PetBook is a social media application specifically targetting pet owners... it provides... certified practitioners, such as veterians are indicated by a label next to their profile...*
+*The inspiration for My Dwelling comes from the idea that 'Sustainable development is about the way urban spaces are built and managed.
+' The objective is to offer a safe dwelling map for an area or city, which will display the seismic level 0-10 (red to green) of each building on the map. 
+This will be beneficial for areas likely to be impacted by earthquakes, supporting local governments in making decisions about city planning.
+Local residents will also benefit from this app because it provides fire alarm notifications for dwellings, which improves community safety. 
+For community managers, the app provides automatic notifications for repairs based on multiple parameter calculations and the function to report the fire alarm as well.*
+![seismic map](media/app_mapview.png)
 
 ### Application Use Cases and or Examples
 
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+[//]: # (*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*)
 
-*Here is a pet training application example*
+[//]: # (*Here is a pet training application example*)
 
 *Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
 1. *Molly notices that McPurr has been hostile since...*
@@ -137,18 +144,22 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 *Here is a map navigation application example*
 
-*Targets Users: Drivers*
+*Target User: Residents*
 
-* *Users can use it to navigate in order to reach the destinations.*
-* *Users can learn the traffic conditions*
-* ...
+* *Users can view the current street, follow the buildings they care about.*
+* *receive fire alarm notifications*
+* *and view the login and notifications log*
 
-*Target Users: Those who want to find some good restaurants*
+*target user: building managers*
 
-* *Users can find nearby restaurants and the application can give recommendations*
-* ...
+* *Can view if the building need repairs, the app provides automatic notifications for repairs based on multiple parameter calculations*
+* *Sent fire alarm to the subscriber*...
 
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+*target user: local government/communities*
+* *view the building on the map.*
+* *view the visual seismic ‘color’ of each building, allowing officials to monitor specific buildings or areas. These data help officials in urban planning and emergency management decisions, such as determining which buildings need reinforcement or reconstruction.*
+
+[//]: # (*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*)
 
 <hr> 
 
@@ -203,7 +214,7 @@ Here is a partial (short) example for the subsection `Data Structures`:*
    * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
    * *Reasons:*
       * ...
-1. *Factory Pattern*
+1. <a id="factory-pattern"></a>*Factory Pattern*
     * *Objective: used for storing and loading login and fire alarm history for LoadShowData feature.*
     * Code Locations: Interface: [Interface StorageHandler](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/StorageHandler.java) 
     * Helper class: [TimeUtil.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/TimeUtil.java); 
@@ -225,12 +236,13 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 
 ### <u>Grammar(s)</u>
 *[How do you design the grammar? What are the advantages of your designs?]*
-*If there are several grammars, list them all under this section and what they relate to.*
+*I modeled the design after the parser method on lection.The and and or statements require two key-value pairs separated by commas, while the not statement has only one key-value pair.*
 
 Production Rules:
 
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+    and(key:value,key:value)
+    or(key:value,key:value)
+    not(key:value)
 
 
 ### <u>Tokenizers and Parsers</u>
@@ -254,10 +266,10 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
 *List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*
 
 ### Basic Features
-1. [LogIn]. User can login in different username and password
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of feature: ... <br>
-   * Description of your implementation: ... <br>
+1. [LogIn]. Users must be able to log in (not necessarily sign up). (easy)
+   * Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189) and [Class UserActivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads)
+   * Feature: User can log in different username and password, mismatched username and password will not allow to login  <br>
+   * Implementation:  User input username and password in Class UserActivity. Then use Class User, method validateUserCredentials to validate the user information. After successful login, turn to MapActivity page.<br>
 
 2. [DataFiles]. Description  ... ... (...)
    * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
@@ -274,12 +286,12 @@ Feature Category: Privacy <br>
      <br>
 
 2. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
-    * Code: [Class User, methods validateUserCredentials](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43)
-    * Description of your implementation: Read local csv file. <br>
-    * Code: [Class LoginStorageHandler, methods loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class LoginStorageHandler, methods loadAllLogs()]
-    * Description of your implementation: Read xml file that on the mobile device. <br>
+    * Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189)
+    * Implementation: Read local csv file. <br>
+    * Code: [Class LoginStorageHandler, method loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class FireAlarmStorageHandler, methods loadAllLogs()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L35-52)
+    * Implementation: Using SharedPreferences of Android to store and read the xml file on the mobile device. <br>
     * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads) 
-    * Description of your implementation: Read json file. <br>
+    * Implementation: Read json file. <br>
    <br><br>
 
 Feature Category: Firebase Integration <br>
@@ -350,6 +362,7 @@ Feature Category: Firebase Integration <br>
 <hr>
 
 ### Conflict Resolution Protocol
+* [Detailed version](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/items/Conflict_Resolution_Strategy.md?ref_type=heads)
 1. **Member Illness and Unforeseen Incidents**
     - **Challenge:** A team member falls ill, or unexpected incidents occur.
     - **Strategy:** Plan for flexibility by including buffer times. If incidents occur, redistribute tasks fairly among remaining members. Pre-emptively develop a contingency plan to outline steps for adjusting project timelines and responsibilities.
