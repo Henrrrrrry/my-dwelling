@@ -299,23 +299,25 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
    * Feature: User can log in different username and password, mismatched username and password will not allow to login  <br>
    * Implementation:  User input username and password in Class UserActivity. Then use Class User, method validateUserCredentials to validate the user information. After successful login, turn to MapActivity page.<br>
 
-2. [DataFiles]. Description  ... ... (...)
-   * Code to the Data File [users_interaction.json](link-to-file), [search-queries.xml](link-to-file), ...
-   * Link to the Firebase repo: ...
+2. [DataFiles]. Create a dataset with at least 2,500 valid data instances, each representing a meaningful
+   piece of information in your app. The data should be represented and stored in a structured format
+   taught in the course. (easy)
+   * Code to the Data File [dataset.json](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/assets/dataset.json?ref_type=heads)
 
-3. ...
+3. [LoadShowData] Load and display data instances from your dataset. Choose an appropriate format
+   to present the different types of data. (easy)
+   * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
+   * Feature: data will be stored in B-tree structure from json file. <br>
+   * Implementation: Load data from local file and save data to json file.<br>
+
    <br>
 
 ### Custom Features
 Feature Category:Search-related features <br>
 1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
    and correctly handle partially invalid search queries and give meaningful results. (medium)
-    * Code: 
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code: 
-    * Implementation: Read json file. <br>
+    * Code: [class MapActivity, method showListPopupWindow](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
+    * Implementation: fuzzy search. <br>
       <br><br>
 
    
