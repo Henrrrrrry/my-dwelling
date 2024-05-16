@@ -31,8 +31,8 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 - Firebase Repository Link: <insert-link-to-firebase-repository>
    - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
 - Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless there are exceptional circumstances. Note that they are not real e-mail addresses in use):
-   - Username: comp2100@anu.edu.au	Password: comp2100
-   - Username: comp6442@anu.edu.au	Password: comp6442
+   - Username: comp2100@anu.edu.au	Password: comp2100  Role: Resident
+   - Username: comp6442@anu.edu.au	Password: comp6442  Role: Building manager
 
 ## Team Members and Roles
 The key area(s) of responsibilities for each member
@@ -150,12 +150,12 @@ For community managers, the app provides automatic notifications for repairs bas
 * *receive fire alarm notifications*
 * *and view the login and notifications log*
 
-*target user: building managers*
+*Target user: Building managers*
 
 * *Can view if the building need repairs, the app provides automatic notifications for repairs based on multiple parameter calculations*
 * *Sent fire alarm to the subscriber*...
 
-*target user: local government/communities*
+*Target user: Local government/communities*
 * *view the building on the map.*
 * *view the visual seismic ‘color’ of each building, allowing officials to monitor specific buildings or areas. These data help officials in urban planning and emergency management decisions, such as determining which buildings need reinforcement or reconstruction.*
 
