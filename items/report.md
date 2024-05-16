@@ -113,8 +113,15 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report Writing?] [Slides preparation?]*
     - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
 
-5. **UID2, Name2**  I have xx% contribution, as follows: <br>
-- ...
+5. **u7757949, Juliang Xiao**  I have 18% contribution, as follows: <br>
+- **Code Contribution in the final App**
+- data structures: almost all the data structure of B-tree-class BTree:[BTree.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads)
+- other part of data structure-class Btree node,Element,SearchResult:[BtreeNode.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads)[Element.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java?ref_type=heads)[SearchResult.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/SearchResult.java?ref_type=heads)
+  - Parser search:class MapActivity:[onClick(),afterTextChanged(),searchWithParser(),showDwellingsOnMap(),evaluateExpressio()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L94-160)(https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-290)
+
+
+**Others**: (only if significant and significantly different from an "average contribution")
+- draw UML diagrams
 - 
 ## Application Description
 
@@ -279,28 +286,119 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
    <br>
 
 ### Custom Features
-Feature Category: Privacy <br>
-1. [Privacy-Request]. Description of the feature  (easy)
-   * Code: [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * Description of your implementation: ... <br>
-     <br>
-
-2. [Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
-    * Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189)
+Feature Category:Search-related features <br>
+1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
+   and correctly handle partially invalid search queries and give meaningful results. (medium)
+    * Code: 
     * Implementation: Read local csv file. <br>
-    * Code: [Class LoginStorageHandler, method loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class FireAlarmStorageHandler, methods loadAllLogs()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L35-52)
-    * Implementation: Using SharedPreferences of Android to store and read the xml file on the mobile device. <br>
-    * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads) 
+    * Code:
+    * Implementation:<br>
+    * Code: 
     * Implementation: Read json file. <br>
-   <br><br>
+      <br><br>
 
-Feature Category: Firebase Integration <br>
-3. [FB-Auth] Description of the feature (easy)
-   * Code: [Class X, entire file](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and Class Y, ...
-   * [Class B](../src/path/to/class/file.java#L30-85): methods A, B, C, lines of code: 30 to 85
-   * Description of your implementation: ... <br>
+   
+
+
+Feature Category:UI Design and Testing  <br>
+2. [UI-Layout] Incorporate suitable layout adjustments in the UI components for portrait and landscape
+   layout variants, as well as different screen sizes. (easy)
+   a. No marks awarded by only using Android studio's automated support for orientation and
+   screen sizes without proper adjustments.
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+
+
+3. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and
+   coverage of the App. (hard)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+
+
+Feature Category:Greater Data Usage, Handling and Sophistication <br>
+4.[Data-Formats]. Read data from local files in at least 2 different formats (JSON, XML, etc.). (easy)
+* Code: [Class User, method validateUserCredentials](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L142-189)
+* Implementation: Read local csv file. <br>
+* Code: [Class LoginStorageHandler, method loadAllLogs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L35-52) and [Class FireAlarmStorageHandler, methods loadAllLogs()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L35-52)
+* Implementation: Using SharedPreferences of Android to store and read the xml file on the mobile device. <br>
+* Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
+* Implementation: Read json file. <br>
+<br><br>
+   
+Feature Category:Greater Data Usage, Handling and Sophistication <br>
+5. [Data-Profile] Create a Profile Page for Users or any Entities, which contains a media file (image,
+   animation (e.g., gif), video). (easy)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+    * 
+6. [Data-GPS] Use GPS information based on location data in your App. (easy)  
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+
+
+7. [Interact-Follow] The ability to ‘follow’ items. There must be a section that presents all the items
+   followed by a user, grouped, and ordered. [stored in-memory] (medium)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+8. [Interact-Noti] The ability to send notifications for interactions (e.g., follow request, product viewed,
+   etc.). A notification must be sent only after a predetermined number of interactions are set [e.g.,
+   when ≥2 requests have been received or 2 follow requests have been received). (medium)
+    * Code:
+    * Implementation: Read local csv file. <br>
+    * Code:
+    * Implementation:<br>
+    * Code:
+    * Implementation: Read json file. <br>
+      <br><br>
+   a. (Hint: see the demo presented by our tutors).
+   Feature Category:User Interactivity <br>
+
+
+
+
+
+
+
+
+
+
 
 <hr>
+
+
+
+
+
+
+
+
+
+
 
 ### Surprise Features
 
