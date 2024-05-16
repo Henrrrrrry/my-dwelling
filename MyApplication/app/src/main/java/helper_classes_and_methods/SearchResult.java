@@ -9,7 +9,7 @@ package helper_classes_and_methods;
  */
 
 
-class SearchResult {
+public class SearchResult {
 
     private boolean found;
     private BTreeNode node;
