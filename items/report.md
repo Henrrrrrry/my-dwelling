@@ -235,7 +235,6 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 ### Parser
 
 ### <u>Grammar(s)</u>
-*[How do you design the grammar? What are the advantages of your designs?]*
 *I modeled the design after the parser method on lection.The and and or statements require two key-value pairs separated by commas, while the not statement has only one key-value pair.*
 
 Production Rules:
@@ -243,11 +242,10 @@ Production Rules:
     and(key:value,key:value)
     or(key:value,key:value)
     not(key:value)
-    for example: and(fireAlarm:"false", not(buildingMaterial:"wood"))
+    for example: and(fireAlarm:"false",not(buildingMaterial:"wood"))
 
 ### <u>Tokenizers and Parsers</u>
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 
 We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format. It can be very useful when searching particular dwellings.
 
