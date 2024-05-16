@@ -168,6 +168,7 @@ public class ProfPageActivity extends BaseActivity {
                 if (repairButton.isEnabled()){
                     Toast.makeText(getApplicationContext(),"Thank you for your maintenance",Toast.LENGTH_SHORT).show();
                     repairButton.setEnabled(false);
+                    searchDwelling.repair();
 
                     Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout);
                     // start animation

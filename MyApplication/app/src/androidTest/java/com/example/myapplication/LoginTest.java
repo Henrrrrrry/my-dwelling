@@ -37,6 +37,8 @@ import static org.mockito.ArgumentMatchers.matches;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import java.io.IOException;
+
 
 /**
  * Author: Hongyu Li u7776180
@@ -49,27 +51,60 @@ public class LoginTest {
 
     @Before
     public void setup() {
+
+
         Intents.init();
+        disableAnimations();
     }
+    ;
+
 
     @After
     public void tearDown() {
         Intents.release();
+        enableAnimations();
     }
-    @Test
-    public void testComp2100(){
-//        type username and password
-        Espresso.onView(ViewMatchers.withId(R.id.usernameEditText)).perform(ViewActions.typeText("comp2100@anu.edu.au"));
-        Espresso.onView(ViewMatchers.withId(R.id.passwordEditText)).perform(ViewActions.typeText("comp2100"));
 
-        Espresso.closeSoftKeyboard();
-//      click login button
-        Espresso.onView(ViewMatchers.withId(R.id.loginButton)).perform(ViewActions.click());
-//      verify the next activity and extra
-        Intents.intended(allOf(
-                hasComponent(MapActivity.class.getName()),
-                hasExtraWithKey("USER")
-        ));
+    public void disableAnimations() {
+        UiDevice uiDevice = UiDevice.getInstance(getInstrumentation());
+        try {
+            uiDevice.executeShellCommand("settings put global window_animation_scale 0");
+            uiDevice.executeShellCommand("settings put global transition_animation_scale 0");
+            uiDevice.executeShellCommand("settings put global animator_duration_scale 0");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void enableAnimations() {
+        UiDevice uiDevice = UiDevice.getInstance(getInstrumentation());
+        try {
+            uiDevice.executeShellCommand("settings put global window_animation_scale 1");
+            uiDevice.executeShellCommand("settings put global transition_animation_scale 1");
+            uiDevice.executeShellCommand("settings put global animator_duration_scale 1");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testComp2100() {
+        try (ActivityScenario<LoginActivity> scenario = ActivityScenario.launch(LoginActivity.class)) {
+            // type username and password
+            Espresso.onView(ViewMatchers.withId(R.id.usernameEditText)).perform(ViewActions.typeText("comp2100@anu.edu.au"));
+            Espresso.onView(ViewMatchers.withId(R.id.passwordEditText)).perform(ViewActions.typeText("comp2100"));
+
+            Espresso.closeSoftKeyboard();
+            // click login button
+            Espresso.onView(ViewMatchers.withId(R.id.loginButton))
+                    .perform(ViewActions.click());
+
+            // verify the next activity and extra
+            Intents.intended(allOf(
+                    hasComponent(MapActivity.class.getName()),
+                    hasExtraWithKey("USER")
+            ));
+        }
     }
 
     @Test
@@ -86,6 +121,36 @@ public class LoginTest {
         Espresso.onView(ViewMatchers.withId(R.id.passwordEditText)).check(matches(isDisplayed()));
         Espresso.onView(ViewMatchers.withId(R.id.loginButton)).check(matches(isDisplayed()));
 
+    }
+
+
+
+
+    @Test
+    public void testEmptyUsernamePassword() {
+        // Click login button without entering username or password
+        Espresso.onView(ViewMatchers.withId(R.id.loginButton)).perform(ViewActions.click());
+
+        // Verify UI elements are still displayed for retry
+        Espresso.onView(ViewMatchers.withId(R.id.usernameEditText)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.passwordEditText)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.loginButton)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testInvalidUsernameFormat() {
+        // Enter invalid email format and valid password
+        Espresso.onView(ViewMatchers.withId(R.id.usernameEditText)).perform(ViewActions.typeText("invalidEmailFormat"));
+        Espresso.onView(ViewMatchers.withId(R.id.passwordEditText)).perform(ViewActions.typeText("comp2100"));
+
+        Espresso.closeSoftKeyboard();
+        // Click login button
+        Espresso.onView(ViewMatchers.withId(R.id.loginButton)).perform(ViewActions.click());
+
+        // Verify UI elements are still displayed for retry
+        Espresso.onView(ViewMatchers.withId(R.id.usernameEditText)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.passwordEditText)).check(matches(isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.loginButton)).check(matches(isDisplayed()));
     }
 
 
