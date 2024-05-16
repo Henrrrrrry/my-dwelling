@@ -326,12 +326,15 @@ Feature Category:UI Design and Testing  <br>
    layout variants, as well as different screen sizes. (easy)
    a. No marks awarded by only using Android studio's automated support for orientation and
    screen sizes without proper adjustments.
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
+    * Code:[(land)activity_login.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_login.xml?ref_type=heads)
+    * Implementation: Remove the vertical elements like logos to fit the land view.
+    * Code:[(land)activity_main.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_main.xml?ref_type=heads)
+    * Implementation:Change the width of search bar and menu to fit the land page.
+    * Code:[(land)activity_prof_page.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_prof_page.xml?ref_type=heads)
+    * Implementation: Remove the image to fit the display, and change the layout of the buttons. 
+    * Code:[(land)activity_user.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_user.xml?ref_type=heads)
+    * Implementation: Remove the greetings and chaneg the width of search bar and menu to fit the land page.<br>
+     <br>
       <br><br>
 
 
@@ -359,23 +362,18 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 Feature Category:Greater Data Usage, Handling and Sophistication <br>
 5. [Data-Profile] Create a Profile Page for Users or any Entities, which contains a media file (image,
    animation (e.g., gif), video). (easy)
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
-      <br><br>
-    * 
-6. [Data-GPS] Use GPS information based on location data in your App. (easy)  
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
-      <br><br>
+    * Code:[ProfPageActivity.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads)
+    * Implementation: A Profile Page for dwellings details, shows images according to different material type as well.
+    * Code:[activity_prof_page.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout/activity_prof_page.xml?ref_type=heads)
+    * Implementation:Layout of profile page. <br>
+ 
+   
 
+6. [Data-GPS] Use GPS information based on location data in your App. (easy)  
+    * Code: class MapActivity: [viewCurrentLocation()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L329-366)
+    * Implementation: Require for user's current location.Use LocationManager. <br>
+      <br>
+      <br><br>
 
 7. [Interact-Follow] The ability to ‘follow’ items. There must be a section that presents all the items
    followed by a user, grouped, and ordered. [stored in-memory] (medium)
