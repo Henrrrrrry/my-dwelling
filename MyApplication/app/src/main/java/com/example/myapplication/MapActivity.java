@@ -69,7 +69,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
         user = (User) getIntent().getExtras().getSerializable("USER");
 //        data stream simulate method, uncomment the following line if want to see the data stream
-        simulateSearch();
+//        simulateSearch();
 
         //search_text
         userInput = findViewById(R.id.search_text);

@@ -66,15 +66,17 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
-  - Login activity layout: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml?ref_type=heads#L22-57)
-
-
-- Data stream:
+  - navigation bar:<br>
+[Navi-bar function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java#L67-82)
+- Data stream:<br>
   [login  Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100), [Map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  [profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
 - Follow and notification button function:
   [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
+- Marker onclick function:<br>
+  [Map Activity, marker onclick function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java#L293-327),
 - Tests:<br>
   -Instrumented tests:<br>
+[Base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/BaseActivityTest.java#L1-78),[Test activity for base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/TestActivity.java#L1-20), 
   [Login Activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163),
 [Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L1-157),
 [Profileage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java#L2-199),
@@ -93,9 +95,10 @@ Note that the core criteria of contribution is based on `code contribution` (the
 [User test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserTest.java)
 
 - **Code and App Design** 
-  - What design patterns, data structures, did the involved member propose?<br>
-  Observers design pattern, 
-  - UI Design: Basic interface skeleton. <br><br>
+  - Design patterns:<br>
+  Observers design pattern and State design pattern
+  - UI Design: <br>
+  Basic interface skeleton. <br><br>
 
   - **Others**: (only if significant and significantly different from an "average contribution") 
     - [Report Writing?] [Slides preparation?]*
@@ -195,7 +198,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 ### Application UML
 
-![ClassDiagramExample](media/_examples/UML.png) <br>
+![ClassDiagramExample](media/_examples/ClassDiagramExample.png) <br>
 *[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
 
 <hr>
@@ -213,10 +216,10 @@ The parser and tokenizer first split an input string into tokens and return a li
 - Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
 
 
-In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
+    In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
 
 
-The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
+    The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
 
 
 - Details about the design patterns used (where in the code, justification of the choice, etc)
@@ -304,9 +307,7 @@ Production Rules:
     and(key:value,key:value)
     or(key:value,key:value)
     not(key:value)
-    simple condition:   buildingMaterial: "concrete"
-    Multiple conditions with or: or(constructionDate: "2020-01-01", fireAlarm: true)
-    Multiple conditions with and and not: and(fireAlarm:"false",not(buildingMaterial:"wood"))
+    for example: and(fireAlarm:"false",not(buildingMaterial:"wood"))
 
 ### <u>Tokenizers and Parsers</u>
 
@@ -344,27 +345,25 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
    * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
    * Feature: data will be stored in B-tree structure from json file. <br>
    * Implementation: Load data from local file and save data to json file.<br>
-4. [DataStream]
-      <br><br>
 
+4. [DataStream] 
+    * Code: [Datastream method called in login activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L47-48),[Datastream method called in mapactivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L71-72), [Datastream method called in profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L51-52)
+   <br>[Simulate datastream method in login activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-101), [Simulate datastream method in map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-482),[Simulate Datastream in profile page acitvity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L216-250)
+    * Feature:  Simulate user's action
+    * Implementation: When all these simulate datastream methods are called, datastream would start working, 
 
-5. [Search]Users must be able to search for information on your app. (medium)
-   Given the user's input based on pre-defined grammar(s), a query processor "understands" and
-   retrieves the information that meets the user's query. The usag is dependent on your app theme.  
-   a. must make use of a tokeniser and parser with a formal grammar of your own creation.
-    * Code: [class MapActivity, method searchWithParser,method evaluateExpression.](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L114-291)
-    * Feature:Users can use the search method utilizing tokenizer for filtering search results<br>
-    * Implementation:  Uses an ExpressionParser to parse the input string into an Expression object, evaluates this expression against each dwelling, and collects the matching dwellings into a list. <br>
-
-   <br><br>
+5.  [Search] 
+    * Code: []()
+    * Feature: 
+    * Implementation: 
    <br>
 
 ### Custom Features
 Feature Category:Search-related features <br>
 1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
    and correctly handle partially invalid search queries and give meaningful results. (medium)
-    * Code: [class MapActivity, method showListPopupWindow](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
-    * Implementation: fuzzy search. <br>
+    * Code: [class MapActivity, method searchWithParser,method evaluateExpression.](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L114-291)
+    * Implementation:  Uses an ExpressionParser to parse the input string into an Expression object, evaluates this expression against each dwelling, and collects the matching dwellings into a list. <br>
       <br><br>
 
    
@@ -387,15 +386,17 @@ Feature Category:UI Design and Testing  <br>
       <br><br>
 
 
-3. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and
+3. [UI-Test]. Partial UI tests using espresso (not covered in lectures/labs) of reasonable quality and
    coverage of the App. (hard)
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
-      <br><br>
+    * Code:[LoginActivity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163)
+    * Implementation: Tested the app can correctly jump to the mapactivity after logging in with the provided account and password. <br>
+    * Code:[Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L90-154)
+    * Implementation: Tested authorization in login activity.<br>
+    * Code:[Profilepage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java#L1-199)
+    * Implementation: Tested that the profile page correctly displays information corresponding to the provided dwelling instance, and that the corresponding elements are unavailable when the user does not have sufficient permissions. <br>
+    * Code:[User profile activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java#L1-175)
+    * Implementation: Tested that after the user logs in, the correct personal information can be seen in the user profile page.
+   <br><br>
 
 
 Feature Category:Greater Data Usage, Handling and Sophistication <br>
@@ -486,6 +487,8 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
    - ...
 
 2. *Bug 2:*
+    - *Jacoco cannot correctly generate reports with coverage for instrumented tests *
+    - There are several tests that run fine when run individually, but they all pass when run all tests. The error message shows that animation is not disabled, but after disabling animation, the error message is the same as the original result.
 3. ...
 
 <br> <hr>
@@ -501,7 +504,7 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 1. Tests for notification when click on the fire alarm button
 
 
-- Code:[InstrumentedTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/InstrumentedTest.java?ref_type=heads#L1-74)
+- Code:[UsersNotificationTest Class, entire file]()
   for the [ProfilePageActivity class, Notification method](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L156-165)
 
 
