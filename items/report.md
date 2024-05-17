@@ -138,7 +138,7 @@ A generic summary will not be acceptable and may result in a significant lose of
     - data structures: part of B-tree searching function [B-tree search](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L380-406),tools:Android studio]* <br><br>
 
 - **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report Writing?] [Slides preparation?]*
+    - Parser part writing
     - Create a dataset with more than 2,500 valid data instances.
 
 5. **u7757949, Juliang Xiao**  I have 18% contribution, as follows: <br>
