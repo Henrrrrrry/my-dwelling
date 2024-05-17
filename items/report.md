@@ -1,4 +1,4 @@
-# [G0 - Team Name] Report
+# [G20 - Group 20] Report
 
 The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
 
@@ -222,6 +222,9 @@ The data structure we used is B-Tree, the best feature of B-Tree is that its sea
 - Details about the design patterns used (where in the code, justification of the choice, etc)
 *Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
 
+- Details about the design patterns
+
+1. Factory method: To track and display user activity, we can leverage the Factory Method Pattern. This pattern simplifies the process of duplicating and extending our function both now and in the future. By using the Factory Method, we can create a flexible and scalable solution for managing user activities.
 <hr>
 
 ### Data Structures
