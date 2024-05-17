@@ -348,8 +348,8 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
 Feature Category:Search-related features <br>
 1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
    and correctly handle partially invalid search queries and give meaningful results. (medium)
-    * Code: [class MapActivity, method showListPopupWindow](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
-    * Implementation: fuzzy search. <br>
+    * Code: [class MapActivity, method searchWithParser,method evaluateExpression.](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L114-291)
+    * Implementation:  Uses an ExpressionParser to parse the input string into an Expression object, evaluates this expression against each dwelling, and collects the matching dwellings into a list. <br>
       <br><br>
 
    
