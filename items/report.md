@@ -103,7 +103,7 @@ A generic summary will not be acceptable and may result in a significant lose of
   Basic interface skeleton. Animation for a button. <br><br>
 
   - **Others**: (only if significant and significantly different from an "average contribution") 
-    - [Report Writing?] [Slides preparation?]*
+    - Testing Summary writing
     - Google Maps API setup <br><br>
 
 2. **U7785177, Xinfei Li**  I have 20% contribution, as follows: <br>
