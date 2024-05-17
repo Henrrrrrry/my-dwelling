@@ -34,9 +34,11 @@
 10. [Conflict Resolution Protocol](#conflict-resolution-protocol)
 
 ## Administrative
-- Firebase Repository Link: <insert-link-to-firebase-repository>
-   - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.
-- Two user accounts for markers' access are usable on the app's APK (do not change the username and password unless there are exceptional circumstances. Note that they are not real e-mail addresses in use):
+
+[//]: # (- Firebase Repository Link: <insert-link-to-firebase-repository>)
+
+[//]: # (   - Confirm: I have already added comp21006442@gmail.com as a Developer to the Firebase project prior to due date.)
+- Two user accounts for markers' access are usable on the app's APK :
    - Username: comp2100@anu.edu.au	Password: comp2100  Role: Resident
    - Username: comp6442@anu.edu.au	Password: comp6442  Role: Building manager
 
@@ -376,7 +378,8 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
 5.  [Search] Users must be able to search for information on your app. (medium)
     Given the user's input based on pre-defined grammar(s), a query processor "understands" and
     retrieves the information that meets the user's query. The usag is dependent on your app theme.  
-    a. must make use of a tokeniser and parser with a formal grammar of your own creation.
+
+[//]: # (    a. must make use of a tokeniser and parser with a formal grammar of your own creation.)
     * Code: [class MapActivity, method searchWithParser](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-217),[class MapActivity, method showDwellingsOnMap](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L223-248),[class MapActivity, method evaluateExpression](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L256-290)
     * Feature: Search in the type of parser and tokeniser
     * Implementation: The tokenizer-based search functionality allows users to input complex search queries and filters dwellings based on multiple criteria such as address, construction date, fire alarm status, building material, dwelling state, and last repair date. The parser supports advanced search expressions using tokens like AND, OR, and NOT.
@@ -511,7 +514,7 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
    - ...
 
 2. *Bug 2:*
-    - *Jacoco cannot correctly generate reports with coverage for instrumented tests *
+    - *Jacoco cannot correctly generate reports with coverage for instrumented tests.*
     - There are several tests that run fine when run individually, but they would fail when run all tests. The error message shows that animation is not disabled, but after disabling animation, the error message is still the same as the original result.
 
 
