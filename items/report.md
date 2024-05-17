@@ -304,7 +304,9 @@ Production Rules:
     and(key:value,key:value)
     or(key:value,key:value)
     not(key:value)
-    for example: and(fireAlarm:"false",not(buildingMaterial:"wood"))
+    simple condition:   buildingMaterial: "concrete"
+    Multiple conditions with or: or(constructionDate: "2020-01-01", fireAlarm: true)
+    Multiple conditions with and and not: and(fireAlarm:"false",not(buildingMaterial:"wood"))
 
 ### <u>Tokenizers and Parsers</u>
 
@@ -342,15 +344,27 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
    * Code: [Class DataLoader](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
    * Feature: data will be stored in B-tree structure from json file. <br>
    * Implementation: Load data from local file and save data to json file.<br>
+4. [DataStream]
+      <br><br>
 
+
+5. [Search]Users must be able to search for information on your app. (medium)
+   Given the user's input based on pre-defined grammar(s), a query processor "understands" and
+   retrieves the information that meets the user's query. The usag is dependent on your app theme.  
+   a. must make use of a tokeniser and parser with a formal grammar of your own creation.
+    * Code: [class MapActivity, method searchWithParser,method evaluateExpression.](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L114-291)
+    * Feature:Users can use the search method utilizing tokenizer for filtering search results<br>
+    * Implementation:  Uses an ExpressionParser to parse the input string into an Expression object, evaluates this expression against each dwelling, and collects the matching dwellings into a list. <br>
+
+   <br><br>
    <br>
 
 ### Custom Features
 Feature Category:Search-related features <br>
 1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
    and correctly handle partially invalid search queries and give meaningful results. (medium)
-    * Code: [class MapActivity, method searchWithParser,method evaluateExpression.](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L114-291)
-    * Implementation:  Uses an ExpressionParser to parse the input string into an Expression object, evaluates this expression against each dwelling, and collects the matching dwellings into a list. <br>
+    * Code: [class MapActivity, method showListPopupWindow](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
+    * Implementation: fuzzy search. <br>
       <br><br>
 
    
