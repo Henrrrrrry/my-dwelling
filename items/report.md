@@ -559,7 +559,7 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 - *Types of tests created and descriptions:<br>  Unit test, supplementary tests for classes only have a few methods, added more tests for some test*
 
 By using Jacoco, a unit-test report is generated with the unit tests above, as we can see from the report below, the code coverage is over 40% without instrumented tests
-![unit tests coverage.png](..%2F..%2F..%2FDesktop%2Funit%20tests%20coverage.png)
+![unit.png](media/unit.png)
 <hr>
 
 11. Tests for notification when click on the fire alarm button
