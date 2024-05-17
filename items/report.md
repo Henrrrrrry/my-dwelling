@@ -6,7 +6,7 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 
 *Here are some tips to write a good report:*
 
-* `Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project (rather than give long paragraphs).*
+*`Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project (rather than give long paragraphs).*
 
 * *Try to create `diagrams` for parts that could greatly benefit from it.*
 
@@ -66,15 +66,17 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
-  - Login activity layout: [activity_login.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout/activity_login.xml?ref_type=heads#L22-57)
-
-
-- Data stream:
+  - navigation bar:<br>
+[Navi-bar function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java#L67-82)
+- Data stream:<br>
   [login  Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100), [Map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  [profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
-- Follow and notification button function:
+- Follow and notification button function:<br>
   [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
+- Marker onclick function:<br>
+  [Map Activity, marker onclick function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java#L293-327),
 - Tests:<br>
   -Instrumented tests:<br>
+[Base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/BaseActivityTest.java#L1-78),[Test activity for base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/TestActivity.java#L1-20), 
   [Login Activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163),
 [Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L1-157),
 [Profileage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java#L2-199),
@@ -93,9 +95,10 @@ Note that the core criteria of contribution is based on `code contribution` (the
 [User test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserTest.java)
 
 - **Code and App Design** 
-  - What design patterns, data structures, did the involved member propose?<br>
-  Observers design pattern, 
-  - UI Design: Basic interface skeleton. <br><br>
+  - Design patterns:<br>
+  Observers design pattern and State design pattern
+  - UI Design: <br>
+  Basic interface skeleton. <br><br>
 
   - **Others**: (only if significant and significantly different from an "average contribution") 
     - [Report Writing?] [Slides preparation?]*
@@ -204,7 +207,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
 
-- Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+- Details about the parser (describe the formal grammar and language used):We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
 
 
 The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format
@@ -213,10 +216,10 @@ The parser and tokenizer first split an input string into tokens and return a li
 - Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
 
 
-In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
+    In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
 
 
-The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
+    The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
 
 
 - Details about the design patterns used (where in the code, justification of the choice, etc)
@@ -232,17 +235,29 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 
 *I used the following data structures in my project:*
 
-1. *LinkedList*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
-   * *Reasons:*
-      * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
-      * *We don't need to access the item by index for xxx feature because...*
-      * For the (part), the data ... (characteristics) ...
+[//]: # (1. *LinkedList*)
+
+[//]: # (   * *Objective: used for storing xxxx for xxx feature.*)
+
+[//]: # (   * *Code Locations: defined in [Class X, methods Z, Y]&#40;https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43&#41; and [class AnotherClass, lines l1-l2]&#40;url&#41;; processed using [dataStructureHandlerMethod]&#40;url&#41; and ...)
+
+[//]: # (   * *Reasons:*)
+
+[//]: # (      * *It is more efficient than Arraylist for insertion with a time complexity O&#40;1&#41;*)
+
+[//]: # (      * *We don't need to access the item by index for xxx feature because...*)
+
+[//]: # (      * For the &#40;part&#41;, the data ... &#40;characteristics&#41; ...)
+
+1. *BTree*
+    * *Objective: used for storing the buildings data for Dataloader feature.*
+    * *Code Locations: defined in [Element class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java#L1-82),[BTree Node class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java#L1-53) and [BTree class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java#L1-406); processed in [DataLoader class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java#L1-178) and called by [Superclas BaseActivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/BaseActivity.java#L1-25)
+    * *Reasons:*
+        * Each node contains multiple keys, which allows for reading or writing multiple keys in a single I/O operation and reducing the number of disk accesses required;
+        * BTree has lower height than most other structures, this ensures the time complexity for search, insert and delete. In our project, if the degree is 5, then a node can store up to 2*5-1, or 9 elements. In this way, only a height of 3 is needed to store data that meets the project requirements (2500 elements). <br>However, we found that such a structure would waste a lot of space in the third layer, with low resource utilization and reduced search efficiency. Therefore, each node is artificially set to store up to 4 elements, so that only 5 layers (a total of 3124 elements can be stored) can meet the project requirements and will not waste a lot of space;
+        * Compared with other data structures, the height of the B-tree is lower, which is very convenient for scenarios where we need to implement searches in our project.
 
 2. ...
-
-3. ...
 
 <hr>
 
@@ -329,6 +344,16 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
    * Feature: data will be stored in B-tree structure from json file. <br>
    * Implementation: Load data from local file and save data to json file.<br>
 
+4. [DataStream] 
+    * Code: [Datastream method called in login activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L47-48),[Datastream method called in mapactivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L71-72), [Datastream method called in profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L51-52)
+   <br>[Simulate datastream method in login activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-101), [Simulate datastream method in map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-482),[Simulate Datastream in profile page acitvity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L216-250)
+    * Feature:  Simulate user's action
+    * Implementation: When all these simulate datastream methods are called, datastream would start working, 
+
+5.  [Search] 
+    * Code: []()
+    * Feature: 
+    * Implementation: 
    <br>
 
 ### Custom Features
@@ -359,15 +384,17 @@ Feature Category:UI Design and Testing  <br>
       <br><br>
 
 
-3. [UI-Test]. Complete UI tests using espresso (not covered in lectures/labs) of reasonable quality and
+3. [UI-Test]. Partial UI tests using espresso (not covered in lectures/labs) of reasonable quality and
    coverage of the App. (hard)
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
-      <br><br>
+    * Code:[LoginActivity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163)
+    * Implementation: Tested the app can correctly jump to the mapactivity after logging in with the provided account and password. <br>
+    * Code:[Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L90-154)
+    * Implementation: Tested authorization in login activity.<br>
+    * Code:[Profilepage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java#L1-199)
+    * Implementation: Tested that the profile page correctly displays information corresponding to the provided dwelling instance, and that the corresponding elements are unavailable when the user does not have sufficient permissions. <br>
+    * Code:[User profile activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java#L1-175)
+    * Implementation: Tested that after the user logs in, the correct personal information can be seen in the user profile page.
+   <br><br>
 
 
 Feature Category:Greater Data Usage, Handling and Sophistication <br>
@@ -458,6 +485,8 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
    - ...
 
 2. *Bug 2:*
+    - *Jacoco cannot correctly generate reports with coverage for instrumented tests *
+    - There are several tests that run fine when run individually, but they all pass when run all tests. The error message shows that animation is not disabled, but after disabling animation, the error message is the same as the original result.
 3. ...
 
 <br> <hr>
@@ -473,7 +502,7 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 1. Tests for notification when click on the fire alarm button
 
 
-- Code:[InstrumentedTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/InstrumentedTest.java?ref_type=heads#L1-74)
+- Code:[UsersNotificationTest Class, entire file]()
   for the [ProfilePageActivity class, Notification method](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L156-165)
 
 
