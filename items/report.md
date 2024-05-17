@@ -1,4 +1,4 @@
-# [G0 - Team Name] Report
+# [G20 - Group 20] Report
 
 The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
 
@@ -6,7 +6,7 @@ Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submis
 
 *Here are some tips to write a good report:*
 
-*`Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project (rather than give long paragraphs).*
+* `Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project (rather than give long paragraphs).*
 
 * *Try to create `diagrams` for parts that could greatly benefit from it.*
 
@@ -70,7 +70,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 [Navi-bar function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java#L67-82)
 - Data stream:<br>
   [login  Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100), [Map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  [profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
-- Follow and notification button function:<br>
+- Follow and notification button function:
   [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
 - Marker onclick function:<br>
   [Map Activity, marker onclick function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java#L293-327),
@@ -116,18 +116,18 @@ Note that the core criteria of contribution is based on `code contribution` (the
 - **Code Contribution in the final App**
     - GPS function - class MapActivity: [viewCurrentLocation()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L329-366)
     - show Data(the way to mark on the map) -  class MapActivity: [addMarkers()，addOneMarker(),getHueFromColorType()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L374-413)
-    - profile page and user page(display):[activity_prof_page.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_prof_page.xml?ref_type=heads), [activity_user.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_user.xml?ref_type=heads)
+    - profile page and user page(layout and data display):[activity_prof_page.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_prof_page.xml?ref_type=heads), [activity_user.xml](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_user.xml?ref_type=heads)
     - UI Landscape: [activity_login.xml(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_login.xml?ref_type=heads), [activity_main.xml(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_main.xml?ref_type=heads), [activity_prof_page(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_prof_page.xml?ref_type=heads),[activity_user(land)](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/layout-land/activity_user.xml?ref_type=heads)
 
 - **Code and App Design**
-    - UI Design: Adjusting the pages layout, Theme color,images [Launch icon](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/drawable/app_logo.png?ref_type=heads),tools:Sketch,Photoshop]* <br><br>
+    - UI Design: Adjusting pages layout, Theme color,images design and display logo, [Launch logo](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/drawable/app_logo.png?ref_type=heads),tools:Sketch,Photoshop]* <br><br>
 
 - **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
-
+    - [Report: Application Details] *
+          <br><br>
 4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
-- **Code Contribution in the final App**
+- **Code Contribution in the final App** 
+    - Create a dataset with more than 2,500 valid data instances.
     - Load data from local file and save data to json file - class DataLoader: [DataLoader.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
     - parser - class ExpressionParser: [ExpressionParser.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads)
     - tokenizer - class Tokenizer: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/Tokenizer.java?ref_type=heads)
@@ -149,7 +149,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 **Others**: (only if significant and significantly different from an "average contribution")
 - draw UML diagrams
-- 
+- video record
 ## Application Description
 
 [//]: # (*[What is your application, what does it do? Include photos or diagrams if necessary]*)
@@ -207,7 +207,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
 
-- Details about the parser (describe the formal grammar and language used):We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+- Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
 
 
 The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format
@@ -225,6 +225,9 @@ The parser and tokenizer first split an input string into tokens and return a li
 - Details about the design patterns used (where in the code, justification of the choice, etc)
 *Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
 
+- Details about the design patterns
+
+1. Factory method: To track and display user activity, we can leverage the Factory Method Pattern. This pattern simplifies the process of duplicating and extending our function both now and in the future. By using the Factory Method, we can create a flexible and scalable solution for managing user activities.
 <hr>
 
 ### Data Structures
@@ -235,29 +238,28 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 
 *I used the following data structures in my project:*
 
-[//]: # (1. *LinkedList*)
-
-[//]: # (   * *Objective: used for storing xxxx for xxx feature.*)
-
-[//]: # (   * *Code Locations: defined in [Class X, methods Z, Y]&#40;https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43&#41; and [class AnotherClass, lines l1-l2]&#40;url&#41;; processed using [dataStructureHandlerMethod]&#40;url&#41; and ...)
-
-[//]: # (   * *Reasons:*)
-
-[//]: # (      * *It is more efficient than Arraylist for insertion with a time complexity O&#40;1&#41;*)
-
-[//]: # (      * *We don't need to access the item by index for xxx feature because...*)
-
-[//]: # (      * For the &#40;part&#41;, the data ... &#40;characteristics&#41; ...)
-
 1. *BTree*
-    * *Objective: used for storing the buildings data for Dataloader feature.*
-    * *Code Locations: defined in [Element class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java#L1-82),[BTree Node class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java#L1-53) and [BTree class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java#L1-406); processed in [DataLoader class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java#L1-178) and called by [Superclas BaseActivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/BaseActivity.java#L1-25)
-    * *Reasons:*
-        * Each node contains multiple keys, which allows for reading or writing multiple keys in a single I/O operation and reducing the number of disk accesses required;
-        * BTree has lower height than most other structures, this ensures the time complexity for search, insert and delete. In our project, if the degree is 5, then a node can store up to 2*5-1, or 9 elements. In this way, only a height of 3 is needed to store data that meets the project requirements (2500 elements). <br>However, we found that such a structure would waste a lot of space in the third layer, with low resource utilization and reduced search efficiency. Therefore, each node is artificially set to store up to 4 elements, so that only 5 layers (a total of 3124 elements can be stored) can meet the project requirements and will not waste a lot of space;
-        * Compared with other data structures, the height of the B-tree is lower, which is very convenient for scenarios where we need to implement searches in our project.
+   * *Objective:Used for storing dwellings and performing efficient searches based on their key values.*
+   * *Code Locations: defined in [BTree.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L1-406) and Supported by the [BTreeNode.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads#L1-53) and store key-value pairs by the [Element.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java?ref_type=heads#L1-82) and search results in [SearchResult.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/SearchResult.java?ref_type=heads#L1-65) and pocessed in [dwellingToJson()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L106-133) and [getBTree](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L174-179) .*
+   * *Reasons:*
+      * *BTree provides efficient search, insertion, and deletion operations with logarithmic time complexity, suitable for large datasets.*
+      * *The balanced structure of the BTree ensures consistent performance for all operations.*
+      * *BTrees are particularly useful when data cannot fit entirely into memory as they minimize disk I/O operations.*
 
-2. ...
+2. *ArrayList*
+    * *Objective: Used to store elements within BTree nodes and maintain lists of child nodes.*
+    * *Code Locations:defined in[BTreeNode.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads#L1-53) and processed using [BTree.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L84-367) *
+    * *Reasons:*
+       * * ArrayList provides dynamic resizing and efficient random access to elements.*
+       * * The relatively small size of elements and child nodes within a BTree node makes ArrayList a suitable choice.*
+
+3. *List (ArrayList)*
+    * *Objective:Used to store and manipulate lists of Dwelling objects.*
+    * *Code Locations: defined in [searchWithParser][searchWithParser] (https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-248).*
+    * *Reasons:*
+       * *List provides an ordered, repeatable collection suitable for storing and manipulating Dwelling objects.*
+       * *ArrayList, as an implementation of the List interface, provides dynamic array capabilities, enabling efficient addition, removal, and traversal of elements.*
+       * *In this scenario, manipulating and filtering a list of dwellings makes the use of List (ArrayList) appropriate.*
 
 <hr>
 
@@ -360,8 +362,8 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
 Feature Category:Search-related features <br>
 1. [Search-Invalid] On top of giving search results from valid inputs, search functionality can process
    and correctly handle partially invalid search queries and give meaningful results. (medium)
-    * Code: [class MapActivity, method showListPopupWindow](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L165-189)
-    * Implementation: fuzzy search. <br>
+    * Code: [class MapActivity, method searchWithParser,method evaluateExpression.](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L114-291)
+    * Implementation:  Uses an ExpressionParser to parse the input string into an Expression object, evaluates this expression against each dwelling, and collects the matching dwellings into a list. <br>
       <br><br>
 
    
