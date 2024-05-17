@@ -66,43 +66,45 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
   - **Code Contribution in the final App**
-  - navigation bar:<br>
+    - navigation bar:<br>
 [Navi-bar function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java#L67-82)
-- Data stream:<br>
-  [login  Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100), [Map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  [profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
-- Follow and notification button function:
-  [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
-- Marker onclick function:<br>
-  [Map Activity, marker onclick function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java#L293-327),
-- Tests:<br>
-  -Instrumented tests:<br>
-[Base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/BaseActivityTest.java#L1-78),[Test activity for base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/TestActivity.java#L1-20), 
-  [Login Activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163),
-[Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L1-157),
-[Profileage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java#L2-199),
-[Userprofile activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java#L1-174), 
-[User notification test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UsersNotificationTest.java#L1-75)
-  -<br>-Unit tests:<br>
-[BTree test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/BTreeTest.java#L1-109),
-[Dataloader test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/DataLoaderTest.java#L1-103), 
-[Dwelling test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/DwellingTest.java#L1-154),
-[FireAlarmStorageHandler test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/FireAlarmStorageHandlerTest.java#L1-84),
-[Loginhandler test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/LoginHandlerTest.java#L1-62),
-[SearchResult test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/SearchResultTest.java#L1-90),
-[StorageFactory test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/StorageFactoryTest.java#L1-52),
-[Other helper methods' test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UnitTest.java#L1-462),
-[UserActivity element test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserActivityTest.java),
-[User test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserTest.java)
+    - Data stream:<br>
+  [login  Activity part](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-100),
+    [Map activity part](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-481),  
+    [profile page activity part](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L215-249)
+    - Follow and notification button function:
+      [Profilepage Activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L56-196)
+    - Marker onclick function:<br>
+      [Map Activity, marker onclick function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java#L293-327),
+    - Tests:<br>
+        -Instrumented tests:<br>
+    [Base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/BaseActivityTest.java#L1-78),[Test activity for base activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/TestActivity.java#L1-20), 
+      [Login Activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163),
+    [Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L1-157),
+    [Profileage activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java#L2-199),
+    [Userprofile activity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java#L1-174), 
+    [User notification test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UsersNotificationTest.java#L1-75)
+    <br>-Unit tests:<br>
+    [BTree test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/BTreeTest.java#L1-109),
+    [Dataloader test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/DataLoaderTest.java#L1-103), 
+    [Dwelling test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/DwellingTest.java#L1-154),
+    [FireAlarmStorageHandler test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/FireAlarmStorageHandlerTest.java#L1-84),
+    [Loginhandler test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/LoginHandlerTest.java#L1-62),
+    [SearchResult test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/SearchResultTest.java#L1-90),
+    [StorageFactory test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/StorageFactoryTest.java#L1-52),
+    [Other helper methods' test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UnitTest.java#L1-462),
+    [UserActivity element test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserActivityTest.java),
+    [User test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserTest.java)
 
 - **Code and App Design** 
   - Design patterns:<br>
   Observers design pattern and State design pattern
   - UI Design: <br>
-  Basic interface skeleton. <br><br>
+  Basic interface skeleton. Animation for a button. <br><br>
 
   - **Others**: (only if significant and significantly different from an "average contribution") 
     - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
+    - Google Maps API setup <br><br>
 
 2. **U7785177, Xinfei Li**  I have 20% contribution, as follows: <br>
 - **Code Contribution in the final App**
@@ -198,7 +200,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 ### Application UML
 
-![ClassDiagramExample](media/_examples/UML.png) <br>
+![ClassDiagramExample](media/UML.png) <br>
 *[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
 
 <hr>
@@ -350,7 +352,7 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
     * Code: [Datastream method called in login activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L47-48),[Datastream method called in mapactivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L71-72), [Datastream method called in profile page activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L51-52)
    <br>[Simulate datastream method in login activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L78-101), [Simulate datastream method in map activity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L417-482),[Simulate Datastream in profile page acitvity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L216-250)
     * Feature:  Simulate user's action
-    * Implementation: When all these simulate datastream methods are called, datastream would start working, 
+    * Implementation: At first, I tried to use espresso to create a simulating datastream, but I found out these kind of tools can't simulate the operation in Google Maps API. Thus, three individual simulating datastreams are created in three activities, when all these simulating datastream methods are called, datastream would start working completely, which simply simulates a user's operation. 
 
 5.  [Search] Users must be able to search for information on your app. (medium)
     Given the user's input based on pre-defined grammar(s), a query processor "understands" and
@@ -389,8 +391,7 @@ Feature Category:UI Design and Testing  <br>
       <br><br>
 
 
-3. [UI-Test]. Partial UI tests using espresso (not covered in lectures/labs) of reasonable quality and
-   coverage of the App. (hard)
+3. [UI-Test]. Partially finished, since the operation of the Google Maps API in the middle section cannot be simulated by espresso.
     * Code:[LoginActivity test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java#L1-163)
     * Implementation: Tested the app can correctly jump to the mapactivity after logging in with the provided account and password. <br>
     * Code:[Login test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java#L90-154)
@@ -430,25 +431,22 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 
 7. [Interact-Follow] The ability to ‘follow’ items. There must be a section that presents all the items
    followed by a user, grouped, and ordered. [stored in-memory] (medium)
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
+    * Code:[follow function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L102-136)
+    * Implementation: follow button's function, check if the user already in the list, if not, attach the user to <observers> list when click follow button, then change button text to be "unfollow" and set the background color grey. When click again detach the users and change the text and background color back and Vice versa.
+    * Code:[followers list](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L45-46)
+    * Implementation: Record the followers
       <br><br>
 8. [Interact-Noti] The ability to send notifications for interactions (e.g., follow request, product viewed,
    etc.). A notification must be sent only after a predetermined number of interactions are set [e.g.,
    when ≥2 requests have been received or 2 follow requests have been received). (medium)
-    * Code:
-    * Implementation: Read local csv file. <br>
-    * Code:
-    * Implementation:<br>
-    * Code:
-    * Implementation: Read json file. <br>
+    * Code:[firealarm button onclick function](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L144-154)
+    * Implementation: Clicking this button will trigger notify method and create a channel
+    * Code: [notify methods](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L83-145)
+    * Implementation: notify users with a popup notification
+    * Code:[create channel](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L202-214)
+    * Implementation: Create a notification channel
       <br><br>
-   a. (Hint: see the demo presented by our tutors).
-   Feature Category:User Interactivity <br>
+
 
 
 
@@ -491,7 +489,7 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 
 2. *Bug 2:*
     - *Jacoco cannot correctly generate reports with coverage for instrumented tests *
-    - There are several tests that run fine when run individually, but they all pass when run all tests. The error message shows that animation is not disabled, but after disabling animation, the error message is the same as the original result.
+    - There are several tests that run fine when run individually, but they would fail when run all tests. The error message shows that animation is not disabled, but after disabling animation, the error message is still the same as the original result.
 3. ...
 
 <br> <hr>
@@ -502,9 +500,69 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 *[What features have you tested? What is your testing coverage?]*
 *Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
 
-*Here is an example:*
+1. Tests for BTree
+- code: [BTree test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/BTreeTest.java?ref_type=heads#L1-113)
+  for the [BTree class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L1-406)
+- *Number of test cases: 7*
+- *Types of tests created and descriptions:<br> Tested the methods in Btree class are correct*
 
-1. Tests for notification when click on the fire alarm button
+2. Tests for DataLoader
+- code: [DataLoader test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/DataLoaderTest.java?ref_type=heads#L1-103)
+  for the [Dataloader class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L1-178)
+- *Number of test cases: 4*
+- *Types of tests created and descriptions:<br> Unit test, tested the methods getBtree, saveDataInternalStorage createDwellingFromJson are correct.*
+3. Tests for Dwelling
+- code: [Dwelling test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/DwellingTest.java?ref_type=heads#L1-154)
+  for the [ Dwelling class ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Dwelling.java?ref_type=heads#L1-279)
+- *Number of test cases: 18*
+- *Types of tests created and descriptions:<br>  Unit test, tested all the methods in Dwelling class*
+4. Tests for FireAlarmStorageHandler
+- code: [FireAlarmStorageHandler test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/FireAlarmStorageHandlerTest.java?ref_type=heads#L1-84)
+  for the [FireAlarmStorageHandler class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/FireAlarmStorageHandler.java?ref_type=heads#L1-54)
+- *Number of test cases: 2*
+- *Types of tests created and descriptions:<br>  Unit test, ensured the functions saveData and loadAllLogs complete*
+5. Tests for LoginHandler
+- code: [LoginHandler test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/LoginHandlerTest.java?ref_type=heads#L1-62)
+  for the [LoginHandler class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/LoginStorageHandler.java?ref_type=heads#L1-54)
+- *Number of test cases: 1*
+- *Types of tests created and descriptions:<br>   Unit test, ensured the function loadAllLogs complete*
+6. Tests for SearchResult
+- code: [SearchResult test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/SearchResultTest.java?ref_type=heads#L1-90)
+  for the [SearchResult class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/SearchResult.java?ref_type=heads#L1-65)
+- *Number of test cases: 11*
+- *Types of tests created and descriptions:<br> Unit test, tested the getter methods and the override methods are correct*
+7. Tests for StorageFactory
+- code: [StorageFactory test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/StorageFactoryTest.java?ref_type=heads#L1-52)
+  for the [StorageFactory class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/StorageFactory.java?ref_type=heads#L1-28)
+- *Number of test cases: 4*
+- *Types of tests created and descriptions:<br>  Unit test, ensured the getter method can get the proper type of handlers*
+8. Tests for UserActivity
+- code: [User Activity logs test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserActivityTest.java?ref_type=heads#L1-72)
+  for the [Load logs function in UserActivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L47-60)
+- *Number of test cases: 1*
+- *Types of tests created and descriptions:<br>  Unit test, ensured the user activity record the logs correctly*
+9. Tests for User
+- code: [User test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UserTest.java?ref_type=heads#L1-135)
+  for the [User activity load logs](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L47-59)
+- *Number of test cases: 11*
+- *Types of tests created and descriptions:<br>  Unit test, tested the User class getter and setter methods and the override method. Also ensure ValidateUserCredentials method is complete*
+10. Other trivial unit tests 
+- code: [Unit test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UnitTest.java?ref_type=heads#L1-462)
+  for the [Btree class, remove method](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L159-182), 
+[BTree class, put method](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L58-69),
+[BTreeNode class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads#L1-53)
+, [buildingMaterial class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BuildingMaterial.java?ref_type=heads#L14-48)
+, [element class](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java?ref_type=heads#L1-82)
+, [parser package](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/tree/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser?ref_type=heads)
+
+- *Number of test cases: 35*
+- *Types of tests created and descriptions:<br>  Unit test, supplementary tests for classes only have a few methods, added more tests for some test*
+
+By using Jacoco, a unit-test report is generated with the unit tests above, as we can see from the report below, the code coverage is over 40% without instrumented tests
+![unit tests coverage.png](..%2F..%2F..%2FDesktop%2Funit%20tests%20coverage.png)
+<hr>
+
+11. Tests for notification when click on the fire alarm button
 
 
 - Code:[UsersNotificationTest Class, entire file]()
@@ -512,84 +570,72 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 
 
 - *Number of test cases: 1*
-- *Types of tests created and descriptions: instrumented test, mocked a context with a maintainer user and has already followed this dwelling, then test fire alarm button*
+- *Types of tests created and descriptions:<br> instrumented test, mocked a context with a maintainer user and has already followed this dwelling, then test fire alarm button*
+
+12. Tests for Base Activity
+- Code: [BaseActivityTest class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/BaseActivityTest.java?ref_type=heads#L1-78)
+  for the [BaseActivity](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/BaseActivity.java?ref_type=heads#L1-25)
+
+- *Number of test cases: 2*
+- *Types of tests created and descriptions:<br> instrumented test, test onCreate can set a dataloader and when onDestory is called, saveDwellingsToFile can be called with the correct parameter *
 
 
-2. Tests for loginactivity to mapactivity
+13. Tests for loginactivity to mapactivity transition
 
 
 - Code: [LoginActivityTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginActivityTest.java?ref_type=heads#L1-125)
   for the [LoginActivity class, interface](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/LoginActivity.java?ref_type=heads#L28-70),[MapActivity class, interface](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L103-150)
 
 
-
-
-
-
-
-
 - *Number of test cases: 1*
-- *Types of tests created and descriptions: instrumented test, test they can use provided username and password to login and after user log in the map activity’s items are all good *
+- *Types of tests created and descriptions:<br> instrumented test, test they can use provided username and password to login and after user log in the map activity’s items are all good *
 
 
-3. Tests for authorization
+14. Tests for authorization
 
 
-- Code: [LoginTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java?ref_type=heads#L1-92)
+- Code: [LoginTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/LoginTest.java?ref_type=heads#L1-157)
   for the [User class, authorization](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/User.java?ref_type=heads#L157-189)
 
 
+- *Number of test cases: 4*
+- *Types of tests created and descriptions:<br> instrumented test, test the correct password can be authorized and vise versa.*
+
+
+15. Tests for ProfilePageActivity
+
+
+- Code: [ProfilePageTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java?ref_type=heads#L1-199)
+  for the [ProfilePageActivity class, entire file except fire alarm button](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L1-200)
 
 
 
 
-- *Number of test cases: 2*
-- *Types of tests created and descriptions: instrumented test, test the correct password can be authorized and vise versa *
+- *Number of test cases: 8*
+- *Types of tests created and descriptions: <br>instrumented test, the first test is created to eusure the corresponding image is displayed for different materials;<br>
+the unfollowed user first time click on the button the text would be Unfollow and next click on the button, it would become to Follow. The second test ensures the image corresponding to the material will be displayed correctly. The last test tests the back button’s functionality*
 
 
-4. Tests for ProfilePageActivity
-
-
-- Code: [ProfilePageTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/ProfilePageTest.java?ref_type=heads#L2-121)
-  for the [User class, entire file except fire alarm button](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/ProfPageActivity.java?ref_type=heads#L1-209)
-
-
-
-
-- *Number of test cases: 3*
-- *Types of tests created and descriptions: instrumented test, the first test is for follow button, the unfollowed user first time click on the button the text would be Unfollow and next click on the button, it would become to Follow. The second test ensures the image corresponding to the material will be displayed correctly. The last test tests the back button’s functionality*
-
-
-5. Tests for UserActivity
+16. Tests for UserActivity
 
 
 - Code: [UserProfileTest Class, entire file
-  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java?ref_type=heads#L1-131)
-  for the [User class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L1-86)
+  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/androidTest/java/com/example/myapplication/UserProfileTest.java?ref_type=heads#L1-175)
+  for the [UserActivity, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/UserActivity.java?ref_type=heads#L1-89)
 
 
-
-
-
-
-- *Number of test cases: *
+- *Number of test cases: 1*
 - *Types of tests created and descriptions: instrumented espresso test, ensured the items can be displayed correctly*
 
-
-6. Tests for helper methods
-
-
-- Code: [UnitTest Class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/UnitTest.java?ref_type=heads#L1-168)
-  for the [Dataloader class, entire file](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L1-141),[BTree class, insert and delete methods](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L78-243), [ExpressionParser class, entire file
-  ](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads#L1-92)
+For the instrumented tests, Jacoco failed to generate a test report with code coverage, the following report is all we can get. It should be noting that, these three failed tests can run successfully individually. Only when running all tests they would fail. I guess this probably because the animations related to the Google Maps API have an effect on espresso tests according to the information provided in logs.   
+![img.png](media/instrumented.png)
 
 
 
 
 
 
-- *Number of test cases: 10*
-- *Types of tests created and descriptions: unit test, as we can see in the following report’s screenshot, these tests ensured the helper methods can be called with no errors*
+
 
 <br> <hr>
 
