@@ -352,11 +352,14 @@ We use tokenizers and parsers in searching function. The parser and tokenizer fi
     * Feature:  Simulate user's action
     * Implementation: When all these simulate datastream methods are called, datastream would start working, 
 
-5.  [Search] 
-    * Code: []()
-    * Feature: 
-    * Implementation: 
-   <br>
+5.  [Search] Users must be able to search for information on your app. (medium)
+    Given the user's input based on pre-defined grammar(s), a query processor "understands" and
+    retrieves the information that meets the user's query. The usag is dependent on your app theme.  
+    a. must make use of a tokeniser and parser with a formal grammar of your own creation.
+    * Code: [class MapActivity, method searchWithParser](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-217),[class MapActivity, method showDwellingsOnMap](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L223-248),[class MapActivity, method evaluateExpression](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L256-290)
+    * Feature: Search in the type of parser and tokeniser
+    * Implementation: The tokenizer-based search functionality allows users to input complex search queries and filters dwellings based on multiple criteria such as address, construction date, fire alarm status, building material, dwelling state, and last repair date. The parser supports advanced search expressions using tokens like AND, OR, and NOT.
+   <br> <br>
 
 ### Custom Features
 Feature Category:Search-related features <br>
