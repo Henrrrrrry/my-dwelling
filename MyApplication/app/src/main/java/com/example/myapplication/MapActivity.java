@@ -69,7 +69,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
         user = (User) getIntent().getExtras().getSerializable("USER");
 //        data stream simulate method, uncomment the following line if want to see the data stream
-//        simulateSearch();
+        simulateSearch();
 
         //search_text
         userInput = findViewById(R.id.search_text);
@@ -473,7 +473,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
      * Description: helper method, since there's no performclick() method for info window, so use this mock clicking on info window
      * @param dwelling: the dwelling appeared in the edit text
      */
-    private void onMarkerClicked(Dwelling dwelling) {
+    public void onMarkerClicked(Dwelling dwelling) {
         Intent intent = new Intent(MapActivity.this, ProfPageActivity.class);
         intent.putExtra("Dwelling", dwelling);
         intent.putExtra("User", user);

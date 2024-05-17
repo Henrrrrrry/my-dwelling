@@ -76,10 +76,10 @@ public class LoginActivityTest {
     @After
     public void tearDown() {
         activityScenarioRule.getScenario().onActivity(activity -> {
-            // Clean up activities or other elements in your app
+            // Clean up activities
             activity.finish();
         });
-        // Optional: Additional cleanup can go here
+
     }
 
 
