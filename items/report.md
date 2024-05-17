@@ -146,7 +146,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 **Others**: (only if significant and significantly different from an "average contribution")
 - draw UML diagrams
-- 
+- video record
 ## Application Description
 
 [//]: # (*[What is your application, what does it do? Include photos or diagrams if necessary]*)
@@ -235,17 +235,28 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 
 *I used the following data structures in my project:*
 
-1. *LinkedList*
-   * *Objective: used for storing xxxx for xxx feature.*
-   * *Code Locations: defined in [Class X, methods Z, Y](https://gitlab.cecs.anu.edu.au/comp2100/group-project/ga-23s2/-/blob/main/items/media/_examples/Dummy.java#L22-43) and [class AnotherClass, lines l1-l2](url); processed using [dataStructureHandlerMethod](url) and ...
+1. *BTree*
+   * *Objective:Used for storing dwellings and performing efficient searches based on their key values.*
+   * *Code Locations: defined in [BTree.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L1-406) and Supported by the [BTreeNode.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads#L1-53) and store key-value pairs by the [Element.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/Element.java?ref_type=heads#L1-82) and search results in [SearchResult.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/SearchResult.java?ref_type=heads#L1-65) and pocessed in [dwellingToJson()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L106-133) and [getBTree](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads#L174-179) .*
    * *Reasons:*
-      * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
-      * *We don't need to access the item by index for xxx feature because...*
-      * For the (part), the data ... (characteristics) ...
+      * *BTree provides efficient search, insertion, and deletion operations with logarithmic time complexity, suitable for large datasets.*
+      * *The balanced structure of the BTree ensures consistent performance for all operations.*
+      * *BTrees are particularly useful when data cannot fit entirely into memory as they minimize disk I/O operations.*
 
-2. ...
+2. *ArrayList*
+    * *Objective: Used to store elements within BTree nodes and maintain lists of child nodes.*
+    * *Code Locations:defined in[BTreeNode.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTreeNode.java?ref_type=heads#L1-53) and processed using [BTree.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L84-367) *
+    * *Reasons:*
+       * * ArrayList provides dynamic resizing and efficient random access to elements.*
+       * * The relatively small size of elements and child nodes within a BTree node makes ArrayList a suitable choice.*
 
-3. ...
+3. *List (ArrayList)*
+    * *Objective:Used to store and manipulate lists of Dwelling objects.*
+    * *Code Locations: defined in [searchWithParser][searchWithParser] (https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-248).*
+    * *Reasons:*
+       * *List provides an ordered, repeatable collection suitable for storing and manipulating Dwelling objects.*
+       * *ArrayList, as an implementation of the List interface, provides dynamic array capabilities, enabling efficient addition, removal, and traversal of elements.*
+       * *In this scenario, manipulating and filtering a list of dwellings makes the use of List (ArrayList) appropriate.*
 
 <hr>
 
