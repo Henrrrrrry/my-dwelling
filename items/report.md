@@ -128,8 +128,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report: Application Details] *
           <br><br>
 4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
-- **Code Contribution in the final App** 
-    - Create a dataset with more than 2,500 valid data instances.
+- **Code Contribution in the final App**
     - Load data from local file and save data to json file - class DataLoader: [DataLoader.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
     - parser - class ExpressionParser: [ExpressionParser.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads)
     - tokenizer - class Tokenizer: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/Tokenizer.java?ref_type=heads)
@@ -140,7 +139,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 
 - **Others**: (only if significant and significantly different from an "average contribution")
     - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
+    - Create a dataset with more than 2,500 valid data instances.
 
 5. **u7757949, Juliang Xiao**  I have 18% contribution, as follows: <br>
 - **Code Contribution in the final App**
