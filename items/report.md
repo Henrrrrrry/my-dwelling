@@ -123,7 +123,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - [Report: Application Details] *
           <br><br>
 4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
-- **Code Contribution in the final App**
+- **Code Contribution in the final App** 
+    - Create a dataset with more than 2,500 valid data instances.
     - Load data from local file and save data to json file - class DataLoader: [DataLoader.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
     - parser - class ExpressionParser: [ExpressionParser.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/ExpressionParser.java?ref_type=heads)
     - tokenizer - class Tokenizer: [Tokenizer.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/parser/Tokenizer.java?ref_type=heads)
