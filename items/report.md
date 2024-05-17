@@ -120,9 +120,8 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - UI Design: Adjusting the pages layout, Theme color,images [Launch icon](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/drawable/app_logo.png?ref_type=heads),tools:Sketch,Photoshop]* <br><br>
 
 - **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report Writing?] [Slides preparation?]*
-    - [You are welcome to provide anything that you consider as a contribution to the project or team.] e.g., APK, setups, firebase* <br><br>
-
+    - [Report: Application Details] *
+          <br><br>
 4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
 - **Code Contribution in the final App**
     - Load data from local file and save data to json file - class DataLoader: [DataLoader.java](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/DataLoader.java?ref_type=heads)
