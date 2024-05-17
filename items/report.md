@@ -54,14 +54,14 @@ Each team member is responsible for writing **their own subsection**.
 
 A generic summary will not be acceptable and may result in a significant lose of marks.
 
-*[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
+[//]: # (*[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*)
 
-*[Code Implementation. Which features did you implement? Which classes or methods was each member involved in? Provide an approximate proportion in pecentage of the contribution of each member to the whole code implementation, e.g. 30%.]*
+[//]: # (*[Code Implementation. Which features did you implement? Which classes or methods was each member involved in? Provide an approximate proportion in pecentage of the contribution of each member to the whole code implementation, e.g. 30%.]*)
 
-*you should ALSO provide links to the specified classes and/or functions*
-Note that the core criteria of contribution is based on `code contribution` (the technical developing of the App).
+[//]: # (*you should ALSO provide links to the specified classes and/or functions*)
+[//]: # (Note that the core criteria of contribution is based on `code contribution` &#40;the technical developing of the App&#41;.)
 
-*Here is an example: (Note that you should remove the entire section (e.g. "others") if it is not applicable)*
+[//]: # (*Here is an example: &#40;Note that you should remove the entire section &#40;e.g. "others"&#41; if it is not applicable&#41;*)
 
 
 1. **u7776180, Hongyu Li**  I have 20% contribution, as follows: <br>
@@ -125,7 +125,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
     - UI Design: Adjusting pages layout, Theme color,images design and display logo, [Launch logo](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/drawable/app_logo.png?ref_type=heads),tools:Sketch,Photoshop]* <br><br>
 
 - **Others**: (only if significant and significantly different from an "average contribution")
-    - [Report: Application Details] *
+    - Report: Application Details 
           <br><br>
 4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
 - **Code Contribution in the final App** 
@@ -162,7 +162,7 @@ Note that the core criteria of contribution is based on `code contribution` (the
 ' The objective is to offer a safe dwelling map for an area or city, which will display the seismic level 0-10 (red to green) of each building on the map. 
 This will be beneficial for areas likely to be impacted by earthquakes, supporting local governments in making decisions about city planning.
 Local residents will also benefit from this app because it provides fire alarm notifications for dwellings, which improves community safety. 
-For community managers, the app provides automatic notifications for repairs based on multiple parameter calculations and the function to report the fire alarm as well.*
+For community managers, the app provides automatic notifications for repairs based on multiple parameter calculations and the function to report the fire alarm as well.<br>*
 ![seismic map](media/app_mapview.png)
 
 ### Application Use Cases and or Examples
@@ -174,7 +174,7 @@ For community managers, the app provides automatic notifications for repairs bas
 *Jane is an officer, and is responsible for building and community safety in an area.*
 1. *She needs to know the dwelling seismic and report to local government...*
 2. *She needs to know if the building needs repairs and to connect with a house repair company.*
-3. *she need to alarm the residents when emergent*
+3. *she needs to alarm the residents when emergent*
 
 
 *Here is a map navigation application example*
