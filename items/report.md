@@ -1,18 +1,24 @@
 # [G20 - Group 20] Report
 
-The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
+[//]: # (The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.)
 
-Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submission (like the current sentence), otherwise it hampers the professionality in your documentation.
+[//]: # ()
+[//]: # (Note that you should have removed ALL TEMPLATE/INSTRUCTION textes in your submission &#40;like the current sentence&#41;, otherwise it hampers the professionality in your documentation.)
 
-*Here are some tips to write a good report:*
+[//]: # ()
+[//]: # (*Here are some tips to write a good report:*)
 
-* `Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project (rather than give long paragraphs).*
+[//]: # ()
+[//]: # (* `Bullet points` are allowed and strongly encouraged for this report. Try to summarise and list the highlights of your project &#40;rather than give long paragraphs&#41;.*)
 
-* *Try to create `diagrams` for parts that could greatly benefit from it.*
+[//]: # ()
+[//]: # (* *Try to create `diagrams` for parts that could greatly benefit from it.*)
 
-* *Try to make your report `well structured`, which is easier for the reviewers to capture the necessary information.*
+[//]: # ()
+[//]: # (* *Try to make your report `well structured`, which is easier for the reviewers to capture the necessary information.*)
 
-*We give instructions enclosed in square brackets [...] and examples for each sections to demonstrate what are expected for your project report. Note that they only provide part of the skeleton and your description should be more content-rich. Quick references about markdown by [CommonMark](https://commonmark.org/help/)*
+[//]: # ()
+[//]: # (*We give instructions enclosed in square brackets [...] and examples for each sections to demonstrate what are expected for your project report. Note that they only provide part of the skeleton and your description should be more content-rich. Quick references about markdown by [CommonMark]&#40;https://commonmark.org/help/&#41;*)
 
 ## Table of Contents
 
@@ -48,11 +54,13 @@ The key area(s) of responsibilities for each member
 
 ## Summary of Individual Contributions
 
-Specific details of individual contribution of each member to the project.
+[//]: # (Specific details of individual contribution of each member to the project.)
 
-Each team member is responsible for writing **their own subsection**.
+[//]: # ()
+[//]: # (Each team member is responsible for writing **their own subsection**.)
 
-A generic summary will not be acceptable and may result in a significant lose of marks.
+[//]: # ()
+[//]: # (A generic summary will not be acceptable and may result in a significant lose of marks.)
 
 [//]: # (*[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*)
 
@@ -102,7 +110,7 @@ A generic summary will not be acceptable and may result in a significant lose of
   - UI Design: <br>
   Basic interface skeleton. Animation for a button. <br><br>
 
-  - **Others**: (only if significant and significantly different from an "average contribution") 
+  - **Others**: 
     - Testing Summary writing
     - Google Maps API setup <br><br>
 
@@ -124,7 +132,7 @@ A generic summary will not be acceptable and may result in a significant lose of
 - **Code and App Design**
     - UI Design: Adjusting pages layout, Theme color,images design and display logo, [Launch logo](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/res/drawable/app_logo.png?ref_type=heads),tools:Sketch,Photoshop]* <br><br>
 
-- **Others**: (only if significant and significantly different from an "average contribution")
+- **Others**:
     - Report: Application Details 
           <br><br>
 4. **u7728429, Xinrui Zhang**  I have 22% contribution, as follows: <br>
@@ -137,7 +145,7 @@ A generic summary will not be acceptable and may result in a significant lose of
 - **Code and App Design**
     - data structures: part of B-tree searching function [B-tree search](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/helper_classes_and_methods/BTree.java?ref_type=heads#L380-406),tools:Android studio]* <br><br>
 
-- **Others**: (only if significant and significantly different from an "average contribution")
+- **Others**: 
     - [Report Writing?] [Slides preparation?]*
     - Create a dataset with more than 2,500 valid data instances.
 
@@ -148,9 +156,9 @@ A generic summary will not be acceptable and may result in a significant lose of
   - Parser search:class MapActivity:[onClick(),afterTextChanged(),searchWithParser(),showDwellingsOnMap(),evaluateExpressio()](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L94-160)(https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/main/java/com/example/myapplication/MapActivity.java?ref_type=heads#L196-290)
 
 
-**Others**: (only if significant and significantly different from an "average contribution")
-- draw UML diagrams
-- video record
+- **Others**: 
+  - draw UML diagrams
+  - video record
 ## Application Description
 
 [//]: # (*[What is your application, what does it do? Include photos or diagrams if necessary]*)
@@ -206,15 +214,18 @@ For community managers, the app provides automatic notifications for repairs bas
 
 ## Code Design and Decisions
 
-This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts (e.g., data structure). This includes, for example,
+[//]: # (This is an important section of your report and should include all technical decisions made. Well-written justifications will increase your marks for both the report as well as for the relevant parts &#40;e.g., data structure&#41;. This includes, for example,)
 
-- Details about the parser (describe the formal grammar and language used): We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
-
-
-The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format
+- Details about the parser :
 
 
-- Decisions made (e.g., explain why you chose one or another data structure, why you used a specific data model, etc.)
+    We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format.
+
+
+    The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format
+
+
+- Decisions made 
 
 
     In our dataset, most of the addresses we used are from the addresses of restaurants in Canberra, since usually the address of each restaurant is unique and won’t be repeated.
@@ -223,19 +234,23 @@ The parser and tokenizer first split an input string into tokens and return a li
     The data structure we used is B-Tree, the best feature of B-Tree is that its searching is quicker when there’s a huge dataset, because each node can save multiple key-value pairs.
 
 
-- Details about the design patterns used (where in the code, justification of the choice, etc)
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.
+[//]: # (- Details about the design patterns used &#40;where in the code, justification of the choice, etc&#41;)
 
-- Details about the design patterns
+[//]: # (*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design.)
 
-1. Factory method: To track and display user activity, we can leverage the Factory Method Pattern. This pattern simplifies the process of duplicating and extending our function both now and in the future. By using the Factory Method, we can create a flexible and scalable solution for managing user activities.
+- Details about the design patterns 
+
+
+    Observer Pattern: To ensure the users can get notification from their followed building, we implement this observer pattern.
+    State Pattern: Two states: normal state and (need) repair state are created to define the repair button's visibility and need notification from service providers.
+    Factory method: To track and display user activity, we can leverage the Factory Method Pattern. This pattern simplifies the process of duplicating and extending our function both now and in the future. By using the Factory Method, we can create a flexible and scalable solution for managing user activities.
 <hr>
 
 ### Data Structures
 
-*[What data structures did your team utilise? Where and why?]*
+[//]: # (*[What data structures did your team utilise? Where and why?]*)
 
-Here is a partial (short) example for the subsection `Data Structures`:*
+[//]: # (Here is a partial &#40;short&#41; example for the subsection `Data Structures`:*)
 
 *I used the following data structures in my project:*
 
@@ -265,7 +280,8 @@ Here is a partial (short) example for the subsection `Data Structures`:*
 <hr>
 
 ### Design Patterns
-*[What design patterns did your team utilise? Where and why?]*
+
+[//]: # (*[What design patterns did your team utilise? Where and why?]*)
 
 1. *Observer Pattern*
    * *Objective: used for storing the followers for the follow and notification feature.*
@@ -312,23 +328,28 @@ Production Rules:
 
 ### <u>Tokenizers and Parsers</u>
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+[//]: # (*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*)
 
 We use tokenizers and parsers in searching function. The parser and tokenizer first split an input string into tokens and return a list of tokens containing all the tokens, and then parse the tokens to generate an expression object, where the input string follows the and(x:xxx,or(x:xxx,not(x:xxx))) format. It can be very useful when searching particular dwellings.
 
 
 <hr>
 
-### Others
+[//]: # (### Others)
 
-*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
+[//]: # ()
+[//]: # (*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*)
 
-<br>
-<hr>
+[//]: # ()
+[//]: # (<br>)
+
+[//]: # (<hr>)
 
 ## Implemented Features
-*[What features have you implemented? where, how, and why?]* <br>
-*List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*
+
+[//]: # (*[What features have you implemented? where, how, and why?]* <br>)
+
+[//]: # (*List all features you have completed in their separate categories with their featureId. THe features must be one of the basic/custom features, or an approved feature from Voice Four Feature.*)
 
 ### Basic Features
 1. [LogIn]. Users must be able to log in (not necessarily sign up). (easy)
@@ -469,18 +490,22 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 
 
 
-### Surprise Features
+[//]: # (### Surprise Features)
 
-- Suprised feature is not implemented.
+[//]: # ()
+[//]: # (- Suprised feature is not implemented.)
 
-<br> <hr>
+[//]: # ()
+[//]: # (<br> <hr>)
 
 ## Summary of Known Errors and Bugs
 
-*[Where are the known errors and bugs? What consequences might they lead to?]*
-*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
+[//]: # (*[Where are the known errors and bugs? What consequences might they lead to?]*)
 
-*Here is an example:*
+[//]: # (*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*)
+
+[//]: # ()
+[//]: # (*Here is an example:*)
 
 1. *Bug 1:*
    - *A space bar (' ') in the sign in email will crash the application.*
@@ -489,15 +514,15 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 2. *Bug 2:*
     - *Jacoco cannot correctly generate reports with coverage for instrumented tests *
     - There are several tests that run fine when run individually, but they would fail when run all tests. The error message shows that animation is not disabled, but after disabling animation, the error message is still the same as the original result.
-3. ...
+
 
 <br> <hr>
 
 
 ## Testing Summary
 
-*[What features have you tested? What is your testing coverage?]*
-*Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
+[//]: # (*[What features have you tested? What is your testing coverage?]*)
+[//]: # (*Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*)
 
 1. Tests for BTree
 - code: [BTree test](https://gitlab.cecs.anu.edu.au/u7757949/gp-24s1/-/blob/main/MyApplication/app/src/test/java/com/example/myapplication/BTreeTest.java?ref_type=heads#L1-113)
@@ -557,7 +582,7 @@ Feature Category:Greater Data Usage, Handling and Sophistication <br>
 - *Number of test cases: 35*
 - *Types of tests created and descriptions:<br>  Unit test, supplementary tests for classes only have a few methods, added more tests for some test*
 
-By using Jacoco, a unit-test report is generated with the unit tests above, as we can see from the report below, the code coverage is over 40% without instrumented tests
+By using Jacoco, a unit-test report is generated with the unit tests above, as we can see from the report below, the code coverage is over 40% without instrumented tests. Besides, the com.example.myapplication package is the activity package so its coverage is 0%.
 ![unit.png](media/unit.png)
 <hr>
 
@@ -642,9 +667,12 @@ For the instrumented tests, Jacoco failed to generate a test report with code co
 ## Team Management
 
 ### Meetings Records
-* Link to the minutes of your meetings like above. There must be at least 4 team meetings.
-  (each commited within 2 days aftre the meeting)
-* Your meetings should also have a reasonable date spanning across Week 6 to 11.*
+
+[//]: # (* Link to the minutes of your meetings like above. There must be at least 4 team meetings.)
+
+[//]: # (  &#40;each commited within 2 days aftre the meeting&#41;)
+
+[//]: # (* Your meetings should also have a reasonable date spanning across Week 6 to 11.*)
 
 
 - *[Team Meeting 1](meeting.md)*
