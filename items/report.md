@@ -198,7 +198,7 @@ For community managers, the app provides automatic notifications for repairs bas
 
 ### Application UML
 
-![ClassDiagramExample](media/_examples/ClassDiagramExample.png) <br>
+![ClassDiagramExample](media/_examples/UML.png) <br>
 *[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
 
 <hr>
